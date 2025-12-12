@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects You Teach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white">
+
+    <!-- ---------------- HEADER ---------------- -->
+    <header class="w-full bg-white shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-1">
+                <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                    alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+            </div>
+
+            <!-- Right -->
+            <div class="flex items-center gap-6">
+
+                <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
+                    Dashboard
+                </a>
+
+                <!-- Edit Profile (Desktop) -->
+                <div class="relative hidden md:block">
+                    <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
+                        Edit Profile <span class="text-sm">▼</span>
+                    </button>
+
+                    <div id="editMenu"
+                        class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
+
+                        <a href="basic_details.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Personal
+                            Details</a>
+
+                        <a href="photo.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Photo</a>
+
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Introduction
+                            Video</a>
+
+                        <a href="subjects.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Subjects
+                        </a>
+                        <a href="address.html" class="block px-4 py-2 text-sm text-pink-600 bg-pink-50 font-semibold">Address</a>
+
+                    </div>
+                </div>
+
+                <!-- Profile -->
+                <div class="relative">
+                    <img id="profileBtn"
+                        src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                        alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
+
+                    <div id="profileMenu"
+                        class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                        <a href="login.html"
+                            class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                            Sign in / Sign up
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hamburger -->
+                <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 md:hidden">
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
+            <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+                <li><a href="index.html" class="hover:text-pink-600">Dashboard</a></li>
+
+                <li>
+                    <button id="mobileEditBtn" class="w-full flex justify-between items-center hover:text-pink-600">
+                        <span>Edit Profile</span>
+                        <span>▼</span>
+                    </button>
+
+                    <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2 text-sm">
+                        <li><a href="basic_details.html"
+                                class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Personal Details</a></li>
+
+                        <li><a href="photo.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Photo</a>
+                        </li>
+
+                        <li class="px-3 py-2 hover:bg-pink-50 hover:text-pink-600 cursor-pointer">Introduction Video
+                        </li>
+
+                        <li>
+                            <a href="subjects.html"
+                                class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Subjects</a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- -------------------- MAIN -------------------- -->
+    <main class="max-w-4xl mx-auto px-4 mt-12">
+
+        <h1 class="text-3xl font-semibold text-gray-800 mb-6">Subjects you Teach</h1>
+
+        <!-- Subject Block -->
+        <div class="w-full bg-gray-100 border rounded p-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-blue-600 cursor-pointer text-lg">✎</span>
+                <span class="text-red-500 cursor-pointer text-lg">🗑</span>
+                <span class="text-gray-700 text-lg">Software accounting (Beginner - Expert)</span>
+            </div>
+        </div>
+
+        <!-- Add More -->
+        <h2 class="text-xl font-semibold text-gray-800 mt-10">Add more subjects</h2>
+
+        <p class="text-gray-600 mt-1 mb-4">Subject (one at a time)</p>
+
+        <input type="text" placeholder="Enter Subject..."
+            class="w-full border px-3 py-2 rounded focus:ring-1 focus:ring-blue-500">
+
+        <a id="openSubjectModal" class="text-blue-600 text-sm underline block mt-2 cursor-pointer">
+            Add a new subject if not in the options above.
+        </a>
+
+        <button class="mt-5 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">
+            Save
+        </button>
+
+    </main>
+
+    <!-- -------------------- SUBJECT MODAL -------------------- -->
+    <!-- -------------------- SUBJECT MODAL -------------------- -->
+    <div id="subjectModalOverlay"
+        class="fixed inset-0 bg-gray-800 bg-opacity-60 hidden items-start justify-center pt-20 z-50">
+    
+        <div id="modalBox"
+            class="bg-white w-full max-w-lg rounded-lg shadow-xl transform -translate-y-10 opacity-0 transition-all duration-300">
+    
+            <!-- Header -->
+            <div class="flex justify-between items-center px-6 py-4 border-b">
+                <h2 class="text-xl font-semibold">Add a new Subject</h2>
+                <button id="closeModal" class="text-gray-500 text-xl hover:text-black">&times;</button>
+            </div>
+    
+            <!-- Body -->
+            <div class="px-6 py-4 space-y-3">
+                <label class="font-medium text-gray-700">Subject Name</label>
+    
+                <p class="text-red-600 text-sm font-semibold">
+                    Please add only one subject at a time.
+                </p>
+    
+                <input type="text" class="w-full border px-3 py-2 rounded focus:ring-1 focus:ring-blue-500"
+                    placeholder="Enter subject name...">
+            </div>
+    
+            <!-- Footer Buttons -->
+            <div class="flex justify-end gap-3 px-6 py-3 border-t">
+                <button id="cancelModal" class="px-4 py-2 border rounded hover:bg-gray-100">
+                    Cancel
+                </button>
+    
+                <button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                    Save
+                </button>
+            </div>
+    
+        </div>
+    
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

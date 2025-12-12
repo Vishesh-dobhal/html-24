@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Photo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white">
+
+    <!-- ---------------- HEADER ---------------- -->
+    <header class="w-full bg-white shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-1">
+                <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                    alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+            </div>
+
+            <!-- Right Section -->
+            <div class="flex items-center gap-6">
+
+                <!-- Dashboard Link -->
+                <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
+                    Dashboard
+                </a>
+
+                <!-- Edit Profile (Desktop Dropdown) -->
+                <div class="relative hidden md:block">
+                    <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
+                        Edit Profile <span class="text-sm">▼</span>
+                    </button>
+
+                    <div id="editMenu"
+                        class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
+
+                        <a href="basic_details.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Personal Details
+                        </a>
+
+                        <a href="photo.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Photo
+                        </a>
+
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Introduction Video
+                        </a>
+
+                        <a href="subjects.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Subjects
+                        </a>
+                        <a href="address.html" class="block px-4 py-2 text-sm text-pink-600 bg-pink-50 font-semibold">Address</a>
+
+
+                    </div>
+                </div>
+
+                <!-- Profile -->
+                <div class="relative">
+                    <img id="profileBtn"
+                        src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                        alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
+
+                    <div id="profileMenu"
+                        class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                        <a href="login.html"
+                            class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                            Sign in / Sign up
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hamburger -->
+                <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 md:hidden">
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
+            <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+        
+                <!-- Dashboard -->
+                <li>
+                    <a href="index.html" class="hover:text-pink-600">Dashboard</a>
+                </li>
+        
+                <!-- Edit Profile Dropdown (MOBILE) -->
+                <li>
+                    <button id="mobileEditBtn" class="w-full flex justify-between items-center hover:text-pink-600">
+                        <span>Edit Profile</span>
+                        <span>▼</span>
+                    </button>
+        
+                    <!-- Sub Menu -->
+                    <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2 text-sm">
+        
+                        <li>
+                            <a href="basic_details.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Personal Details
+                            </a>
+                        </li>
+        
+                        <li>
+                            <a href="photo.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Photo
+                            </a>
+                        </li>
+        
+                        <li class="px-3 py-2 hover:bg-pink-50 hover:text-pink-600 cursor-pointer">
+                            Introduction Video
+                        </li>
+        
+                        <li>
+                            <a href="subjects.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Subjects</a>
+                        </li>
+
+                        <li><a href="address.html" class="block px-3 py-2 text-sm bg-pink-50 text-pink-600">Address</a>
+                        </li>
+
+        
+                    </ul>
+                </li>
+        
+            </ul>
+        </div>
+
+    </header>
+
+
+
+
+    <!-- -------------------- MAIN CONTENT -------------------- -->
+    <main class="max-w-3xl mx-auto mt-16 px-4">
+
+        <h1 class="text-3xl font-semibold text-gray-800 mb-10">Profile Photo</h1>
+
+        <!-- Info Box -->
+        <div class="bg-blue-100 text-blue-700 p-4 rounded mb-6 text-sm flex items-start gap-2">
+            <span class="text-blue-600 text-lg">ℹ</span>
+            <p>
+                Teachers with a clear headshot image get twice as much response than teachers
+                who put random images or no images.
+            </p>
+        </div>
+
+        <!-- Upload Section -->
+    <div class="flex w-full">
+        <!-- Input Box -->
+        <input type="text"
+            class="flex-1 border border-gray-300 px-3 py-1.5 rounded-l-sm text-sm focus:ring-1 focus:ring-blue-500"
+            placeholder="Choose a file..." disabled>
+    
+        <!-- Upload Button -->
+        <label
+            class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-r-sm cursor-pointer flex items-center gap-2 text-sm">
+    
+            <img src="https://img.icons8.com/?size=100&id=368&format=png" class="w-4 h-4 object-contain" alt="upload icon">
+    
+            <span class="whitespace-nowrap font-semibold">Upload an Image</span>
+
+    
+            <input type="file" class="hidden" />
+        </label>
+    </div>
+
+
+
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

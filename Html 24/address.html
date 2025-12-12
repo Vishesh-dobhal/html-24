@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white">
+
+    <!-- ---------------- SAME HEADER FROM BASIC DETAILS ---------------- -->
+    <header class="w-full bg-white shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-1">
+                <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                    alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+            </div>
+
+            <!-- Right Section -->
+            <div class="flex items-center gap-6">
+
+                <!-- Dashboard Link -->
+                <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
+                    Dashboard
+                </a>
+
+                <!-- Edit Profile Dropdown -->
+                <div class="relative hidden md:block">
+                    <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
+                        Edit Profile <span class="text-sm">▼</span>
+                    </button>
+
+                    <div id="editMenu"
+                        class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
+
+                        <a href="basic_details.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Personal Details
+                        </a>
+
+                        <a href="photo.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Photo
+                        </a>
+
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Introduction Video
+                        </a>
+
+                        <a href="subjects.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Subjects
+                        </a>
+
+                        <a href="address.html" class="block px-4 py-2 text-sm text-pink-600 bg-pink-50 font-semibold">
+                            Address
+                        </a>
+
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Education</a>
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Experience</a>
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Teaching
+                            Details</a>
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Profile
+                            Description</a>
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Phone</a>
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Courses</a>
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            View Profile
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Profile -->
+                <div class="relative">
+                    <img id="profileBtn"
+                        src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                        alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
+
+                    <div id="profileMenu"
+                        class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                        <a href="login.html"
+                            class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                            Sign in / Sign up
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hamburger -->
+                <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 md:hidden">
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
+            <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+                <li><a href="index.html" class="hover:text-pink-600">Dashboard</a></li>
+
+                <li>
+                    <button id="mobileEditBtn" class="w-full text-left flex justify-between hover:text-pink-600">
+                        Edit Profile <span>▼</span>
+                    </button>
+
+                    <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2">
+
+                        <li><a href="basic_details.html" class="block px-3 py-2 text-sm hover:bg-pink-50">Personal
+                                Details</a></li>
+                        <li><a href="photo.html" class="block px-3 py-2 text-sm hover:bg-pink-50">Photo</a></li>
+                        <li class="px-3 py-2 text-sm">Introduction Video</li>
+                        <li><a href="subjects.html" class="block px-3 py-2 text-sm hover:bg-pink-50">Subjects</a></li>
+                        <li><a href="address.html" class="block px-3 py-2 text-sm bg-pink-50 text-pink-600">Address</a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ---------------- MAIN CONTENT ---------------- -->
+    <main class="max-w-4xl mx-auto mt-14 px-4 pb-20">
+
+        <h1 class="text-3xl font-semibold text-gray-800 mb-8">Address</h1>
+
+        <!-- Info Box -->
+        <div class="bg-blue-100 p-6 rounded-md border border-blue-200 mb-8">
+            <p class="text-gray-700 flex items-start gap-2">
+                <span class="text-blue-700 text-xl">ℹ️</span>
+                This address is publicly visible. Please give your local area/society so students know your approximate
+                location.
+            </p>
+
+            <p class="text-red-600 mt-3 flex items-start gap-2">
+                <span class="text-xl">☠️</span>
+                For your safety, do not give the complete address.
+            </p>
+        </div>
+
+        <!-- Address Content -->
+        <div>
+            <label class="block text-gray-800 font-semibold mb-2 text-lg">Address</label>
+
+            <div class="flex items-start justify-between">
+                <p class="text-gray-700 leading-relaxed">
+                    Abul Fazal Enclave, Jamia Nagar, Okhla, New Delhi, South Delhi,
+                    Delhi Division, Delhi, India, 110025
+                </p>
+
+                <a href="edit_address.html" class="flex items-center gap-1 text-blue-600 hover:text-blue-800">
+                    <img src="https://img.icons8.com/?size=100&id=8190&format=png" class="w-5 h-5 object-contain"
+                        alt="edit">
+                    Edit
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

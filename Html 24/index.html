@@ -15,64 +15,78 @@
     <!-- Header -->
     <header class="w-full bg-white shadow-md">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-    
+
             <!-- Logo -->
             <div class="flex items-center gap-1">
                 <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
                     alt="Namate 24 Logo" class="w-10 h-10 object-contain">
                 <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
             </div>
-    
+
             <!-- Right Section -->
             <div class="flex items-center gap-6">
-    
+
                 <!-- Dashboard Link -->
-                <a href="#" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">Dashboard</a>
-    
+                <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
+                    Dashboard
+                </a>
+
                 <!-- Edit Profile (Desktop Dropdown) -->
                 <div class="relative hidden md:block">
                     <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
                         Edit Profile <span class="text-sm">▼</span>
                     </button>
-    
+
                     <!-- Dropdown -->
                     <div id="editMenu"
                         class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
-                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Personal
-                            Details</a>
+                    <a href="basic_details.html"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                        Personal Details
+                    </a>
+
+                    <a href="photo.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                        Photo
+                    </a>
                         <a
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Photo</a>
-                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Introduction
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Introduction
                             Video</a>
-                        <a
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Subjects</a>
-                        <a
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Address</a>
+                    <a href="subjects.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                        Subjects
+                    </a>
+
+<a href="address.html" class="block px-4 py-2 text-sm text-pink-600 bg-pink-50 font-semibold">
+    Address
+</a>
                         <a
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Education</a>
                         <a
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Experience</a>
-                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Teaching
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Teaching
                             Details</a>
-                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Profile
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Profile
                             Description</a>
                         <a
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Phone</a>
                         <a
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Courses</a>
-                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">View
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">View
                             Profile</a>
-                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Show
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Show
                             Contact Settings</a>
                     </div>
                 </div>
-    
+
                 <!-- Profile -->
                 <div class="relative">
                     <img id="profileBtn"
                         src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
                         alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
-    
+
                     <div id="profileMenu"
                         class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
                         <a href="login.html"
@@ -81,54 +95,62 @@
                         </a>
                     </div>
                 </div>
-    
+
                 <!-- Hamburger -->
                 <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 focus:outline-none md:hidden">
                     <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
                     <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
                     <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
                 </button>
-    
+
             </div>
         </div>
-    
+
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
-    
             <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
-                <li class="hover:text-pink-600">Dashboard</li>
-    
-                <!-- Mobile Edit Profile -->
+                <li class="hover:text-pink-600">
+                    <a href="index.html">Dashboard</a>
+                </li>
+
                 <li>
                     <button id="mobileEditBtn"
                         class="w-full text-left flex justify-between hover:text-pink-600 font-medium">
-                        Edit Profile
-                        <span>▼</span>
+                        Edit Profile <span>▼</span>
                     </button>
-    
+
                     <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Personal
-                            Details</li>
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Photo
+                    <li>
+                        <a href="basic_details.html"
+                            class="block px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                            Personal Details
+                        </a>
+                    </li>
+
+                        <li><a href="photo.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                            Photo
+                        </a>
                         </li>
                         <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
                             Introduction Video</li>
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Subjects
-                        </li>
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Address
+<li>
+    <a href="subjects.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Subjects</a>
+</li>
+
+                        <li><a href="address.html" class="block px-3 py-2 text-sm bg-pink-50 text-pink-600">Address</a>
                         </li>
                         <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
                             Education</li>
                         <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
                             Experience</li>
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Teaching
-                            Details</li>
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Profile
-                            Description</li>
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Phone
-                        </li>
-                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Courses
-                        </li>
+                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                            Teaching Details</li>
+                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                            Profile Description</li>
+                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                            Phone</li>
+                        <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                            Courses</li>
                         <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">View
                             Profile</li>
                         <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">Show
@@ -138,6 +160,89 @@
             </ul>
         </div>
     </header>
+
+    <!-- MAIN SECTION ADDED -->
+<main class="max-w-7xl mx-auto px-4 mt-10 mb-20">
+
+    <!-- Desktop View -->
+    <section class="hidden md:flex justify-center gap-8">
+
+        <!-- Upload Photo -->
+        <a href="upload-photo.html"
+            class="w-64 bg-[#F16F63] text-white text-center rounded-xl py-8 shadow-lg hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=60&id=60001&format=png" class="w-16 h-16 mx-auto mb-3"
+                alt="Upload Photo">
+            <p class="font-semibold text-xl">Upload Photo</p>
+        </a>
+
+        <!-- Verify Mobile -->
+        <a href="verify-mobile.html"
+            class="w-64 bg-[#F16F63] text-white text-center rounded-xl py-8 shadow-lg hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=100&id=aYmX3YWIU9T0&format=png" class="w-16 h-16 mx-auto mb-3"
+                alt="Verify Mobile">
+            <p class="font-semibold text-xl">Verify Mobile</p>
+        </a>
+
+        <!-- Intro Video -->
+        <a href="introduction-video.html"
+            class="w-64 bg-[#FFF8D9] text-blue-700 text-center rounded-xl py-8 shadow-lg hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=100&id=Eyki1QLaDgud&format=gif&color=f7f7f7"
+                class="w-16 h-16 mx-auto mb-3" alt="Intro Video">
+            <p class="font-semibold text-xl">Introduction Video</p>
+        </a>
+
+        <!-- My Profile -->
+        <a href="my-profile.html"
+            class="w-64 bg-[#D8EEFB] text-blue-700 text-center rounded-xl py-8 shadow-lg hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=100&id=7877&format=png" class="w-16 h-16 mx-auto mb-3"
+                alt="My Profile">
+            <p class="font-semibold text-xl">My Profile</p>
+        </a>
+
+    </section>
+
+
+    <!-- Mobile View -->
+    <section class="grid grid-cols-2 gap-6 md:hidden">
+
+        <!-- Upload Photo -->
+        <a href="upload-photo.html"
+            class="bg-[#F16F63] text-white text-center rounded-xl py-6 shadow-md hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=60&id=60001&format=png" class="w-12 h-12 mx-auto mb-2"
+                alt="Upload Photo">
+            <p class="font-semibold text-base">Upload photo</p>
+        </a>
+
+        <!-- Verify Mobile -->
+        <a href="verify-mobile.html"
+            class="bg-[#F16F63] text-white text-center rounded-xl py-6 shadow-md hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=100&id=aYmX3YWIU9T0&format=png" class="w-12 h-12 mx-auto mb-2"
+                alt="Verify Mobile">
+            <p class="font-semibold text-base">Verify Mobile</p>
+        </a>
+
+        <!-- Intro Video -->
+        <a href="introduction-video.html"
+            class="bg-[#FFF8D9] text-blue-700 text-center rounded-xl py-6 shadow-md hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=100&id=Eyki1QLaDgud&format=gif&color=f7f7f7"
+                class="w-12 h-12 mx-auto mb-2" alt="Intro Video">
+            <p class="font-semibold text-base">Introduction Video</p>
+        </a>
+
+        <!-- My Profile -->
+        <a href="my-profile.html"
+            class="bg-[#D8EEFB] text-blue-700 text-center rounded-xl py-6 shadow-md hover:scale-105 transition-all">
+            <img src="https://img.icons8.com/?size=100&id=7877&format=png" class="w-12 h-12 mx-auto mb-2"
+                alt="My Profile">
+            <p class="font-semibold text-base">My Profile</p>
+        </a>
+
+    </section>
+
+</main>
+
+
+
 
     <script src="script.js"></script>
 
