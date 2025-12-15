@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address Details</title>
+    <title>Teaching Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white">
 
-    
-    <!-- Header -->
+    <!-- ---------------- HEADER ---------------- -->
 <header class="w-full bg-white shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
@@ -175,53 +174,220 @@
     </div>
 </header>
 
+
+
+
     <!-- ---------------- MAIN CONTENT ---------------- -->
-<main class="max-w-4xl mx-auto mt-14 px-4 pb-20">
 
-    <h1 class="text-3xl font-semibold text-gray-800 mb-8">Address</h1>
+<main class="max-w-4xl mx-auto mt-16 px-4 mb-20">
 
-    <!-- Info Box -->
-    <div class="bg-blue-100 p-6 rounded-md border border-blue-200 mb-8">
-        <p class="text-gray-700 flex items-start gap-2">
-            <span class="text-blue-700 text-xl">ℹ️</span>
-            This address is publicly visible. Please give your local area/society so students know your approximate
-            location.
-        </p>
+    <h2 class="text-3xl font-semibold text-gray-800 mb-8">
+        Teaching Details
+    </h2>
 
-        <p class="text-red-600 mt-3 flex items-start gap-2">
-            <span class="text-xl">☠️</span>
-            For your safety, do not give the complete address.
-        </p>
-    </div>
+    <form class="space-y-10">
 
-    <!-- Address Content -->
-    <div>
-        <label class="block text-gray-800 font-semibold mb-2 text-lg">Address</label>
+        <!-- ====== FEES SECTION ====== -->
+        <div>
+            <h3 class="text-xl font-medium text-gray-700 mb-4">Fee Details</h3>
 
-        <!-- Static address -->
-        <p id="addressText" class="text-gray-700 leading-relaxed">
-             India
-        </p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-gray-700 mb-2">I charge</label>
+                    <select class="w-full border px-3 py-2 rounded-sm">
+                        <option>Hourly</option>
+                        <option>Monthly</option>
+                    </select>
+                </div>
 
-        <!-- Edit icon -->
-        <a href="#" id="editAddressBtn" class="flex items-center gap-1 text-blue-600 hover:text-blue-800 mt-2">
-            <img src="https://img.icons8.com/?size=100&id=8190&format=png" class="w-5 h-5 object-contain" alt="edit">
-            Edit
-        </a>
+                <div>
+                    <label class="block text-gray-700 mb-2">Minimum Fee (INR)</label>
+                    <input type="number" value="500" class="w-full border px-3 py-2 rounded-sm">
+                </div>
 
-        <!-- Hidden input for editing -->
-        <div id="addressEditContainer" class="hidden mt-3 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <input type="text" id="addressInput"
-                class="border border-gray-300 rounded px-3 py-2 w-full sm:w-96 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                placeholder="Your address will appear here">
-            <button id="getLocationBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                Use My Location
-            </button>
-            <button id="saveAddressBtn" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
+                <div>
+                    <label class="block text-gray-700 mb-2">Maximum Fee (INR)</label>
+                    <input type="number" value="2000" class="w-full border px-3 py-2 rounded-sm">
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label class="block text-gray-700 mb-2">
+                    Fee Details (How fee can vary)
+                </label>
+                <textarea rows="4"
+                    class="w-full border px-3 py-2 rounded-sm focus:ring-1 focus:ring-blue-500"></textarea>
+            </div>
+        </div>
+
+        <!-- ====== EXPERIENCE SECTION ====== -->
+        <div>
+            <h3 class="text-xl font-medium text-gray-700 mb-4">Experience</h3>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Years of total experience (Teaching & other)
+                    </label>
+                    <input type="number" value="8" class="w-full border px-3 py-2 rounded-sm bg-green-50">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Years of total teaching experience (Offline + Online)
+                    </label>
+                    <input type="number" value="2" class="w-full border px-3 py-2 rounded-sm">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Years of online teaching experience
+                    </label>
+                    <input type="number" value="1" class="w-full border px-3 py-2 rounded-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== PREFERENCES SECTION ====== -->
+        <div>
+            <h3 class="text-xl font-medium text-gray-700 mb-4">
+                Teaching Preferences
+            </h3>
+
+            <div class="space-y-5">
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Willing to travel to student?
+                    </label>
+                    <div class="flex gap-6">
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="travel" checked> Yes
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="travel"> No
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        How far can you travel? (kms)
+                    </label>
+                    <input type="number" value="5" class="w-full border px-3 py-2 rounded-sm">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Available for online teaching?
+                    </label>
+                    <div class="flex gap-6">
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="online" checked> Yes
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="online"> No
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Do you have a digital pen?
+                    </label>
+                    <div class="flex gap-6">
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="pen"> Yes
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="pen" checked> No
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Do you help with homework and assignments?
+                    </label>
+                    <div class="flex gap-6">
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="homework" checked> Yes
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="homework"> No
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Full time teacher employed by School/College?
+                    </label>
+                    <div class="flex gap-6">
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="fulltime"> Yes
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="fulltime" checked> No
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Opportunities you are interested in
+                    </label>
+                    <select class="w-full border px-3 py-2 rounded-sm">
+                        <option>Part Time</option>
+                        <option>Full Time</option>
+                        <option selected>Both (Part Time & Full Time)</option>
+                    </select>
+                </div>
+
+                <!-- Languages -->
+                <div>
+                    <label class="block text-gray-700 mb-2">
+                        Languages you can communicate in
+                    </label>
+
+                    <details class="border rounded-sm px-3 py-2">
+                        <summary class="cursor-pointer text-gray-600">
+                            Select Languages
+                        </summary>
+
+                        <div class="mt-3 space-y-2">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" checked> English
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" checked> Hindi
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" checked> Urdu
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox"> Marathi
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox"> Tamil
+                            </label>
+                        </div>
+                    </details>
+                </div>
+
+               
+
+            </div>
+        </div>
+
+        <!-- ====== SAVE BUTTON ====== -->
+        <div class="pt-6">
+            <button type="submit" class="px-10 py-3 bg-blue-600 text-white rounded-sm hover:bg-blue-700">
                 Save
             </button>
         </div>
-    </div>
+
+    </form>
 
 </main>
 
@@ -408,69 +574,11 @@
     </div>
 </footer>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const editAddressBtn = document.getElementById('editAddressBtn');
-        const addressText = document.getElementById('addressText');
-        const addressEditContainer = document.getElementById('addressEditContainer');
-        const addressInput = document.getElementById('addressInput');
-        const getLocationBtn = document.getElementById('getLocationBtn');
-        const saveAddressBtn = document.getElementById('saveAddressBtn');
-
-        // Edit button
-        editAddressBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            addressText.classList.add('hidden');
-            editAddressBtn.classList.add('hidden');
-            addressEditContainer.classList.remove('hidden');
-            addressInput.value = addressText.innerText.trim();
-        });
-
-        // Use My Location
-        getLocationBtn.addEventListener('click', () => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(success, error);
-            } else {
-                alert('Geolocation is not supported by your browser.');
-            }
-        });
-
-        function success(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-
-            fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
-                .then(response => response.json())
-                .then(data => {
-                    addressInput.value = data.display_name;
-                })
-                .catch(() => alert('Unable to fetch address. Please try again.'));
-        }
-
-        function error() {
-            alert('Unable to retrieve your location. Please allow location access.');
-        }
-
-        // ✅ SAVE BUTTON FIX
-        saveAddressBtn.addEventListener('click', () => {
-            if (addressInput.value.trim() === "") {
-                alert("Please enter address");
-                return;
-            }
-
-            addressText.innerText = addressInput.value;
-            addressText.classList.remove('hidden');
-            editAddressBtn.classList.remove('hidden');
-            addressEditContainer.classList.add('hidden');
-
-            alert("Address saved successfully");
-        });
-    });
-</script>
-
 
 
     <script src="script.js"></script>
+
+
 </body>
 
 </html>

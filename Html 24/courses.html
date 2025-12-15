@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white">
+
+    <!-- ---------------- HEADER ---------------- -->
+    <header class="w-full bg-white shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    
+            <!-- Logo -->
+            <div class="flex items-center gap-1">
+                <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                    alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+            </div>
+    
+            <!-- Right Section -->
+            <div class="flex items-center gap-6">
+    
+                <!-- Dashboard Link -->
+                <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
+                    Dashboard
+                </a>
+    
+                <!-- Edit Profile (Desktop Dropdown) -->
+                <div class="relative hidden md:block">
+                    <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
+                        Edit Profile <span class="text-sm">▼</span>
+                    </button>
+    
+                    <!-- Dropdown -->
+                    <div id="editMenu"
+                        class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
+                        <a href="basic_details.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Personal Details
+                        </a>
+    
+                        <a href="photo.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Photo
+                        </a>
+                        <a href="Introduction_Video.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Introduction Video
+                        </a>
+                        <a href="subjects.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Subjects
+                        </a>
+    
+                        <a href="address.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Address
+                        </a>
+                        <a href="education.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Education
+                        </a>
+                        <a href="experience.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Experience
+                        </a>
+                        <a href="teaching_details.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Teaching Details
+                        </a>
+    
+    
+                        <a href="profile_description.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Profile Description
+                        </a>
+                        <a href="phone.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Phone
+                        </a>
+                        <a href="courses.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Courses
+                        </a>
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">View
+                            Profile</a>
+                        <a href="show_contact_setting.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Show Contact Setting
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Profile -->
+                <div class="relative">
+                    <img id="profileBtn"
+                        src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                        alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
+    
+                    <div id="profileMenu"
+                        class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                        <a href="login.html"
+                            class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                            Sign in / Sign up
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Hamburger -->
+                <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 focus:outline-none md:hidden">
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                </button>
+    
+            </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
+            <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+                <li class="hover:text-pink-600">
+                    <a href="index.html">Dashboard</a>
+                </li>
+    
+                <li>
+                    <button id="mobileEditBtn"
+                        class="w-full text-left flex justify-between hover:text-pink-600 font-medium">
+                        Edit Profile <span>▼</span>
+                    </button>
+    
+                    <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <li>
+                            <a href="basic_details.html"
+                                class="block px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                                Personal Details
+                            </a>
+                        </li>
+    
+                        <li><a href="photo.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Photo
+                            </a>
+                        </li>
+                        <li><a href="introduction_video.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Introduction Video
+                            </a>
+                        </li>
+                        <a href="subjects.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Subjects</a>
+                </li>
+    
+                <li><a href="address.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Address</a>
+                </li>
+                <li><a href="education.html" class="block px-3 py-2 text-sm bg-pink-50">Education</a></li>
+                </li>
+                <li><a href="experience.html" class="block px-3 py-2 text-sm bg-pink-50">Experience</a></li>
+                </li>
+                <li><a href="teaching_details.html" class="block px-3 py-2 text-sm bg-pink-50">Teaching Details</a></li>
+                </li>
+                <li><a href="profile_description.html" class="block px-3 py-2 text-sm bg-pink-50">Profile Description</a>
+                </li>
+                </li>
+                <li><a href="phone.html" class="block px-3 py-2 text-sm bg-pink-50">Phone</a></li>
+                </li>
+                <li><a href="courses.html" class="block px-3 py-2 text-sm bg-pink-50">Courses</a></li>
+                </li>
+                <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">View
+                    Profile</li>
+                <li><a href="show_contact_setting.html" class="block px-3 py-2 text-sm bg-pink-50">Show Contact Setting</a>
+                </li>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </header>
+
+
+
+
+    <!-- ---------------- MAIN CONTENT ---------------- -->
+<main class="max-w-3xl mx-auto mt-16 px-4 pb-20">
+
+    <!-- Page Title -->
+    <h1 class="text-2xl font-semibold text-gray-800 mb-8">
+        Courses I teach
+    </h1>
+
+    <!-- Form -->
+    <form class="space-y-6">
+
+        <!-- Course Title -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Course title
+            </label>
+            <input type="text"
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none">
+        </div>
+
+        <!-- Description -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Description
+            </label>
+            <textarea rows="4"
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none"></textarea>
+        </div>
+
+        <!-- Price -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Price
+            </label>
+            <select
+                class="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:ring-1 focus:ring-blue-500 focus:outline-none">
+                <option value="">Select</option>
+                <option value="usd">USD</option>
+                <option value="inr">INR</option>
+            </select>
+            <p class="text-xs text-gray-500 mt-1">
+                Setting price 0 will make this course free.
+            </p>
+        </div>
+
+        <!-- Mode of Delivery -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Mode of delivery
+            </label>
+            <select
+                class="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:ring-1 focus:ring-blue-500 focus:outline-none">
+                <option value="">Please select</option>
+                <option>Online</option>
+                <option>At my institute</option>
+                <option>At student’s home</option>
+                <option>Flexible as per the student</option>
+            </select>
+        </div>
+
+        <!-- Group Size -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Group size
+            </label>
+            <select
+                class="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:ring-1 focus:ring-blue-500 focus:outline-none">
+                <option value="">Please select</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6 - 10</option>
+                <option>10 - 15</option>
+                <option>20 - 35</option>
+                <option>40 or more</option>
+            </select>
+        </div>
+
+        <!-- Certificate -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Certificate provided?
+            </label>
+            <select
+                class="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:ring-1 focus:ring-blue-500 focus:outline-none">
+                <option value="">Please select</option>
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+
+        <!-- Language -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Language of instructions
+            </label>
+            <input type="text"
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none">
+        </div>
+
+        <!-- Course Duration -->
+        <div>
+            <label class="block text-gray-700 mb-1 text-sm font-medium">
+                Course duration
+            </label>
+            <select
+                class="w-full border border-gray-300 rounded px-3 py-2 bg-white focus:ring-1 focus:ring-blue-500 focus:outline-none">
+                <option value="">Select</option>
+                <option>Hours</option>
+                <option>Day</option>
+                <option>Week</option>
+                <option>Monthly</option>
+                <option>Yearly</option>
+            </select>
+        </div>
+
+        <!-- Save Button -->
+        <div class="pt-4">
+            <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                Save
+            </button>
+        </div>
+
+    </form>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
+
+    <!-- TOP COMPANIES + LOGO -->
+    <div class="mb-10">
+        <div class="flex justify-between items-center mb-5">
+            <p class="text-gray-300 font-semibold">
+                Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                to build in-demand career skills.
+            </p>
+
+            <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                class="h-10 object-contain">
+        </div>
+
+        <!-- SINGLE LINE -->
+        <div class="border-t border-gray-700"></div>
+    </div>
+
+    <!-- DESKTOP GRID -->
+    <div class="hidden lg:grid grid-cols-6 gap-10">
+
+        <div>
+            <h3 class="font-semibold mb-3">In-demand Careers</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Data Scientist</li>
+                <li>Full Stack Web Developer</li>
+                <li>Cloud Engineer</li>
+                <li>Project Manager</li>
+                <li>Game Developer</li>
+                <li>All Career Accelerators</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-semibold mb-3">Web Development</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Web Development</li>
+                <li>JavaScript</li>
+                <li>React JS</li>
+                <li>Angular</li>
+                <li>Java</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-semibold mb-3">IT Certifications</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Amazon AWS</li>
+                <li>AWS Cloud Practitioner</li>
+                <li>Azure Fundamentals</li>
+                <li>AWS Solutions Architect</li>
+                <li>Kubernetes</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-semibold mb-3">Leadership</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Leadership</li>
+                <li>Management Skills</li>
+                <li>Project Management</li>
+                <li>Personal Productivity</li>
+                <li>Emotional Intelligence</li>
+            </ul>
+        </div>
+
+        <!-- 🆕 NEW SCHOOLING SECTION -->
+        <div>
+            <h3 class="font-semibold mb-3">Schooling</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Mathematics</li>
+                <li>Science (Physics / Chemistry / Biology)</li>
+                <li>English</li>
+                <li>Social Studies</li>
+                <li>Computer Science</li>
+                <li>General Knowledge</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+    <div class="lg:hidden space-y-3">
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Data Scientist</li>
+                <li>Full Stack Web Developer</li>
+                <li>Cloud Engineer</li>
+                <li>Project Manager</li>
+                <li>Game Developer</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Cybersecurity Certification</li>
+                <li>Project Management</li>
+                <li>Cloud Certification</li>
+                <li>Data Analytics</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Web Development</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Angular</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>AWS</li>
+                <li>Azure</li>
+                <li>Kubernetes</li>
+            </ul>
+        </details>
+
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Leadership</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Management Skills</li>
+                <li>Productivity</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Schooling</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Mathematics</li>
+                <li>Science (Physics / Chemistry / Biology)</li>
+                <li>English</li>
+                <li>Social Studies</li>
+                <li>Computer Science</li>
+                <li>General Knowledge</li>
+            </ul>
+        </details>
+    </div>
+
+    <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+    <div
+        class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+
+        <div class="flex gap-10 mb-6 lg:mb-0">
+            <ul class="space-y-2 text-sm text-gray-300">
+                <li class="font-semibold text-white">About</li>
+                <li>About us</li>
+                <li>Careers</li>
+                <li>Contact us</li>
+                <li>Blog</li>
+            </ul>
+
+            <ul class="space-y-2 text-sm text-gray-300">
+                <li class="font-semibold text-white">Discover</li>
+                <li>Get the app</li>
+                <li>Teach on Namate 24</li>
+                <li>Plans and Pricing</li>
+                <li>Affiliate</li>
+            </ul>
+
+            <ul class="space-y-2 text-sm text-gray-300">
+                <li class="font-semibold text-white">Legal & Accessibility</li>
+                <li>Accessibility</li>
+                <li>Privacy Policy</li>
+                <li>Sitemap</li>
+                <li>Terms</li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col items-start gap-3">
+            <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png" class="h-8">
+            <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

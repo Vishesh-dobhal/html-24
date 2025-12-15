@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address Details</title>
+    <title>Basic Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white">
 
-    
-    <!-- Header -->
+    <!-- ---------------- HEADER ---------------- -->
 <header class="w-full bg-white shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
@@ -175,53 +174,59 @@
     </div>
 </header>
 
-    <!-- ---------------- MAIN CONTENT ---------------- -->
-<main class="max-w-4xl mx-auto mt-14 px-4 pb-20">
 
-    <h1 class="text-3xl font-semibold text-gray-800 mb-8">Address</h1>
 
-    <!-- Info Box -->
-    <div class="bg-blue-100 p-6 rounded-md border border-blue-200 mb-8">
-        <p class="text-gray-700 flex items-start gap-2">
-            <span class="text-blue-700 text-xl">ℹ️</span>
-            This address is publicly visible. Please give your local area/society so students know your approximate
-            location.
+<!-- ---------------- MAIN CONTENT ---------------- -->
+<main class="max-w-4xl mx-auto mt-16 px-4 pb-20">
+
+    <!-- Page Title -->
+    <h1 class="text-3xl font-semibold text-gray-800 mb-4">
+        Profile description
+    </h1>
+
+    <!-- Instructions -->
+    <div class="text-gray-700 space-y-2 mb-8">
+        <p>This is the most important section for you.</p>
+
+        <p class="font-medium">
+            80% of students will decide if they want to hire you just based on what you write here.
         </p>
 
-        <p class="text-red-600 mt-3 flex items-start gap-2">
-            <span class="text-xl">☠️</span>
-            For your safety, do not give the complete address.
-        </p>
+        <p>Make sure it's good, relevant, in detail, and without mistakes.</p>
+        <p>Do not copy-paste your resume here.</p>
+        <p class="text-red-600 font-medium">Do not share any contact details.</p>
     </div>
 
-    <!-- Address Content -->
-    <div>
-        <label class="block text-gray-800 font-semibold mb-2 text-lg">Address</label>
+    <!-- Form -->
+    <form class="space-y-6">
 
-        <!-- Static address -->
-        <p id="addressText" class="text-gray-700 leading-relaxed">
-             India
-        </p>
+        <!-- Textarea -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">
+                Your Profile Description
+            </label>
+            <textarea rows="12" placeholder="Write your profile description here..." class="w-full border border-gray-300 rounded-md p-4 text-gray-700
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
+        </div>
 
-        <!-- Edit icon -->
-        <a href="#" id="editAddressBtn" class="flex items-center gap-1 text-blue-600 hover:text-blue-800 mt-2">
-            <img src="https://img.icons8.com/?size=100&id=8190&format=png" class="w-5 h-5 object-contain" alt="edit">
-            Edit
-        </a>
+        <!-- Checkbox -->
+        <div class="flex items-start gap-3">
+            <input type="checkbox" id="confirm"
+                class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="confirm" class="text-gray-700 text-sm">
+                I have not shared any contact details (Email, Phone, Skype, Website etc)
+            </label>
+        </div>
 
-        <!-- Hidden input for editing -->
-        <div id="addressEditContainer" class="hidden mt-3 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <input type="text" id="addressInput"
-                class="border border-gray-300 rounded px-3 py-2 w-full sm:w-96 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                placeholder="Your address will appear here">
-            <button id="getLocationBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                Use My Location
-            </button>
-            <button id="saveAddressBtn" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
-                Save
+        <!-- Submit Button -->
+        <div>
+            <button type="submit" class="px-8 py-2 bg-blue-600 text-white font-medium rounded-sm
+                       hover:bg-blue-700 transition">
+                Submit
             </button>
         </div>
-    </div>
+
+    </form>
 
 </main>
 
@@ -408,69 +413,11 @@
     </div>
 </footer>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const editAddressBtn = document.getElementById('editAddressBtn');
-        const addressText = document.getElementById('addressText');
-        const addressEditContainer = document.getElementById('addressEditContainer');
-        const addressInput = document.getElementById('addressInput');
-        const getLocationBtn = document.getElementById('getLocationBtn');
-        const saveAddressBtn = document.getElementById('saveAddressBtn');
-
-        // Edit button
-        editAddressBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            addressText.classList.add('hidden');
-            editAddressBtn.classList.add('hidden');
-            addressEditContainer.classList.remove('hidden');
-            addressInput.value = addressText.innerText.trim();
-        });
-
-        // Use My Location
-        getLocationBtn.addEventListener('click', () => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(success, error);
-            } else {
-                alert('Geolocation is not supported by your browser.');
-            }
-        });
-
-        function success(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-
-            fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
-                .then(response => response.json())
-                .then(data => {
-                    addressInput.value = data.display_name;
-                })
-                .catch(() => alert('Unable to fetch address. Please try again.'));
-        }
-
-        function error() {
-            alert('Unable to retrieve your location. Please allow location access.');
-        }
-
-        // ✅ SAVE BUTTON FIX
-        saveAddressBtn.addEventListener('click', () => {
-            if (addressInput.value.trim() === "") {
-                alert("Please enter address");
-                return;
-            }
-
-            addressText.innerText = addressInput.value;
-            addressText.classList.remove('hidden');
-            editAddressBtn.classList.remove('hidden');
-            addressEditContainer.classList.add('hidden');
-
-            alert("Address saved successfully");
-        });
-    });
-</script>
-
 
 
     <script src="script.js"></script>
+
+
 </body>
 
 </html>

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subjects You Teach</title>
+    <title>Education</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white">
 
-    <!-- ---------------- HEADER ---------------- -->
+    <!-- ================= HEADER ================= -->
 <header class="w-full bg-white shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
@@ -174,51 +174,169 @@
     </div>
 </header>
 
-    <!-- -------------------- MAIN -------------------- -->
-    <main class="max-w-4xl mx-auto px-4 mt-12 mb-20">
-        <h1 class="text-3xl font-semibold text-gray-800 mb-6">Subjects you Teach</h1>
-    
-        <!-- SUBJECT LIST -->
-        <div id="subjectList"></div>
-    
-        <!-- ADD SUBJECT -->
-        <h2 class="text-xl font-semibold text-gray-800 mt-10">Add more subjects</h2>
-        <p class="text-gray-600 mt-1 mb-4">Subject (one at a time)</p>
-    
-        <input id="subjectInput" type="text" placeholder="Enter Subject..."
-            class="w-full border px-3 py-2 rounded focus:ring-1 focus:ring-blue-500" />
-    
-        <a id="openSubjectModal" class="text-blue-600 text-sm underline block mt-2 cursor-pointer">
-            Add a new subject if not in the options above.
-        </a>
-    
-        <button id="saveSubject" class="mt-5 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">
-            Save
-        </button>
-    </main>
-    
-    <!-- ================= MODAL ================= -->
-    <div id="subjectModalOverlay"
-        class="fixed inset-0 bg-gray-800 bg-opacity-60 hidden items-start justify-center pt-20 z-50">
-        <div id="modalBox"
-            class="bg-white w-full max-w-lg rounded-lg shadow-xl transform -translate-y-10 opacity-0 transition-all duration-300">
-            <div class="flex justify-between items-center px-6 py-4 border-b">
-                <h2 class="text-xl font-semibold">Add a new Subject</h2>
-                <button id="closeModal" class="text-xl">&times;</button>
-            </div>
-            <div class="px-6 py-4 space-y-3">
-                <label class="font-medium text-gray-700">Subject Name</label>
-                <p class="text-red-600 text-sm font-semibold">Please add only one subject at a time.</p>
-                <input id="modalSubjectInput" type="text"
-                    class="w-full border px-3 py-2 rounded focus:ring-1 focus:ring-blue-500"
-                    placeholder="Enter subject name..." />
-            </div>
-            <div class="flex justify-end gap-3 px-6 py-3 border-t">
-                <button id="cancelModal" class="px-4 py-2 border rounded">Cancel</button>
-                <button id="modalSave" class="px-5 py-2 bg-blue-600 text-white rounded">Save</button>
+
+    <!-- ================= MAIN ================= -->
+    <main class="max-w-4xl mx-auto px-4 py-12">
+
+        <h2 class="text-3xl font-semibold text-center mb-10">
+            Education and Certifications
+        </h2>
+
+        <!-- Existing Education -->
+        <div class="flex items-center justify-between bg-gray-50 px-4 py-3 rounded mb-8">
+            <p class="text-sm">
+                <strong>your course</strong>, <em>your collage institute</em>
+                <span class="text-gray-500">(0000 – 0000)</span>
+            </p>
+
+            <div class="flex items-center gap-4">
+                <!-- Edit -->
+                <a href="edit-education.html">
+                    <img src="https://img.icons8.com/?size=100&id=8190&format=png" class="w-5 h-5 cursor-pointer">
+                </a>
+
+                <!-- Delete -->
+                <button>
+                    <img src="https://img.icons8.com/?size=100&id=99971&format=png" class="w-5 h-5 cursor-pointer">
+                </button>
             </div>
         </div>
-    </div>
+
+        <!-- Add Education -->
+        <h3 class="text-2xl font-semibold mb-6">
+            Add Education / Certification
+        </h3>
+
+        <div class="space-y-6">
+
+            <div>
+                <label class="text-sm">Institution name with city</label>
+                <input type="text" class="w-full border px-3 py-2 rounded">
+            </div>
+
+            <div>
+                <label class="text-sm">Degree type</label>
+                <select class="w-full border px-3 py-2 rounded">
+                    <option>Please select</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="text-sm">Degree Name</label>
+                <input type="text" class="w-full border px-3 py-2 rounded">
+            </div>
+
+            <!-- Start Date -->
+            <div>
+                <label class="text-sm">Start Date</label>
+                <div class="flex gap-4">
+                    <select class="border px-3 py-2 rounded w-32">
+                        <option>Month</option>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+
+                    <select class="border px-3 py-2 rounded w-32">
+                        <option>Year</option>
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- End Date -->
+            <div>
+                <label class="text-sm">End Date (optional)</label>
+                <div class="flex gap-4">
+                    <select class="border px-3 py-2 rounded w-32">
+                        <option>Month</option>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+
+                    <select class="border px-3 py-2 rounded w-32">
+                        <option>Year</option>
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Association -->
+            <div>
+                <label class="text-sm">Association</label>
+                <select class="w-full border px-3 py-2 rounded">
+                    <option>Please select</option>
+                    <option>Full Time</option>
+                    <option>Part Time</option>
+                    <option>Correspondence</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="text-sm">Speciality (optional)</label>
+                <input type="text" class="w-full border px-3 py-2 rounded">
+            </div>
+
+            <div>
+                <label class="text-sm">Score (optional)</label>
+                <input type="text" class="w-full border px-3 py-2 rounded">
+            </div>
+
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">
+                Save
+            </button>
+
+        </div>
+    </main>
 
     <!-- FOOTER -->
     <footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
@@ -402,7 +520,6 @@
             </div>
         </div>
     </footer>
-
     <script src="script.js"></script>
 
 </body>

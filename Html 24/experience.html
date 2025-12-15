@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subjects You Teach</title>
+    <title>Teaching and Professional Experience</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -174,52 +174,85 @@
     </div>
 </header>
 
-    <!-- -------------------- MAIN -------------------- -->
-    <main class="max-w-4xl mx-auto px-4 mt-12 mb-20">
-        <h1 class="text-3xl font-semibold text-gray-800 mb-6">Subjects you Teach</h1>
-    
-        <!-- SUBJECT LIST -->
-        <div id="subjectList"></div>
-    
-        <!-- ADD SUBJECT -->
-        <h2 class="text-xl font-semibold text-gray-800 mt-10">Add more subjects</h2>
-        <p class="text-gray-600 mt-1 mb-4">Subject (one at a time)</p>
-    
-        <input id="subjectInput" type="text" placeholder="Enter Subject..."
-            class="w-full border px-3 py-2 rounded focus:ring-1 focus:ring-blue-500" />
-    
-        <a id="openSubjectModal" class="text-blue-600 text-sm underline block mt-2 cursor-pointer">
-            Add a new subject if not in the options above.
-        </a>
-    
-        <button id="saveSubject" class="mt-5 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">
-            Save
-        </button>
-    </main>
-    
-    <!-- ================= MODAL ================= -->
-    <div id="subjectModalOverlay"
-        class="fixed inset-0 bg-gray-800 bg-opacity-60 hidden items-start justify-center pt-20 z-50">
-        <div id="modalBox"
-            class="bg-white w-full max-w-lg rounded-lg shadow-xl transform -translate-y-10 opacity-0 transition-all duration-300">
-            <div class="flex justify-between items-center px-6 py-4 border-b">
-                <h2 class="text-xl font-semibold">Add a new Subject</h2>
-                <button id="closeModal" class="text-xl">&times;</button>
-            </div>
-            <div class="px-6 py-4 space-y-3">
-                <label class="font-medium text-gray-700">Subject Name</label>
-                <p class="text-red-600 text-sm font-semibold">Please add only one subject at a time.</p>
-                <input id="modalSubjectInput" type="text"
-                    class="w-full border px-3 py-2 rounded focus:ring-1 focus:ring-blue-500"
-                    placeholder="Enter subject name..." />
-            </div>
-            <div class="flex justify-end gap-3 px-6 py-3 border-t">
-                <button id="cancelModal" class="px-4 py-2 border rounded">Cancel</button>
-                <button id="modalSave" class="px-5 py-2 bg-blue-600 text-white rounded">Save</button>
-            </div>
-        </div>
-    </div>
+    <!-- ---------------- MAIN CONTENT ---------------- -->
+    <main class="max-w-3xl mx-auto mt-16 px-4 mb-16">
 
+        <h1 class="text-3xl font-semibold text-gray-800 mb-8">
+            Teaching and Professional Experience
+        </h1>
+
+        <div class="bg-white w-full p-6 sm:p-8 rounded-lg shadow-md">
+
+            <!-- Organization -->
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-1">
+                    Organization name with city
+                </label>
+                <input type="text"
+                    class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500">
+            </div>
+
+            <!-- Designation -->
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-1">
+                    Designation
+                </label>
+                <input type="text"
+                    class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500">
+            </div>
+<!-- Start Date -->
+<div class="mb-4">
+    <label class="block text-gray-700 mb-1">Start Date</label>
+    <div class="flex flex-col sm:flex-row gap-3">
+        <select id="startMonth" class="border border-gray-300 rounded px-3 py-2 w-32 sm:w-1/2">
+        </select>
+        <select id="startYear" class="border border-gray-300 rounded px-3 py-2 w-32 sm:w-1/2">
+        </select>
+    </div>
+</div>
+
+<!-- End Date -->
+<div class="mb-4">
+    <label class="block text-gray-700 mb-1">End Date <span class="text-sm text-gray-500">(Leave blank if still
+            working)</span></label>
+    <div class="flex flex-col sm:flex-row gap-3">
+        <select id="endMonth" class="border border-gray-300 rounded px-3 py-2 w-32 sm:w-1/2">
+        </select>
+        <select id="endYear" class="border border-gray-300 rounded px-3 py-2 w-32 sm:w-1/2">
+        </select>
+    </div>
+</div>
+
+<!-- Association -->
+<div class="mb-4">
+    <label class="block text-gray-700 mb-1">Association</label>
+    <select class="border border-gray-300 rounded px-3 py-2 w-32 sm:w-full">
+        <option value="">Please select</option>
+        <option value="full-time">Full Time</option>
+        <option value="part-time">Part Time</option>
+    </select>
+</div>
+
+
+
+
+            <!-- Roles -->
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-1">
+                    Your Roles and Responsibilities at this job
+                </label>
+                <textarea rows="4"
+                    class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+            </div>
+
+            <!-- Save Button -->
+            <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+                Save
+            </button>
+
+        </div>
+
+    </main>
     <!-- FOOTER -->
     <footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
     
@@ -403,8 +436,45 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript for Month & Year -->
+    <script>
+        const months = [
+            "Month", "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
 
+        function populateMonths(selectId) {
+            const select = document.getElementById(selectId);
+            months.forEach(month => {
+                const option = document.createElement("option");
+                option.value = month === "Month" ? "" : month;
+                option.text = month;
+                select.appendChild(option);
+            });
+        }
+
+        function populateYears(selectId) {
+            const select = document.getElementById(selectId);
+            const currentYear = new Date().getFullYear();
+            const option = document.createElement("option");
+            option.value = "";
+            option.text = "Year";
+            select.appendChild(option);
+
+            for (let year = currentYear; year >= 1980; year--) {
+                const opt = document.createElement("option");
+                opt.value = year;
+                opt.text = year;
+                select.appendChild(opt);
+            }
+        }
+
+        populateMonths("startMonth");
+        populateMonths("endMonth");
+        populateYears("startYear");
+        populateYears("endYear");
+    </script>
+<script src="script.js"></script>
 </body>
 
 </html>

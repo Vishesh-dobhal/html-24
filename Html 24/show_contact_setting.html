@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Contact Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white">
+
+    <!-- ---------------- HEADER ---------------- -->
+    <header class="w-full bg-white shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    
+            <!-- Logo -->
+            <div class="flex items-center gap-1">
+                <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                    alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+            </div>
+    
+            <!-- Right Section -->
+            <div class="flex items-center gap-6">
+    
+                <!-- Dashboard Link -->
+                <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
+                    Dashboard
+                </a>
+    
+                <!-- Edit Profile (Desktop Dropdown) -->
+                <div class="relative hidden md:block">
+                    <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
+                        Edit Profile <span class="text-sm">▼</span>
+                    </button>
+    
+                    <!-- Dropdown -->
+                    <div id="editMenu"
+                        class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
+                        <a href="basic_details.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Personal Details
+                        </a>
+    
+                        <a href="photo.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Photo
+                        </a>
+                        <a href="Introduction_Video.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                            Introduction Video
+                        </a>
+                        <a href="subjects.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Subjects
+                        </a>
+    
+                        <a href="address.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Address
+                        </a>
+                        <a href="education.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Education
+                        </a>
+                        <a href="experience.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Experience
+                        </a>
+                        <a href="teaching_details.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Teaching Details
+                        </a>
+    
+    
+                        <a href="profile_description.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Profile Description
+                        </a>
+                        <a href="phone.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Phone
+                        </a>
+                        <a href="courses.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Courses
+                        </a>
+                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">View
+                            Profile</a>
+                        <a href="show_contact_setting.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Show Contact Setting
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Profile -->
+                <div class="relative">
+                    <img id="profileBtn"
+                        src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                        alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
+    
+                    <div id="profileMenu"
+                        class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                        <a href="login.html"
+                            class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                            Sign in / Sign up
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Hamburger -->
+                <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 focus:outline-none md:hidden">
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                </button>
+    
+            </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
+            <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+                <li class="hover:text-pink-600">
+                    <a href="index.html">Dashboard</a>
+                </li>
+    
+                <li>
+                    <button id="mobileEditBtn"
+                        class="w-full text-left flex justify-between hover:text-pink-600 font-medium">
+                        Edit Profile <span>▼</span>
+                    </button>
+    
+                    <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <li>
+                            <a href="basic_details.html"
+                                class="block px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                                Personal Details
+                            </a>
+                        </li>
+    
+                        <li><a href="photo.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Photo
+                            </a>
+                        </li>
+                        <li><a href="introduction_video.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Introduction Video
+                            </a>
+                        </li>
+                        <a href="subjects.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Subjects</a>
+                </li>
+    
+                <li><a href="address.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Address</a>
+                </li>
+                <li><a href="education.html" class="block px-3 py-2 text-sm bg-pink-50">Education</a></li>
+                </li>
+                <li><a href="experience.html" class="block px-3 py-2 text-sm bg-pink-50">Experience</a></li>
+                </li>
+                <li><a href="teaching_details.html" class="block px-3 py-2 text-sm bg-pink-50">Teaching Details</a></li>
+                </li>
+                <li><a href="profile_description.html" class="block px-3 py-2 text-sm bg-pink-50">Profile Description</a>
+                </li>
+                </li>
+                <li><a href="phone.html" class="block px-3 py-2 text-sm bg-pink-50">Phone</a></li>
+                </li>
+                <li><a href="courses.html" class="block px-3 py-2 text-sm bg-pink-50">Courses</a></li>
+                </li>
+                <li class="px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">View
+                    Profile</li>
+                <li><a href="show_contact_setting.html" class="block px-3 py-2 text-sm bg-pink-50">Show Contact Setting</a>
+                </li>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </header>
+
+
+
+
+    <!-- ---------------- MAIN CONTENT ---------------- -->
+<!-- ---------------- MAIN CONTENT ---------------- -->
+<main class="max-w-4xl mx-auto mt-16 px-4 mb-20">
+
+    <h1 class="text-3xl font-semibold text-gray-800 mb-8">
+        Show Contact detail settings
+    </h1>
+
+    <!-- FAQ Box -->
+    <div class="border border-dashed rounded-lg p-6 space-y-4">
+
+        <!-- FAQ Item -->
+        <div class="border-b pb-4">
+            <button onclick="toggleFaq(1)" class="w-full text-left text-blue-600 font-medium hover:underline">
+                What is free contact sharing?
+            </button>
+            <div id="faq1" class="hidden mt-3 text-gray-700 text-sm leading-relaxed">
+                We will show your contact details to students without using your coins.
+                Students are required to be logged in and must have coins to get access
+                your contact details.
+            </div>
+        </div>
+
+        <!-- FAQ Item -->
+        <div class="border-b pb-4">
+            <button onclick="toggleFaq(2)" class="w-full text-left text-blue-600 font-medium hover:underline">
+                What is paid contact sharing?
+            </button>
+            <div id="faq2" class="hidden mt-3 text-gray-700 text-sm leading-relaxed">
+                Paid contact sharing allows you to share your contact details with students easily.
+                They can see your contact details by giving limited or no information.
+                Students can see your contact details even when not logged in.
+            </div>
+        </div>
+
+        <!-- FAQ Item -->
+        <div class="border-b pb-4">
+            <button onclick="toggleFaq(3)" class="w-full text-left text-blue-600 font-medium hover:underline">
+                How much does paid contact sharing cost?
+            </button>
+            <div id="faq3" class="hidden mt-3 text-gray-700 text-sm leading-relaxed space-y-3">
+                <p>
+                    The coins required to share your contact details are calculated from the
+                    student's location based on their phone number (if available) and IP address.
+                </p>
+                <p>
+                    At the time of writing this (May 1, 2020), you can expect to spend an
+                    average of <strong>50 coins</strong> for showing your contact to a student.
+                </p>
+                <p>
+                    It's still free to receive messages from the students.
+                </p>
+            </div>
+        </div>
+
+        <!-- FAQ Item -->
+        <div class="border-b pb-4">
+            <button onclick="toggleFaq(4)" class="w-full text-left text-blue-600 font-medium hover:underline">
+                What if the student query is fake/not genuine/or I never get a call?
+            </button>
+            <div id="faq4" class="hidden mt-3 text-gray-700 text-sm leading-relaxed space-y-3">
+                <p>
+                    Coins are not refunded, ever, whatever be the case.
+                    If you decide to share your contact details directly, you are taking that risk.
+                </p>
+                <p>
+                    Due to the limitations of the internet itself, this system can't be perfect.
+                    We still believe it will yield useful queries and will be profitable in the long term.
+                </p>
+                <p>
+                    You also get a lot of options to manage how and with who you share your contact details.
+                </p>
+            </div>
+        </div>
+
+        <!-- FAQ Item -->
+        <div class="border-b pb-4">
+            <button onclick="toggleFaq(5)" class="w-full text-left text-blue-600 font-medium hover:underline">
+                Is it safe to share contact details?
+            </button>
+            <div id="faq5" class="hidden mt-3 text-gray-700 text-sm leading-relaxed">
+                If you are not comfortable sharing your contact details with strangers,
+                you shouldn't turn on this option.
+            </div>
+        </div>
+
+        <!-- FAQ Item -->
+        <div>
+            <button onclick="toggleFaq(6)" class="w-full text-left text-red-600 font-medium hover:underline">
+                Why shouldn't I turn on paid contact sharing?
+            </button>
+            <div id="faq6" class="hidden mt-3 text-gray-700 text-sm leading-relaxed space-y-3">
+                <p>There are plenty of very good reasons:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>
+                        Like all popular websites, a lot of marketers, spammers, and competitors visit us.
+                        You may end up paying for them to contact you.
+                    </li>
+                    <li>
+                        An unidentifiable stalker may have all your contact details.
+                    </li>
+                    <li>
+                        We use IP address to find the location of the user. This method is not 100% reliable.
+                        You may end up paying more coins for a student depending on the location we get.
+                        You will pay less in some cases as well.
+                    </li>
+                    <li>
+                        There is a chance that you may not receive a call from students who see your number.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ================= CONTACT SETTINGS ================= -->
+    <div class="mt-10 space-y-6">
+    
+        <!-- Free Contact Sharing -->
+        <div class="flex items-center gap-4">
+            <span class="text-lg font-medium text-gray-700">
+                Free contact sharing
+            </span>
+    
+            <button id="freeToggle" class="px-4 py-1 rounded text-sm font-medium bg-red-600 text-white">
+                Off
+            </button>
+        </div>
+    
+        <!-- Paid Contact Sharing (Hidden initially) -->
+        <!-- Paid Contact Sharing (Hidden initially) -->
+        <div id="paidWrapper" class="hidden border rounded-lg p-6 space-y-6">
+        
+            <!-- Paid Header -->
+            <div class="flex items-center gap-4">
+                <h2 class="text-xl font-semibold text-gray-800">
+                    Paid contact sharing
+                </h2>
+        
+                <button id="paidToggle" class="px-3 py-1 text-xs rounded bg-red-600 text-white">
+                    Off
+                </button>
+            </div>
+        
+            <!-- Paid Settings -->
+            <div id="paidSettings" class="hidden space-y-6">
+        
+                <!-- Tutor Contact Limit -->
+                <div class="space-y-2">
+                    <p class="font-medium text-gray-700">Tutor Contact limit setting</p>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="contactLimit" checked>
+                        Don't show my contact if student has already contacted
+                        <input type="number" value="5" class="w-16 border rounded px-2 py-1 ml-1">
+                        teachers
+                    </label>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="contactLimit">
+                        Always show my contact details irrespective of the teachers contacted
+                    </label>
+                </div>
+        
+                <!-- Monthly Coin Limit -->
+                <div class="space-y-2">
+                    <p class="font-medium text-gray-700">Monthly coin limit</p>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="coinLimit">
+                        Stop showing contact details if spent more than
+                        <input type="number" class="w-20 border rounded px-2 py-1 ml-1">
+                        coins/month
+                    </label>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="coinLimit" checked>
+                        Don't set any limit on my monthly spend
+                    </label>
+                </div>
+        
+                <!-- Student Phone -->
+                <div class="space-y-2">
+                    <p class="font-medium text-gray-700">Student Phone setting</p>
+        
+                    <label class="flex items-start gap-2 text-sm">
+                        <input type="radio" name="phoneVerify" checked>
+                        <span>
+                            Verify student's phone number before sharing my contact details
+                            <span class="block text-xs text-gray-500">
+                                We will email you student's phone number as well.
+                            </span>
+                        </span>
+                    </label>
+        
+                    <label class="flex items-start gap-2 text-sm">
+                        <input type="radio" name="phoneVerify">
+                        <span>
+                            No need to verify student phone number
+                            <span class="block text-xs text-gray-500">
+                                If student doesn't call you, your coins will be wasted.
+                            </span>
+                        </span>
+                    </label>
+                </div>
+        
+                <!-- Country -->
+                <div class="space-y-2">
+                    <p class="font-medium text-gray-700">Country setting</p>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="country" checked>
+                        Show contact details for all countries
+                    </label>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="country">
+                        Show contact details for selected countries only
+                    </label>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="radio" name="country">
+                        Do not show contact details for selected countries
+                    </label>
+                </div>
+        
+                <!-- Profile Visibility -->
+                <div class="space-y-2 pt-4 border-t">
+                    <label class="flex items-start gap-2 text-sm">
+                        <input type="checkbox">
+                        <span>
+                            Show my email on profile
+                            <span class="block text-xs text-gray-500">
+                                This can lead to serious spamming.
+                            </span>
+                        </span>
+                    </label>
+        
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked>
+                        Show my phone number on profile
+                    </label>
+                </div>
+        
+                <!-- Contact Details -->
+                <div>
+                    <h3 class="font-medium text-gray-700 mb-3">
+                        Contact details shown to students
+                    </h3>
+        
+                    <div id="contactList" class="space-y-3"></div>
+        
+                    <select id="addContact" class="mt-4 w-full border rounded px-3 py-2">
+                        <option value="">-- Add more contact details --</option>
+                        <option>Email</option>
+                        <option>LinkedIn</option>
+                        <option>Skype</option>
+                        <option>Gmail</option>
+                        <option>Facebook</option>
+                        <option>Instagram</option>
+                        <option>Twitter</option>
+                        <option>Website</option>
+                        <option>YouTube</option>
+                    </select>
+                </div>
+        
+                <!-- ✅ ACTION BUTTONS (NOW CORRECT PLACE) -->
+                <div class="flex gap-4 pt-6 border-t">
+                    <button id="updateSettings"
+                        class="px-6 py-2 rounded bg-blue-600 text-white text-sm font-medium hover:bg-blue-700">
+                        Update Settings
+                    </button>
+        
+                    <button id="resetSettings"
+                        class="px-6 py-2 rounded bg-gray-200 text-gray-800 text-sm font-medium hover:bg-gray-300">
+                        Reset Settings
+                    </button>
+                </div>
+        
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
+
+    <!-- TOP COMPANIES + LOGO -->
+    <div class="mb-10">
+        <div class="flex justify-between items-center mb-5">
+            <p class="text-gray-300 font-semibold">
+                Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                to build in-demand career skills.
+            </p>
+
+            <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                class="h-10 object-contain">
+        </div>
+
+        <!-- SINGLE LINE -->
+        <div class="border-t border-gray-700"></div>
+    </div>
+
+    <!-- DESKTOP GRID -->
+    <div class="hidden lg:grid grid-cols-6 gap-10">
+
+        <div>
+            <h3 class="font-semibold mb-3">In-demand Careers</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Data Scientist</li>
+                <li>Full Stack Web Developer</li>
+                <li>Cloud Engineer</li>
+                <li>Project Manager</li>
+                <li>Game Developer</li>
+                <li>All Career Accelerators</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-semibold mb-3">Web Development</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Web Development</li>
+                <li>JavaScript</li>
+                <li>React JS</li>
+                <li>Angular</li>
+                <li>Java</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-semibold mb-3">IT Certifications</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Amazon AWS</li>
+                <li>AWS Cloud Practitioner</li>
+                <li>Azure Fundamentals</li>
+                <li>AWS Solutions Architect</li>
+                <li>Kubernetes</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-semibold mb-3">Leadership</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Leadership</li>
+                <li>Management Skills</li>
+                <li>Project Management</li>
+                <li>Personal Productivity</li>
+                <li>Emotional Intelligence</li>
+            </ul>
+        </div>
+
+        <!-- 🆕 NEW SCHOOLING SECTION -->
+        <div>
+            <h3 class="font-semibold mb-3">Schooling</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>Mathematics</li>
+                <li>Science (Physics / Chemistry / Biology)</li>
+                <li>English</li>
+                <li>Social Studies</li>
+                <li>Computer Science</li>
+                <li>General Knowledge</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+    <div class="lg:hidden space-y-3">
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Data Scientist</li>
+                <li>Full Stack Web Developer</li>
+                <li>Cloud Engineer</li>
+                <li>Project Manager</li>
+                <li>Game Developer</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Cybersecurity Certification</li>
+                <li>Project Management</li>
+                <li>Cloud Certification</li>
+                <li>Data Analytics</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Web Development</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Angular</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>AWS</li>
+                <li>Azure</li>
+                <li>Kubernetes</li>
+            </ul>
+        </details>
+
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Leadership</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Management Skills</li>
+                <li>Productivity</li>
+            </ul>
+        </details>
+
+        <details class="py-3">
+            <summary class="cursor-pointer font-semibold">Schooling</summary>
+            <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                <li>Mathematics</li>
+                <li>Science (Physics / Chemistry / Biology)</li>
+                <li>English</li>
+                <li>Social Studies</li>
+                <li>Computer Science</li>
+                <li>General Knowledge</li>
+            </ul>
+        </details>
+    </div>
+
+    <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+    <div
+        class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+
+        <div class="flex gap-10 mb-6 lg:mb-0">
+            <ul class="space-y-2 text-sm text-gray-300">
+                <li class="font-semibold text-white">About</li>
+                <li>About us</li>
+                <li>Careers</li>
+                <li>Contact us</li>
+                <li>Blog</li>
+            </ul>
+
+            <ul class="space-y-2 text-sm text-gray-300">
+                <li class="font-semibold text-white">Discover</li>
+                <li>Get the app</li>
+                <li>Teach on Namate 24</li>
+                <li>Plans and Pricing</li>
+                <li>Affiliate</li>
+            </ul>
+
+            <ul class="space-y-2 text-sm text-gray-300">
+                <li class="font-semibold text-white">Legal & Accessibility</li>
+                <li>Accessibility</li>
+                <li>Privacy Policy</li>
+                <li>Sitemap</li>
+                <li>Terms</li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col items-start gap-3">
+            <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png" class="h-8">
+            <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- FAQ Toggle Script -->
+<script>
+    function toggleFaq(id) {
+        const el = document.getElementById('faq' + id);
+        el.classList.toggle('hidden');
+    }
+
+     const freeToggle = document.getElementById('freeToggle');
+        const paidToggle = document.getElementById('paidToggle');
+        const paidWrapper = document.getElementById('paidWrapper');
+        const paidSettings = document.getElementById('paidSettings');
+        const addContact = document.getElementById('addContact');
+        const contactList = document.getElementById('contactList');
+
+        let freeOn = false;
+        let paidOn = false;
+
+        // Free Toggle
+        freeToggle.onclick = () => {
+            freeOn = !freeOn;
+
+            freeToggle.textContent = freeOn ? 'On' : 'Off';
+            freeToggle.className = freeOn
+                ? 'px-4 py-1 rounded text-sm font-medium bg-green-600 text-white'
+                : 'px-4 py-1 rounded text-sm font-medium bg-red-600 text-white';
+
+            paidWrapper.classList.toggle('hidden', !freeOn);
+
+            if (!freeOn) {
+                paidOn = false;
+                paidSettings.classList.add('hidden');
+                paidToggle.textContent = 'Off';
+                paidToggle.className = 'px-3 py-1 text-xs rounded bg-red-600 text-white';
+            }
+        };
+
+        // Paid Toggle
+        paidToggle.onclick = () => {
+            paidOn = !paidOn;
+
+            paidToggle.textContent = paidOn ? 'On' : 'Off';
+            paidToggle.className = paidOn
+                ? 'px-3 py-1 text-xs rounded bg-green-600 text-white'
+                : 'px-3 py-1 text-xs rounded bg-red-600 text-white';
+
+            paidSettings.classList.toggle('hidden', !paidOn);
+        };
+
+        // Add Contact
+        addContact.onchange = () => {
+            if (!addContact.value) return;
+
+            const row = document.createElement('div');
+            row.className = 'flex items-center gap-3';
+
+            row.innerHTML = `
+            <span class="w-28 font-medium">${addContact.value}</span>
+            <input class="flex-1 border rounded px-3 py-2"
+                placeholder="Enter ${addContact.value}">
+            <button class="text-red-600 font-bold text-xl">−</button>
+        `;
+
+            row.querySelector('button').onclick = () => row.remove();
+            contactList.appendChild(row);
+            addContact.value = '';
+        };
+
+         const updateBtn = document.getElementById('updateSettings');
+            const resetBtn = document.getElementById('resetSettings');
+
+            updateBtn.onclick = () => {
+                alert('Paid contact settings updated successfully!');
+                // future: API call
+            };
+
+            resetBtn.onclick = () => {
+                if (!confirm('Reset paid contact settings?')) return;
+
+                paidSettings.querySelectorAll('input').forEach(input => {
+                    if (input.type === 'radio' || input.type === 'checkbox') {
+                        input.checked = input.defaultChecked;
+                    } else {
+                        input.value = '';
+                    }
+                });
+
+                contactList.innerHTML = '';
+            };
+</script>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
