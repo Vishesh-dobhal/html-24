@@ -2,287 +2,423 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Profile | Namate 24</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile - Shoeb Alam</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100">
-
-    <!-- ================= HEADER ================= -->
-<header class="w-full bg-white shadow-md">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-
-        <!-- Logo -->
-        <div class="flex items-center gap-1">
-            <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
-                alt="Namate 24 Logo" class="w-10 h-10 object-contain">
-            <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
-        </div>
-
-        <!-- Right Section -->
-        <div class="flex items-center gap-6">
-
-            <!-- Dashboard Link -->
-            <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
-                Dashboard
-            </a>
-
-            <!-- Edit Profile (Desktop Dropdown) -->
-            <div class="relative hidden md:block">
-                <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
-                    Edit Profile <span class="text-sm">▼</span>
-                </button>
-
-                <!-- Dropdown -->
-                <div id="editMenu"
-                    class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
-                    <a href="basic_details.html"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
-                        Personal Details
-                    </a>
-
-                    <a href="photo.html"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
-                        Photo
-                    </a>
-                    <a href="Introduction_Video.html"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
-                        Introduction Video
-                    </a>
-                    <a href="subjects.html"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
-                        Subjects
-                    </a>
-
-                    <a href="address.html"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
-                        Address
-                    </a>
-                    <a href="education.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        Education
-                    </a>
-                    <a href="experience.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        Experience
-                    </a>
-                    <a href="teaching_details.html"
-                        class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        Teaching Details
-                    </a>
-
-
-                    <a href="profile_description.html"
-                        class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        Profile Description
-                    </a>
-                    <a href="phone.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        Phone
-                    </a>
-                    <a href="courses.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        Courses
-                    </a>
-                    <a href="view_profile.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        View Profile
-                    </a>
-                    <a href="show_contact_setting.html"
-                        class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
-                        Show Contact Setting
-                    </a>
-                </div>
+<body class="bg-white">
+    <header class="w-full bg-white shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    
+            <!-- Logo -->
+            <div class="flex items-center gap-1">
+                <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                    alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
             </div>
-
-            <!-- Profile -->
-            <div class="relative">
-                <img id="profileBtn"
-                    src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
-                    alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
-
-                <div id="profileMenu"
-                    class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
-                    <a href="login.html"
-                        class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
-                        Sign in / Sign up
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hamburger -->
-            <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 focus:outline-none md:hidden">
-                <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
-                <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
-                <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
-            </button>
-
-        </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
-        <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
-            <li class="hover:text-pink-600">
-                <a href="index.html">Dashboard</a>
-            </li>
-
-            <li>
-                <button id="mobileEditBtn"
-                    class="w-full text-left flex justify-between hover:text-pink-600 font-medium">
-                    Edit Profile <span>▼</span>
-                </button>
-
-                <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2">
-                    <li>
+    
+            <!-- Right Section -->
+            <div class="flex items-center gap-6">
+    
+                <!-- Dashboard Link -->
+                <a href="index.html" class="hidden md:block text-gray-700 hover:text-pink-600 font-medium">
+                    Dashboard
+                </a>
+    
+                <!-- Edit Profile (Desktop Dropdown) -->
+                <div class="relative hidden md:block">
+                    <button id="editBtn" class="flex items-center text-gray-700 hover:text-pink-600 font-medium gap-1">
+                        Edit Profile <span class="text-sm">▼</span>
+                    </button>
+    
+                    <!-- Dropdown -->
+                    <div id="editMenu"
+                        class="hidden absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-xl border py-2 z-50">
                         <a href="basic_details.html"
-                            class="block px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
                             Personal Details
                         </a>
-                    </li>
-
-                    <li><a href="photo.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+    
+                        <a href="photo.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
                             Photo
                         </a>
-                    </li>
-                    <li><a href="introduction_video.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                        <a href="Introduction_Video.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">
                             Introduction Video
                         </a>
-                    </li>
-                    <a href="subjects.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Subjects</a>
-            </li>
-
-            <li><a href="address.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Address</a>
-            </li>
-            <li><a href="education.html" class="block px-3 py-2 text-sm bg-pink-50">Education</a></li>
-            </li>
-            <li><a href="experience.html" class="block px-3 py-2 text-sm bg-pink-50">Experience</a></li>
-            </li>
-            <li><a href="teaching_details.html" class="block px-3 py-2 text-sm bg-pink-50">Teaching Details</a></li>
-            </li>
-            <li><a href="profile_description.html" class="block px-3 py-2 text-sm bg-pink-50">Profile Description</a>
-            </li>
-            </li>
-            <li><a href="phone.html" class="block px-3 py-2 text-sm bg-pink-50">Phone</a></li>
-            </li>
-            <li><a href="courses.html" class="block px-3 py-2 text-sm bg-pink-50">Courses</a></li>
-            </li>
-            <li><a href="view_profile.html" class="block px-3 py-2 text-sm bg-pink-50">View Profile</a></li>
-            </li>
-            <li><a href="show_contact_setting.html" class="block px-3 py-2 text-sm bg-pink-50">Show Contact Setting</a>
-            </li>
-            </li>
-        </ul>
-        </li>
-        </ul>
-    </div>
-</header>
-
-
-    <!-- ================= MAIN ================= -->
-    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-        <!-- ================= LEFT CONTENT ================= -->
-        <section class="lg:col-span-2 bg-white rounded-xl shadow p-6">
-
-            <!-- NAME -->
-            <h2 class="text-2xl font-semibold" id="teacherName">
-                --
-            </h2>
-            <p class="text-sm text-gray-500 mb-4">⭐ No reviews yet</p>
-
-            <!-- OVERVIEW -->
-            <h3 class="font-semibold text-lg mb-2">Teaching Overview</h3>
-            <p class="text-gray-700 mb-6" id="overview">
-                No overview added.
-            </p>
-
-            <!-- CORE SKILLS -->
-            <h3 class="font-semibold text-lg mb-2">Core Teaching Competencies</h3>
-            <ul id="skills" class="list-disc pl-5 text-gray-700 mb-6 space-y-1">
-                <li class="text-gray-400">No competencies added.</li>
+                        <a href="subjects.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Subjects
+                        </a>
+    
+                        <a href="address.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">
+                            Address
+                        </a>
+                        <a href="education.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Education
+                        </a>
+                        <a href="experience.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Experience
+                        </a>
+                        <a href="teaching_details.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Teaching Details
+                        </a>
+    
+    
+                        <a href="profile_description.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Profile Description
+                        </a>
+                        <a href="phone.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Phone
+                        </a>
+                        <a href="courses.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Courses
+                        </a>
+                        <a href="view_profile.html" class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            View Profile
+                        </a>
+                        <a href="show_contact_setting.html"
+                            class="block px-4 py-2 text-sm hover:bg-pink-50 hover:text-pink-600">
+                            Show Contact Setting
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Profile -->
+                <div class="relative">
+                    <img id="profileBtn"
+                        src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                        alt="Profile" class="w-10 h-10 rounded-full object-cover cursor-pointer">
+    
+                    <div id="profileMenu"
+                        class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                        <a href="login.html"
+                            class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                            Sign in / Sign up
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Hamburger -->
+                <button id="menuBtn" class="flex flex-col justify-between w-6 h-5 focus:outline-none md:hidden">
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                    <span class="block h-0.5 w-full bg-gray-600 rounded"></span>
+                </button>
+    
+            </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md border-t">
+            <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+                <li class="hover:text-pink-600">
+                    <a href="index.html">Dashboard</a>
+                </li>
+    
+                <li>
+                    <button id="mobileEditBtn"
+                        class="w-full text-left flex justify-between hover:text-pink-600 font-medium">
+                        Edit Profile <span>▼</span>
+                    </button>
+    
+                    <ul id="mobileEditMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <li>
+                            <a href="basic_details.html"
+                                class="block px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                                Personal Details
+                            </a>
+                        </li>
+    
+                        <li><a href="photo.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Photo
+                            </a>
+                        </li>
+                        <li><a href="introduction_video.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">
+                                Introduction Video
+                            </a>
+                        </li>
+                        <a href="subjects.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Subjects</a>
+                </li>
+    
+                <li><a href="address.html" class="block px-3 py-2 hover:bg-pink-50 hover:text-pink-600">Address</a>
+                </li>
+                <li><a href="education.html" class="block px-3 py-2 text-sm bg-pink-50">Education</a></li>
+                </li>
+                <li><a href="experience.html" class="block px-3 py-2 text-sm bg-pink-50">Experience</a></li>
+                </li>
+                <li><a href="teaching_details.html" class="block px-3 py-2 text-sm bg-pink-50">Teaching Details</a></li>
+                </li>
+                <li><a href="profile_description.html" class="block px-3 py-2 text-sm bg-pink-50">Profile Description</a>
+                </li>
+                </li>
+                <li><a href="phone.html" class="block px-3 py-2 text-sm bg-pink-50">Phone</a></li>
+                </li>
+                <li><a href="courses.html" class="block px-3 py-2 text-sm bg-pink-50">Courses</a></li>
+                </li>
+                <li><a href="view_profile.html" class="block px-3 py-2 text-sm bg-pink-50">View Profile</a></li>
+                </li>
+                <li><a href="show_contact_setting.html" class="block px-3 py-2 text-sm bg-pink-50">Show Contact Setting</a>
+                </li>
+                </li>
             </ul>
+            </li>
+            </ul>
+        </div>
+    </header>
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-normal text-gray-700 mb-2">
+                <span id="teacherName">Shoeb Alam</span>
+                <span class="text-gray-500 font-light ml-2" id="teachingLabel">Teaching</span>
+            </h1>
+            <div class="flex items-center justify-center text-gray-500 text-lg">
+                <i class="fas fa-star mr-2"></i>
+                <span id="reviewStatus">No reviews yet</span>
+            </div>
+        </div>
 
-            <hr class="my-6">
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column - Teaching Overview -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Teaching Overview Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Teaching Overview</h2>
 
-            <!-- SUBJECTS -->
-            <h3 class="font-semibold text-lg mb-2">Subjects</h3>
-            <div id="subjectsContainer" class="text-gray-700 mb-4">
-                <p class="text-gray-400">No subjects added.</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed" id="teachingOverview">
+                        I deliver practical, industry-focused cybersecurity training that emphasizes real-world threats,
+                        hands-on learning, and critical thinking. My teaching approach blends theory with guided labs,
+                        simulations, and case studies to prepare learners for cybersecurity roles and modern security
+                        challenges.
+                    </p>
+
+                    <div class="space-y-4" id="competenciesSection">
+                        <h3 class="font-semibold text-gray-700">Core Teaching Competencies</h3>
+                        <h4 class="font-medium text-gray-700">Network & System Security</h4>
+
+                        <p class="text-gray-600 pl-4">
+                            Fundamentals of network defense, firewalls, IDS/IPS, and secure configurations
+                        </p>
+
+                        <p class="text-gray-600 pl-4">
+                            Windows/Linux hardening and basic SOC monitoring practices
+                        </p>
+
+                        <h4 class="font-medium text-gray-700 mt-4">Ethical Hacking & Pen Testing</h4>
+
+                        <p class="text-gray-600 pl-4">
+                            Penetration testing methodology: reconnaissance → exploitation → reporting
+                        </p>
+
+                        <p class="text-gray-600 pl-4">
+                            Tools used: Kali Linux, Nmap, Metasploit, Burp Suite, Wireshark
+                        </p>
+
+                        <h4 class="font-medium text-gray-700 mt-4">Threat Analysis & Incident Response</h4>
+
+                        <p class="text-gray-600 pl-4">
+                            Log analysis, malware behavior, phishing detection, risk assessment
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Added Subjects Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-teal-600 mb-4 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3"></i>
+                        Subjects
+                    </h2>
+                    <div class="space-y-3 text-gray-600" id="subjectsList">
+                        <p class="hover:text-teal-600 cursor-pointer transition-colors">Math (11th)</p>
+                        <p class="hover:text-teal-600 cursor-pointer transition-colors">Maths (+1)</p>
+                    </div>
+                </div>
+
+                <!-- Added Experience Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-4 flex items-center">
+                        <i class="fas fa-briefcase mr-3"></i>
+                        Experience
+                    </h2>
+                    <p class="text-gray-600" id="experienceText">No experience mentioned.</p>
+                </div>
+
+                <!-- Added Education Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-teal-600 mb-4 flex items-center">
+                        <i class="fas fa-user-graduate mr-3"></i>
+                        Education
+                    </h2>
+                    <p class="text-gray-600" id="educationText">
+                        <strong>MCA</strong> (Aug, 2011—Jul, 2014) from Aligarh Muslim University, Aligarh 202002
+                    </p>
+                </div>
+
+                <!-- Added Fee Details Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-4 flex items-center">
+                        <i class="fas fa-wallet mr-3"></i>
+                        Fee details
+                    </h2>
+                    <p class="text-gray-600" id="feeText">
+                        ₹500—2,000/hour (US$5.51—22.04/hour)
+                    </p>
+                </div>
+
+                <!-- Added Reviews Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-teal-600 mb-4 flex items-center">
+                        <i class="fas fa-thumbs-up mr-3"></i>
+                        Reviews
+                    </h2>
+                    <p class="text-gray-600" id="reviewsText">
+                        No reviews yet. Be the first one to <a href="#"
+                            class="text-blue-500 hover:text-blue-700 underline">review this tutor</a>.
+                    </p>
+                </div>
             </div>
 
-            <hr class="my-6">
+            <!-- Right Column - Profile Photo and Details -->
+            <div class="lg:col-span-1">
+                <!-- Profile Photo Upload -->
+                <div class="bg-white rounded-lg p-6 mb-6 flex flex-col items-center">
+                    <div class="relative w-56 h-56 mb-4">
+                        <div
+                            class="w-full h-full bg-gray-500 rounded-full flex items-end justify-center overflow-hidden">
+                            <img id="profileImage" src="/placeholder.svg" alt="Profile"
+                                class="w-full h-full object-cover hidden">
+                            <i class="fas fa-user text-gray-400 text-9xl mb-4" id="defaultAvatar"></i>
+                        </div>
+                        <!-- Upload buttons on sides -->
+                        <button
+                            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-red-500 hover:bg-red-600 text-white px-2 py-8 rounded text-xs font-medium"
+                            onclick="document.getElementById('photoInput').click()">
 
-            <!-- EXPERIENCE -->
-            <h3 class="font-semibold text-lg mb-2">Experience</h3>
-            <div id="experienceContainer" class="text-gray-700 mb-4">
-                <p class="text-gray-400">No experience mentioned.</p>
+                        </button>
+                        <button
+                            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-red-500 hover:bg-red-600 text-white px-2 py-8 rounded text-xs font-medium"
+                            onclick="document.getElementById('photoInput').click()">
+
+                        </button>
+                    </div>
+                    <button class="text-white bg-gray-600 px-6 py-2 rounded text-sm hover:bg-gray-700"
+                        onclick="document.getElementById('photoInput').click()">
+                        Upload your photo
+                    </button>
+                    <input type="file" id="photoInput" class="hidden" accept="image/*"
+                        onchange="handlePhotoUpload(event)">
+                </div>
+
+                <!-- Action Buttons and Details Card -->
+                <div class="bg-gray-100 rounded-lg p-6">
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="far fa-envelope mr-2"></i>Message
+                        </button>
+                        <button
+                            class="bg-blue-500 hover:bg-blue-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="fas fa-phone mr-2"></i>Phone
+                        </button>
+                        <button
+                            class="bg-purple-500 hover:bg-purple-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="far fa-credit-card mr-2"></i>Pay
+                        </button>
+                        <button
+                            class="bg-orange-500 hover:bg-orange-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="far fa-star mr-2"></i>Review
+                        </button>
+                    </div>
+
+                    <!-- Teacher Details -->
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-600 w-5 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3" id="address">Abul Fazal Enclave, Jamia Nagar, Okhla, New
+                                Delhi, Delhi 110025, India</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-car text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Can travel:</span> <span
+                                    id="travelDistance">3.11 mi (5.0 km)</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-power-off text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Last login:</span> <span
+                                    id="lastLogin">3 secs ago</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-user-plus text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Registered:</span> <span
+                                    id="registered">Nov 27</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-chalkboard-teacher text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Total Teaching exp:</span>
+                                <span id="totalExp">2.0 yrs.</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-wifi text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Teaches online:</span> <span
+                                    id="teachesOnline">Yes</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-wifi text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Online Teaching exp:</span>
+                                <span id="onlineExp">1.0 yrs.</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-home text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Teaches at student's
+                                    home:</span> <span id="homeTeaching">Yes</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-book text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Homework Help:</span> <span
+                                    id="homeworkHelp">Yes</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-venus-mars text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Gender:</span> <span
+                                    id="gender">Male</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Works as:</span> <span
+                                    id="worksAs">Individual teacher</span></span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <hr class="my-6">
-
-            <!-- EDUCATION -->
-            <h3 class="font-semibold text-lg mb-2">Education</h3>
-            <div id="educationContainer" class="text-gray-700 mb-4">
-                <p class="text-gray-400">No education added.</p>
-            </div>
-
-            <hr class="my-6">
-
-            <!-- FEES -->
-            <h3 class="font-semibold text-lg mb-2">Fee Details</h3>
-            <div id="feeContainer" class="text-gray-700">
-                <p class="text-gray-400">Fee not set.</p>
-            </div>
-
-            <hr class="my-6">
-
-            <!-- REVIEWS -->
-            <h3 class="font-semibold text-lg mb-2">Reviews</h3>
-            <p class="text-gray-400">No reviews yet.</p>
-
-        </section>
-
-        <!-- ================= RIGHT SIDEBAR ================= -->
-        <aside class="bg-white rounded-xl shadow p-4 space-y-4">
-
-            <!-- PROFILE PHOTO -->
-            <div class="flex flex-col items-center">
-                <img id="profilePhoto" src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-                    class="w-28 h-28 rounded-full object-cover border">
-
-                <label class="mt-3 bg-red-500 text-white text-sm px-4 py-1 rounded cursor-pointer">
-                    Upload your photo
-                    <input type="file" hidden id="photoInput">
-                </label>
-            </div>
-
-            <!-- ACTION BUTTONS -->
-            <div class="grid grid-cols-4 gap-2 text-xs text-white font-medium">
-                <button class="bg-green-500 py-2 rounded">✉ Message</button>
-                <button class="bg-blue-500 py-2 rounded">📞 Phone</button>
-                <button class="bg-purple-500 py-2 rounded">💰 Pay</button>
-                <button class="bg-orange-500 py-2 rounded">⭐ Review</button>
-            </div>
-
-            <!-- INFO LIST -->
-            <div class="divide-y text-sm text-gray-700">
-
-                <div class="flex gap-2 py-2">📍 <span id="location"></span></div>
-                <div class="flex gap-2 py-2">🚗 <span id="travel"></span></div>
-                <div class="flex gap-2 py-2">⏱ <span id="lastLogin"></span></div>
-                <div class="flex gap-2 py-2">🗓 <span id="registered"></span></div>
-                <div class="flex gap-2 py-2">👨‍🏫 <span id="totalExp"></span></div>
-                <div class="flex gap-2 py-2">🌐 <span id="onlineTeaching"></span></div>
-                <div class="flex gap-2 py-2">🏠 <span id="homeTeaching"></span></div>
-                <div class="flex gap-2 py-2">📘 <span id="homeworkHelp"></span></div>
-                <div class="flex gap-2 py-2">👤 <span id="gender"></span></div>
-                <div class="flex gap-2 py-2">💼 <span id="worksAs"></span></div>
-                <div class="flex gap-2 py-2">🗣 <span id="languages"></span></div>
-                <div class="flex gap-2 py-2 font-semibold">💵 <span id="feeRange"></span></div>
-
-            </div>
-        </aside>
-
-    </main>
-
+    <!-- FOOTER -->
     <footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
     
         <!-- TOP COMPANIES + LOGO -->
@@ -465,95 +601,106 @@
         </div>
     </footer>
 
-    <!-- ================= SCRIPT ================= -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            /* ===== PROFILE DATA (FROM OTHER PAGES) ===== */
-            const profile = JSON.parse(localStorage.getItem("profileDetails")) || {};
-
-            const setText = (id, value, fallback = "—") => {
-                const el = document.getElementById(id);
-                if (el) el.innerText = value || fallback;
-            };
-
-            setText("teacherName", profile.name ? `${profile.name} Teaching` : null);
-            setText("overview", profile.overview);
-            setText("location", profile.location);
-            setText("travel", profile.travel);
-            setText("lastLogin", profile.lastLogin);
-            setText("registered", profile.registered);
-            setText("totalExp", profile.totalExp);
-            setText("onlineTeaching", profile.onlineTeaching);
-            setText("homeTeaching", profile.homeTeaching);
-            setText("homeworkHelp", profile.homeworkHelp);
-            setText("gender", profile.gender);
-            setText("worksAs", profile.worksAs);
-            setText("languages", profile.languages);
-            setText("feeRange", profile.feeRange);
-
-            /* ===== SKILLS ===== */
-            const skills = JSON.parse(localStorage.getItem("skills")) || [];
-            if (skills.length) {
-                document.getElementById("skills").innerHTML =
-                    skills.map(s => `<li>${s}</li>`).join("");
-            }
-
-            /* ===== SUBJECTS ===== */
-            const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
-            if (subjects.length) {
-                document.getElementById("subjectsContainer").innerHTML =
-                    subjects.map(s => `<p>${s}</p>`).join("");
-            }
-
-            /* ===== EXPERIENCE ===== */
-            const experience = localStorage.getItem("experience");
-            if (experience) {
-                document.getElementById("experienceContainer").innerHTML = `<p>${experience}</p>`;
-            }
-
-            /* ===== EDUCATION ===== */
-            const education = JSON.parse(localStorage.getItem("education")) || [];
-            if (education.length) {
-                document.getElementById("educationContainer").innerHTML =
-                    education.map(e => `
-                        <div class="mb-2">
-                            <strong>${e.degree}</strong>
-                            <p class="text-sm text-gray-600">
-                                ${e.institute} (${e.from} - ${e.to})
-                            </p>
-                        </div>
-                    `).join("");
-            }
-
-            /* ===== FEE ===== */
-            const fee = localStorage.getItem("fee");
-            if (fee) {
-                document.getElementById("feeContainer").innerHTML = `<p>${fee}</p>`;
-            }
-
-            /* ===== PROFILE PHOTO ===== */
-            const savedPhoto = localStorage.getItem("profilePhoto");
-            if (savedPhoto) {
-                document.getElementById("profilePhoto").src = savedPhoto;
-            }
-
-            document.getElementById("photoInput").addEventListener("change", function () {
-                const file = this.files[0];
-                if (!file) return;
-
+        // Photo upload handler
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
                 const reader = new FileReader();
-                reader.onload = () => {
-                    localStorage.setItem("profilePhoto", reader.result);
-                    document.getElementById("profilePhoto").src = reader.result;
-                };
+                reader.onload = function (e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                    document.getElementById('profileImage').classList.remove('hidden');
+                    document.getElementById('defaultAvatar').classList.add('hidden');
+                }
                 reader.readAsDataURL(file);
-            });
+            }
+        }
 
-        });
+        // Function to populate teacher data - Call this with your data object
+        function populateTeacherData(data) {
+            // Header
+            if (data.name) document.getElementById('teacherName').textContent = data.name;
+            if (data.teachingLabel) document.getElementById('teachingLabel').textContent = data.teachingLabel;
+            if (data.reviewStatus) document.getElementById('reviewStatus').textContent = data.reviewStatus;
+
+            // Teaching Overview
+            if (data.overview) document.getElementById('teachingOverview').textContent = data.overview;
+
+            // Details
+            if (data.address) document.getElementById('address').textContent = data.address;
+            if (data.travelDistance) document.getElementById('travelDistance').textContent = data.travelDistance;
+            if (data.lastLogin) document.getElementById('lastLogin').textContent = data.lastLogin;
+            if (data.registered) document.getElementById('registered').textContent = data.registered;
+            if (data.totalExp) document.getElementById('totalExp').textContent = data.totalExp;
+            if (data.teachesOnline) document.getElementById('teachesOnline').textContent = data.teachesOnline;
+            if (data.onlineExp) document.getElementById('onlineExp').textContent = data.onlineExp;
+            if (data.homeTeaching) document.getElementById('homeTeaching').textContent = data.homeTeaching;
+            if (data.homeworkHelp) document.getElementById('homeworkHelp').textContent = data.homeworkHelp;
+            if (data.gender) document.getElementById('gender').textContent = data.gender;
+            if (data.worksAs) document.getElementById('worksAs').textContent = data.worksAs;
+
+            // Profile Photo
+            if (data.photoUrl) {
+                document.getElementById('profileImage').src = data.photoUrl;
+                document.getElementById('profileImage').classList.remove('hidden');
+                document.getElementById('defaultAvatar').classList.add('hidden');
+            }
+
+            // Subjects
+            if (data.subjects && data.subjects.length > 0) {
+                const subjectsList = document.getElementById('subjectsList');
+                subjectsList.innerHTML = data.subjects.map(subject =>
+                    `<p class="hover:text-teal-600 cursor-pointer transition-colors">${subject}</p>`
+                ).join('');
+            }
+
+            // Experience
+            if (data.experience) {
+                document.getElementById('experienceText').textContent = data.experience;
+            }
+
+            // Education
+            if (data.education) {
+                document.getElementById('educationText').innerHTML = data.education;
+            }
+
+            // Fee Details
+            if (data.feeDetails) {
+                document.getElementById('feeText').textContent = data.feeDetails;
+            }
+
+            // Reviews
+            if (data.reviews) {
+                document.getElementById('reviewsText').innerHTML = data.reviews;
+            }
+        }
+
+        // Example usage - Replace this with your actual data
+         populateTeacherData({
+             name: "John Doe",
+             teachingLabel: "Teaching",
+             reviewStatus: "5 reviews",
+             overview: "Your teaching overview text here...",
+             address: "123 Main St, City, State, ZIP",
+             travelDistance: "5 mi (8 km)",
+             lastLogin: "2 hours ago",
+             registered: "Jan 15",
+             totalExp: "5.0 yrs.",
+             teachesOnline: "Yes",
+             onlineExp: "3.0 yrs.",
+             homeTeaching: "Yes",
+             homeworkHelp: "Yes",
+             gender: "Male",
+            worksAs: "Individual teacher",
+             photoUrl: "path/to/photo.jpg",
+             subjects: ["Math (11th)", "Physics (+2)", "Chemistry"],
+             experience: "5 years of teaching experience at XYZ School",
+             education: "<strong>MCA</strong> (Aug, 2011—Jul, 2014) from MIT, Cambridge",
+             feeDetails: "₹1,000—3,000/hour (US$12—36/hour)",
+             reviews: 'Great teacher! <a href="#" class="text-blue-500 hover:text-blue-700 underline">Read more</a>'
+         });
     </script>
     <script src="script.js"></script>
-
 </body>
 
 </html>
