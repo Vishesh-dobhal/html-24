@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber and Cloud Security tutors in Delhi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #374151;
+            transition: 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: #fdf2f8;
+            color: #db2777;
+        }
+
+        .mobile-link {
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-sub {
+            display: block;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #4b5563;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- ================= HEADER ================= -->
+    <header class="w-full bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                        class="w-9 h-9">
+                    <span class="text-pink-600 font-bold text-lg">Namate 24</span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="hover:text-pink-600">Dashboard</a>
+
+                    <!-- Edit Profile -->
+                    <div class="relative">
+                        <button id="editBtn" class="flex gap-1 items-center">
+                            Edit Profile <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="editMenu"
+                            class="hidden absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-lg border py-2">
+                            <a href="basic_details.html" class="dropdown-item">Personal Details</a>
+                            <a href="photo.html" class="dropdown-item">Photo</a>
+                            <a href="introduction_video.html" class="dropdown-item">Introduction Video</a>
+                            <a href="subjects.html" class="dropdown-item">Subjects</a>
+                            <a href="address.html" class="dropdown-item">Address</a>
+                            <a href="education.html" class="dropdown-item">Education</a>
+                            <a href="experience.html" class="dropdown-item">Experience</a>
+                            <a href="teaching_details.html" class="dropdown-item">Teaching Details</a>
+                            <a href="profile_description.html" class="dropdown-item">Profile Description</a>
+                            <a href="phone.html" class="dropdown-item">Phone</a>
+                            <a href="courses.html" class="dropdown-item">Courses</a>
+                            <a href="view_profile.html" class="dropdown-item">View Profile</a>
+                            <a href="show_contact_setting.html" class="dropdown-item">Show Contact Setting</a>
+                        </div>
+                    </div>
+
+                    <img src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                        class="w-9 h-9 rounded-full">
+                </nav>
+
+                <!-- Mobile Button -->
+                <button id="menuBtn" class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-4">
+            <a href="index.html" class="mobile-link">Dashboard</a>
+            <button id="mobileEditBtn" class="mobile-link flex justify-between w-full">
+                Edit Profile <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="mobileEditMenu" class="hidden pl-3">
+                <a href="basic_details.html" class="mobile-sub">Personal Details</a>
+                <a href="photo.html" class="mobile-sub">Photo</a>
+                <a href="introduction_video.html" class="mobile-sub">Introduction Video</a>
+                <a href="subjects.html" class="mobile-sub">Subjects</a>
+                <a href="address.html" class="mobile-sub">Address</a>
+                <a href="education.html" class="mobile-sub">Education</a>
+                <a href="experience.html" class="mobile-sub">Experience</a>
+                <a href="teaching_details.html" class="mobile-sub">Teaching Details</a>
+                <a href="profile_description.html" class="mobile-sub">Profile Description</a>
+                <a href="phone.html" class="mobile-sub">Phone</a>
+                <a href="courses.html" class="mobile-sub">Courses</a>
+                <a href="view_profile.html" class="mobile-sub">View Profile</a>
+                <a href="show_contact_setting.html" class="mobile-sub">Show Contact Setting</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= SEARCH HEADER ================= -->
+    <section class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+
+            <h1 class="text-2xl md:text-4xl text-center mb-6" id="pageTitle">
+                Cyber and Cloud Security tutors in Delhi
+            </h1>
+
+            <!-- Search -->
+            <div class="flex flex-col md:flex-row gap-3 justify-center mb-6">
+                <input id="subjectInput" value="Cyber and Cloud Security"
+                    class="border px-4 py-3 rounded w-full md:w-72">
+                <input id="locationInput" value="Delhi" class="border px-4 py-3 rounded w-full md:w-64">
+                <button id="searchBtn"
+                    class="bg-indigo-600 text-white px-6 py-3 rounded flex justify-center items-center gap-2">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="#" class="filter-link text-blue-500 font-medium" data-filter="all">All</a>
+                <a href="#" class="filter-link" data-filter="online">Online</a>
+                <a href="#" class="filter-link" data-filter="home">Home</a>
+                <a href="#" class="filter-link" data-filter="assignment">Assignment</a>
+
+                <div class="relative">
+                    <button id="levelDropdown" class="border px-4 py-2 rounded">
+                        Level <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="levelMenu" class="hidden absolute bg-white border rounded shadow mt-1 w-40 z-10">
+                        <a href="#" class="level-option block px-4 py-2" data-level="all">All</a>
+                        <a href="#" class="level-option block px-4 py-2" data-level="beginner">Beginner</a>
+                        <a href="#" class="level-option block px-4 py-2" data-level="intermediate">Intermediate</a>
+                        <a href="#" class="level-option block px-4 py-2" data-level="advanced">Advanced</a>
+                        <a href="#" class="level-option block px-4 py-2" data-level="expert">Expert</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+
+            <!-- Tutors -->
+            <div class="flex-1" id="tutorListings"></div>
+
+            <!-- Sidebar -->
+            <aside class="w-full md:w-64">
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h3 class="text-lg font-semibold mb-4">Locations</h3>
+                    <div id="locationLinks" class="space-y-2"></div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
+    
+        <!-- TOP COMPANIES + LOGO -->
+        <div class="mb-10">
+            <div class="flex justify-between items-center mb-5">
+                <p class="text-gray-300 font-semibold">
+                    Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                    to build in-demand career skills.
+                </p>
+    
+                <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                    class="h-10 object-contain">
+            </div>
+    
+            <!-- SINGLE LINE -->
+            <div class="border-t border-gray-700"></div>
+        </div>
+    
+        <!-- DESKTOP GRID -->
+        <div class="hidden lg:grid grid-cols-6 gap-10">
+    
+            <div>
+                <h3 class="font-semibold mb-3">In-demand Careers</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>All Career Accelerators</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Web Development</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Web Development</li>
+                    <li>JavaScript</li>
+                    <li>React JS</li>
+                    <li>Angular</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">IT Certifications</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Amazon AWS</li>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>Azure Fundamentals</li>
+                    <li>AWS Solutions Architect</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Leadership</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Leadership</li>
+                    <li>Management Skills</li>
+                    <li>Project Management</li>
+                    <li>Personal Productivity</li>
+                    <li>Emotional Intelligence</li>
+                </ul>
+            </div>
+    
+            <!-- 🆕 NEW SCHOOLING SECTION -->
+            <div>
+                <h3 class="font-semibold mb-3">Schooling</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </div>
+    
+        </div>
+    
+    
+        <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+        <div class="lg:hidden space-y-3">
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Cybersecurity Certification</li>
+                    <li>Project Management</li>
+                    <li>Cloud Certification</li>
+                    <li>Data Analytics</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Web Development</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Angular</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>AWS</li>
+                    <li>Azure</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </details>
+    
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Leadership</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Management Skills</li>
+                    <li>Productivity</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Schooling</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </details>
+        </div>
+    
+        <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+        <div
+            class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+    
+            <div class="flex gap-10 mb-6 lg:mb-0">
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">About</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Contact us</li>
+                    <li>Blog</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Discover</li>
+                    <li>Get the app</li>
+                    <li>Teach on Namate 24</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Legal & Accessibility</li>
+                    <li>Accessibility</li>
+                    <li>Privacy Policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+    
+            <div class="flex flex-col items-start gap-3">
+                <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png" class="h-8">
+                <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+
+        /* ================= DESKTOP EDIT PROFILE ================= */
+            const editBtn = document.getElementById("editBtn");
+            const editMenu = document.getElementById("editMenu");
+
+            editBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                editMenu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", () => {
+                editMenu.classList.add("hidden");
+            });
+
+
+            /* ================= MOBILE HAMBURGER ================= */
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+
+            /* ================= MOBILE EDIT PROFILE ================= */
+            const mobileEditBtn = document.getElementById("mobileEditBtn");
+            const mobileEditMenu = document.getElementById("mobileEditMenu");
+
+            mobileEditBtn.addEventListener("click", () => {
+                mobileEditMenu.classList.toggle("hidden");
+            });
+
+        
+        const tutorsData = [
+            {
+                name: "Deepak Garg",
+                subject: "Cyber and Cloud Security",
+                skills: ["Cybersecurity", "OSCP", "Ethical hacking", "CCNA Routing & Switching", "Network Security Analysis"],
+                bio: "I am Deepak Garg from India. I'm a passionate Cyber Security Researcher as well as an Ethical Hacker. Competent and skilled IT & Web Security Researcher. Apart from this, I have a passion and diligence for hacking, finding new bugs and vulnerabilities in Ethical India Delhi.",
+                expertise: "* Web-App Penetration...",
+                logo: "Ethical India",
+                location: "Rani Bagh",
+                price: "8,500 – 25,000/month",
+                experience: "7.0 yr.",
+                teaching: "7.0 yr.",
+                distance: "10 km",
+                city: "Delhi",
+                mode: "online",
+                level: "advanced"
+            },
+            {
+                name: "vikram bisht",
+                subject: "Cyber and Cloud Security",
+                skills: ["Cybersecurity", "OSCP", "Ethical hacking", "CCNA Routing & Switching", "Network Security Analysis"],
+                bio: "I am Deepak Garg from India. I'm a passionate Cyber Security Researcher as well as an Ethical Hacker. Competent and skilled IT & Web Security Researcher. Apart from this, I have a passion and diligence for hacking, finding new bugs and vulnerabilities in Ethical India Delhi.",
+                expertise: "* Web-App Penetration...",
+                logo: "Ethical India",
+                location: "Rani Bagh",
+                price: "8,500 – 25,000/month",
+                experience: "7.0 yr.",
+                teaching: "7.0 yr.",
+                distance: "10 km",
+                city: "Delhi",
+                mode: "offline",
+                level: "beginner"
+            },
+            {
+                name: "Priya Sharma",
+                subject: "Python Programming",
+                skills: ["Python", "Django", "Flask", "Data Science", "Machine Learning"],
+                bio: "I am Priya Sharma, a professional Python developer with 5 years of experience. I specialize in teaching Python from basics to advanced concepts including web development and data science.",
+                expertise: "* Full Stack Python Development\n* Data Analysis with Pandas\n* Machine Learning Fundamentals",
+                logo: "Code Academy",
+                location: "Rohini",
+                price: "5,000 – 15,000/month",
+                experience: "5.0 yr.",
+                teaching: "3.0 yr.",
+                distance: "8 km",
+                city: "Delhi",
+                mode: "home",
+                level: "intermediate"
+            },
+            {
+                name: "Rahul Verma",
+                subject: "Web Development",
+                skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
+                bio: "I am Rahul Verma, a full-stack web developer passionate about teaching modern web technologies. I have worked on numerous enterprise projects and love helping students build real-world applications.",
+                expertise: "* MERN Stack Development\n* Responsive Web Design\n* RESTful API Development",
+                logo: "WebPro",
+                location: "Dwarka",
+                price: "6,000 – 18,000/month",
+                experience: "6.0 yr.",
+                teaching: "4.0 yr.",
+                distance: "12 km",
+                city: "Delhi",
+                mode: "online",
+                level: "beginner"
+            },
+            {
+                name: "Anjali Gupta",
+                subject: "Data Science",
+                skills: ["Python", "R", "SQL", "Tableau", "Power BI", "Statistical Analysis"],
+                bio: "I am Anjali Gupta, a data scientist with expertise in analytics and visualization. I help students transition into data science careers through practical, project-based learning.",
+                expertise: "* Data Visualization\n* Statistical Modeling\n* Business Intelligence",
+                logo: "DataPro",
+                location: "Noida",
+                price: "10,000 – 30,000/month",
+                experience: "8.0 yr.",
+                teaching: "5.0 yr.",
+                distance: "15 km",
+                city: "Noida",
+                mode: "assignment",
+                level: "advanced"
+            },
+            {
+                name: "Amit Kumar",
+                subject: "Java Programming",
+                skills: ["Java", "Spring Boot", "Hibernate", "Microservices", "AWS"],
+                bio: "I am Amit Kumar, a senior Java developer specializing in enterprise application development. I teach Java from core concepts to advanced frameworks used in industry.",
+                expertise: "* Spring Framework\n* Microservices Architecture\n* Cloud Deployment",
+                logo: "Java Masters",
+                location: "Gurgaon",
+                price: "7,000 – 20,000/month",
+                experience: "9.0 yr.",
+                teaching: "6.0 yr.",
+                distance: "20 km",
+                city: "Gurgaon",
+                mode: "online",
+                level: "intermediate"
+            },
+            {
+                name: "Sneha Patel",
+                subject: "Digital Marketing",
+                skills: ["SEO", "Social Media Marketing", "Google Ads", "Content Marketing", "Analytics"],
+                bio: "I am Sneha Patel, a digital marketing expert helping businesses grow online. I teach practical digital marketing strategies that drive real results.",
+                expertise: "* Search Engine Optimization\n* Paid Advertising Campaigns\n* Social Media Strategy",
+                logo: "DigiGrowth",
+                location: "Saket",
+                price: "4,500 – 12,000/month",
+                experience: "4.0 yr.",
+                teaching: "3.0 yr.",
+                distance: "7 km",
+                city: "Delhi",
+                mode: "home",
+                level: "beginner"
+            },
+            {
+                name: "Vikram Singh",
+                subject: "Cloud Computing",
+                skills: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "DevOps"],
+                bio: "I am Vikram Singh, a cloud architect with extensive experience in AWS and Azure. I help students prepare for cloud certifications and real-world cloud projects.",
+                expertise: "* Cloud Architecture Design\n* Container Orchestration\n* CI/CD Pipeline Setup",
+                logo: "CloudPro",
+                location: "Connaught Place",
+                price: "12,000 – 35,000/month",
+                experience: "10.0 yr.",
+                teaching: "7.0 yr.",
+                distance: "5 km",
+                city: "Delhi",
+                mode: "online",
+                level: "expert"
+            },
+            {
+                name: "Neha Reddy",
+                subject: "Mobile App Development",
+                skills: ["React Native", "Flutter", "iOS", "Android", "Firebase"],
+                bio: "I am Neha Reddy, a mobile app developer passionate about building cross-platform applications. I teach students how to create professional mobile apps from scratch.",
+                expertise: "* Cross-Platform Development\n* Mobile UI/UX Design\n* App Store Deployment",
+                logo: "AppCraft",
+                location: "Lajpat Nagar",
+                price: "8,000 – 25,000/month",
+                experience: "5.5 yr.",
+                teaching: "4.0 yr.",
+                distance: "9 km",
+                city: "Delhi",
+                mode: "assignment",
+                level: "intermediate"
+            }
+        ];
+
+        let currentFilter = 'all';
+        let currentLevel = 'all';
+        let currentSubject = 'Cyber and Cloud Security';
+        let currentCity = 'Delhi';
+
+        function createTutorCard(tutor) {
+            return `
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-6 tutor-card" 
+                     data-location="${tutor.mode}" 
+                     data-level="${tutor.level}"
+                     data-subject="${tutor.subject.toLowerCase()}"
+                     data-city="${tutor.city.toLowerCase()}">
+                    <h2 class="text-2xl mb-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-600 hover:underline">${tutor.name}</a>
+                    </h2>
+
+                    <div class="flex flex-wrap gap-3 mb-4">
+                        ${tutor.skills.map(skill => `
+                            <span class="px-4 py-2 border border-gray-300 rounded text-gray-700 text-sm">${skill}</span>
+                        `).join('')}
+                    </div>
+
+                    <div class="flex gap-4 mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <svg viewBox="0 0 200 100" class="w-full h-full">
+                                    <text x="10" y="40" font-size="20" fill="#4a5568" font-weight="bold" font-style="italic">${tutor.logo.split(' ')[0]}</text>
+                                    <text x="10" y="70" font-size="20" fill="#4a5568" font-weight="bold" font-style="italic">${tutor.logo.split(' ')[1] || ''}</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <p class="text-gray-700 leading-relaxed">${tutor.bio}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-bold text-blue-800 mb-1">AREAS OF EXPERTISE:-</h3>
+                        <p class="text-gray-700 mt-2 whitespace-pre-line">${tutor.expertise}</p>
+                    </div>
+
+                    <div class="flex items-center gap-6 text-gray-700 text-sm pt-4 border-t border-gray-200">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-gray-600"></i>
+                            <span>${tutor.location}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-rupee-sign text-gray-600"></i>
+                            <span>${tutor.price}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-laptop text-gray-600"></i>
+                            <span>${tutor.experience}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-user-graduate text-gray-600"></i>
+                            <span>${tutor.teaching}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-car text-gray-600"></i>
+                            <span>${tutor.distance}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderTutors() {
+            const container = document.getElementById('tutorListings');
+            const filteredTutors = tutorsData.filter(tutor => {
+                const matchesMode = currentFilter === 'all' || tutor.mode === currentFilter;
+                const matchesLevel = currentLevel === 'all' || tutor.level === currentLevel;
+                const matchesSubject = tutor.subject.toLowerCase().includes(currentSubject.toLowerCase());
+                const matchesCity = tutor.city.toLowerCase().includes(currentCity.toLowerCase());
+                return matchesMode && matchesLevel && matchesSubject && matchesCity;
+            });
+
+            if (filteredTutors.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-lg shadow-sm p-12 text-center">
+                        <i class="fas fa-search text-gray-400 text-5xl mb-4"></i>
+                        <p class="text-gray-600 text-lg">No tutors found matching your criteria.</p>
+                        <p class="text-gray-500 text-sm mt-2">Try adjusting your filters or search terms.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = filteredTutors.map(tutor => createTutorCard(tutor)).join('');
+            }
+
+            updateLocationSidebar();
+        }
+
+        function updateLocationSidebar() {
+            const locationLinks = document.getElementById('locationLinks');
+            const modes = ['online', 'home', 'assignment'];
+
+            locationLinks.innerHTML = modes.map(mode => {
+                const count = tutorsData.filter(t =>
+                    t.mode === mode &&
+                    t.subject.toLowerCase().includes(currentSubject.toLowerCase()) &&
+                    t.city.toLowerCase().includes(currentCity.toLowerCase())
+                ).length;
+
+                if (count === 0) return '';
+
+                return `
+                    <a href="#" class="text-blue-500 hover:text-blue-600 hover:underline location-link capitalize" data-location="${mode}">
+                        ${mode} (${count})
+                    </a>
+                `;
+            }).join('');
+
+            // Reattach event listeners
+            document.querySelectorAll('.location-link').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const location = this.dataset.location;
+                    document.querySelector(`.filter-link[data-filter="${location}"]`).click();
+                });
+            });
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            currentSubject = document.getElementById('subjectInput').value;
+            currentCity = document.getElementById('locationInput').value;
+
+            // Update page title
+            document.getElementById('pageTitle').textContent = `${currentSubject} tutors in ${currentCity}`;
+
+            renderTutors();
+        });
+
+        // Enter key support for search
+        document.getElementById('subjectInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') document.getElementById('searchBtn').click();
+        });
+        document.getElementById('locationInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') document.getElementById('searchBtn').click();
+        });
+
+        // Level dropdown functionality
+        const levelDropdown = document.getElementById('levelDropdown');
+        const levelMenu = document.getElementById('levelMenu');
+
+        levelDropdown.addEventListener('click', function (e) {
+            e.stopPropagation();
+            levelMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function () {
+            levelMenu.classList.add('hidden');
+        });
+
+        document.querySelectorAll('.level-option').forEach(option => {
+            option.addEventListener('click', function (e) {
+                e.preventDefault();
+                currentLevel = this.dataset.level;
+                const levelText = currentLevel === 'all' ? 'Level' : currentLevel.charAt(0).toUpperCase() + currentLevel.slice(1);
+                levelDropdown.innerHTML = `${levelText} <i class="fas fa-chevron-down text-sm"></i>`;
+                levelMenu.classList.add('hidden');
+                renderTutors();
+            });
+        });
+
+        document.querySelectorAll('.filter-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelectorAll('.filter-link').forEach(l => {
+                    l.classList.remove('text-blue-500', 'font-medium');
+                    l.classList.add('text-gray-600');
+                });
+                this.classList.remove('text-gray-600');
+                this.classList.add('text-blue-500', 'font-medium');
+
+                currentFilter = this.dataset.filter;
+                renderTutors();
+            });
+        });
+
+        renderTutors();
+
+        
+    </script>
+    <script src="script.js"></script>
+
+    
+</body>
+
+</html>
