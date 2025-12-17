@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Profile </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .star-rating {
+            color: #fbbf24;
+        }
+
+        .star-rating .empty {
+            color: #d1d5db;
+        }
+
+        .review-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #10b981;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                        alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                    <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+                </div>
+    
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="text-gray-600 hover:text-pink-600 font-medium transition-colors">
+                        <i class="fas fa-home mr-2"></i>Dashboard
+                    </a>
+    
+                    <!-- Edit Profile Dropdown -->
+                    <div class="relative">
+                        <button id="editBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-user-edit"></i>
+                            Edit Profile
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="editMenu"
+                            class="hidden absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu">
+                            <a href="basic_details.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user text-sm w-5"></i>
+                                Personal Details
+                            </a>
+                            <a href="photo.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-camera text-sm w-5"></i>
+                                Photo
+                            </a>
+                            <a href="introduction_video.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-video text-sm w-5"></i>
+                                Introduction Video
+                            </a>
+                            <a href="subjects.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-book text-sm w-5"></i>
+                                Subjects
+                            </a>
+                            <a href="address.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-map-marker-alt text-sm w-5"></i>
+                                Address
+                            </a>
+                            <a href="education.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-graduation-cap text-sm w-5"></i>
+                                Education
+                            </a>
+                            <a href="experience.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-briefcase text-sm w-5"></i>
+                                Experience
+                            </a>
+                            <a href="teaching_details.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-chalkboard-teacher text-sm w-5"></i>
+                                Teaching Details
+                            </a>
+                            <a href="profile_description.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-file-alt text-sm w-5"></i>
+                                Profile Description
+                            </a>
+                            <a href="phone.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-phone text-sm w-5"></i>
+                                Phone
+                            </a>
+                            <a href="courses.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-certificate text-sm w-5"></i>
+                                Courses
+                            </a>
+                            <a href="view_profile.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-eye text-sm w-5"></i>
+                                View Profile
+                            </a>
+                            <a href="show_contact_setting.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-cog text-sm w-5"></i>
+                                Contact Settings
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Profile -->
+                    <div class="relative">
+                        <img id="profileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            alt="Profile"
+                            class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500 transition-all">
+    
+                        <div id="profileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                            <a href="login.html"
+                                class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                                Sign in / Sign up
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Mobile Profile + Hamburger -->
+                <div class="flex items-center gap-3 md:hidden">
+    
+                    <!-- Mobile Profile -->
+                    <div class="relative">
+                        <img id="mobileProfileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500">
+    
+                        <div id="mobileProfileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border z-50">
+                            <a href="login.html" class="block text-center bg-pink-500 text-white py-2 rounded-lg">
+                                Sign in / Sign up
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Hamburger -->
+                    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
+    
+            </div>
+        </div>
+    
+    
+        </div>
+        </div>
+    
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-3">
+                <a href="index.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors mb-2">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+    
+                <button id="mobileEditBtn"
+                    class="flex items-center justify-between w-full px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-user-edit"></i>
+                        Edit Profile
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+    
+                <div id="mobileEditMenu" class="hidden pl-10 mt-2 space-y-1">
+                    <a href="basic_details.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Personal Details
+                    </a>
+                    <a href="photo.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Photo
+                    </a>
+                    <a href="introduction_video.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Introduction Video
+                    </a>
+                    <a href="subjects.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Subjects
+                    </a>
+                    <a href="address.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Address
+                    </a>
+                    <a href="education.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Education
+                    </a>
+                    <a href="experience.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Experience
+                    </a>
+                    <a href="teaching_details.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Teaching Details
+                    </a>
+                    <a href="profile_description.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Profile Description
+                    </a>
+                    <a href="phone.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Phone
+                    </a>
+                    <a href="courses.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Courses
+                    </a>
+                    <a href="view_profile.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        View Profile
+                    </a>
+                    <a href="show_contact_setting.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Contact Settings
+                    </a>
+                </div>
+    
+            </div>
+        </div>
+    </header>
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-normal text-gray-700 mb-2">
+                <span id="teacherName">Shoeb Alam</span>
+                <span class="text-gray-500 font-light ml-2" id="teachingLabel">Teaching</span>
+            </h1>
+            <div class="flex items-center justify-center text-gray-500 text-lg">
+                <i class="fas fa-star mr-2 text-yellow-400"></i>
+                <span id="reviewStatus">4.8 (24 reviews)</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column - Teaching Overview -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Teaching Overview Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Teaching Overview</h2>
+
+                    <p class="text-gray-600 mb-6 leading-relaxed" id="teachingOverview">
+                        I deliver practical, industry-focused cybersecurity training that emphasizes real-world threats,
+                        hands-on learning, and critical thinking. My teaching approach blends theory with guided labs,
+                        simulations, and case studies to prepare learners for cybersecurity roles and modern security
+                        challenges.
+                    </p>
+
+                    <div class="space-y-4" id="competenciesSection">
+                        <h3 class="font-semibold text-gray-700">Core Teaching Competencies</h3>
+                        <h4 class="font-medium text-gray-700">Network & System Security</h4>
+
+                        <p class="text-gray-600 pl-4">
+                            Fundamentals of network defense, firewalls, IDS/IPS, and secure configurations
+                        </p>
+
+                        <p class="text-gray-600 pl-4">
+                            Windows/Linux hardening and basic SOC monitoring practices
+                        </p>
+
+                        <h4 class="font-medium text-gray-700 mt-4">Ethical Hacking & Pen Testing</h4>
+
+                        <p class="text-gray-600 pl-4">
+                            Penetration testing methodology: reconnaissance → exploitation → reporting
+                        </p>
+
+                        <p class="text-gray-600 pl-4">
+                            Tools used: Kali Linux, Nmap, Metasploit, Burp Suite, Wireshark
+                        </p>
+
+                        <h4 class="font-medium text-gray-700 mt-4">Threat Analysis & Incident Response</h4>
+
+                        <p class="text-gray-600 pl-4">
+                            Log analysis, malware behavior, phishing detection, risk assessment
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Added Subjects Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-teal-600 mb-4 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3"></i>
+                        Subjects
+                    </h2>
+                    <div class="space-y-3 text-gray-600" id="subjectsList">
+                        <p class="hover:text-teal-600 cursor-pointer transition-colors">Math (11th)</p>
+                        <p class="hover:text-teal-600 cursor-pointer transition-colors">Maths (+1)</p>
+                    </div>
+                </div>
+
+                <!-- Added Experience Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-4 flex items-center">
+                        <i class="fas fa-briefcase mr-3"></i>
+                        Experience
+                    </h2>
+                    <p class="text-gray-600" id="experienceText">No experience mentioned.</p>
+                </div>
+
+                <!-- Added Education Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-teal-600 mb-4 flex items-center">
+                        <i class="fas fa-user-graduate mr-3"></i>
+                        Education
+                    </h2>
+                    <p class="text-gray-600" id="educationText">
+                        <strong>MCA</strong> (Aug, 2011—Jul, 2014) from Aligarh Muslim University, Aligarh 202002
+                    </p>
+                </div>
+
+                <!-- Added Fee Details Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-4 flex items-center">
+                        <i class="fas fa-wallet mr-3"></i>
+                        Fee details
+                    </h2>
+                    <p class="text-gray-600" id="feeText">
+                        ₹500—2,000/hour (US$5.51—22.04/hour)
+                    </p>
+                </div>
+
+                <!-- Enhanced Reviews Section -->
+                <div class="bg-white rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-teal-600 mb-4 flex items-center">
+                        <i class="fas fa-thumbs-up mr-3"></i>
+                        Student Reviews
+                    </h2>
+
+                    <!-- Overall Rating Summary -->
+                    <div class="mb-8 p-4 bg-gray-50 rounded-lg">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between">
+                            <div class="mb-4 md:mb-0">
+                                <div class="flex items-center mb-2">
+                                    <div class="text-4xl font-bold text-gray-800 mr-3">4.8</div>
+                                    <div class="star-rating text-2xl">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="text-gray-600">Based on 24 reviews</div>
+                            </div>
+
+                            <!-- Rating Breakdown -->
+                            <div class="w-full md:w-1/2">
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <span class="text-sm text-gray-600 w-12">5 stars</span>
+                                        <div class="progress-bar flex-1 mx-3">
+                                            <div class="progress-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600 w-10">18</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="text-sm text-gray-600 w-12">4 stars</span>
+                                        <div class="progress-bar flex-1 mx-3">
+                                            <div class="progress-fill" style="width: 15%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600 w-10">4</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="text-sm text-gray-600 w-12">3 stars</span>
+                                        <div class="progress-bar flex-1 mx-3">
+                                            <div class="progress-fill" style="width: 8%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600 w-10">2</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="text-sm text-gray-600 w-12">2 stars</span>
+                                        <div class="progress-bar flex-1 mx-3">
+                                            <div class="progress-fill" style="width: 2%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600 w-10">0</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="text-sm text-gray-600 w-12">1 star</span>
+                                        <div class="progress-bar flex-1 mx-3">
+                                            <div class="progress-fill" style="width: 0%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600 w-10">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Filter -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <button
+                            class="px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-medium hover:bg-teal-200 active-filter">
+                            All Reviews
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                            5 Stars
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                            4 Stars
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                            3 Stars
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                            With Comments
+                        </button>
+                    </div>
+
+                    <!-- Reviews List -->
+                    <div id="reviewsList" class="space-y-6">
+                        <!-- Review 1 -->
+                        <div class="review-card bg-gray-50 rounded-lg p-5">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg mr-4">
+                                        RK
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Rohit Kumar</h4>
+                                        <div class="flex items-center">
+                                            <div class="star-rating mr-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500">2 weeks ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full">Math
+                                    Tutoring</span>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Excellent teacher! Shoeb sir made complex cybersecurity concepts easy to understand. His
+                                practical approach with real-world examples helped me secure my first job in the field.
+                                Highly recommended!
+                            </p>
+                            <div class="text-sm text-gray-500 flex items-center">
+                                <i class="far fa-thumbs-up mr-2"></i> 12 people found this helpful
+                            </div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="review-card bg-gray-50 rounded-lg p-5">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold text-lg mr-4">
+                                        SP
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Sarah Patel</h4>
+                                        <div class="flex items-center">
+                                            <div class="star-rating mr-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500">1 month ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Network
+                                    Security</span>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Great teaching methodology. The hands-on labs were particularly helpful. Shoeb is
+                                patient and explains concepts thoroughly. Would definitely take another course with him.
+                            </p>
+                            <div class="text-sm text-gray-500 flex items-center">
+                                <i class="far fa-thumbs-up mr-2"></i> 8 people found this helpful
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="review-card bg-gray-50 rounded-lg p-5">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-lg mr-4">
+                                        AM
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Amit Mehta</h4>
+                                        <div class="flex items-center">
+                                            <div class="star-rating mr-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star empty"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500">2 months ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Ethical
+                                    Hacking</span>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Good foundation course. The material was up-to-date and relevant. Would have liked more
+                                advanced topics, but overall a solid learning experience.
+                            </p>
+                            <div class="text-sm text-gray-500 flex items-center">
+                                <i class="far fa-thumbs-up mr-2"></i> 5 people found this helpful
+                            </div>
+                        </div>
+
+                        <!-- Review 4 -->
+                        <div class="review-card bg-gray-50 rounded-lg p-5">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg mr-4">
+                                        PP
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Priya Sharma</h4>
+                                        <div class="flex items-center">
+                                            <div class="star-rating mr-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span class="text-sm text-gray-500">3 months ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Career
+                                    Transition</span>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Absolutely brilliant! Shoeb helped me transition from a different career into
+                                cybersecurity. His guidance on certifications and job preparation was invaluable. Thank
+                                you!
+                            </p>
+                            <div class="text-sm text-gray-500 flex items-center">
+                                <i class="far fa-thumbs-up mr-2"></i> 15 people found this helpful
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Write Review Button -->
+                    <div class="mt-8 text-center">
+                        <button id="writeReviewBtn"
+                            class="px-8 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-medium rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                            <i class="fas fa-pen mr-2"></i>Write a Review
+                        </button>
+                        <p class="text-gray-500 text-sm mt-3">
+                            Share your experience with this teacher
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Profile Photo and Details -->
+            <div class="lg:col-span-1">
+                <!-- Profile Photo Upload -->
+                <div class="bg-white rounded-lg p-6 mb-6 flex flex-col items-center">
+                    <div class="relative w-56 h-56 mb-4">
+                        <div
+                            class="w-full h-full bg-gray-500 rounded-full flex items-end justify-center overflow-hidden">
+                            <img id="profileImage" src="/placeholder.svg" alt="Profile"
+                                class="w-full h-full object-cover hidden">
+                            <i class="fas fa-user text-gray-400 text-9xl mb-4" id="defaultAvatar"></i>
+                        </div>
+                        <!-- Upload buttons on sides -->
+                        <button
+                            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-red-500 hover:bg-red-600 text-white px-2 py-8 rounded text-xs font-medium"
+                            onclick="document.getElementById('photoInput').click()">
+
+                        </button>
+                        <button
+                            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-red-500 hover:bg-red-600 text-white px-2 py-8 rounded text-xs font-medium"
+                            onclick="document.getElementById('photoInput').click()">
+
+                        </button>
+                    </div>
+                    <button class="text-white bg-gray-600 px-6 py-2 rounded text-sm hover:bg-gray-700"
+                        onclick="document.getElementById('photoInput').click()">
+                        Upload your photo
+                    </button>
+                    <input type="file" id="photoInput" class="hidden" accept="image/*"
+                        onchange="handlePhotoUpload(event)">
+                </div>
+
+                <!-- Action Buttons and Details Card -->
+                <div class="bg-gray-100 rounded-lg p-6">
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="far fa-envelope mr-2"></i>Message
+                        </button>
+                        <button
+                            class="bg-blue-500 hover:bg-blue-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="fas fa-phone mr-2"></i>Phone
+                        </button>
+                        <button
+                            class="bg-purple-500 hover:bg-purple-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="far fa-credit-card mr-2"></i>Pay
+                        </button>
+                        <button
+                            class="bg-orange-500 hover:bg-orange-600 text-white py-2.5 px-4 rounded text-sm font-medium flex items-center justify-center">
+                            <i class="far fa-star mr-2"></i>Review
+                        </button>
+                    </div>
+
+                    <!-- Teacher Details -->
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-600 w-5 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3" id="address">Abul Fazal Enclave, Jamia Nagar, Okhla, New
+                                Delhi, Delhi 110025, India</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-car text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Can travel:</span> <span
+                                    id="travelDistance">3.11 mi (5.0 km)</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-power-off text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Last login:</span> <span
+                                    id="lastLogin">3 secs ago</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-user-plus text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Registered:</span> <span
+                                    id="registered">Nov 27</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-chalkboard-teacher text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Total Teaching exp:</span>
+                                <span id="totalExp">2.0 yrs.</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-wifi text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Teaches online:</span> <span
+                                    id="teachesOnline">Yes</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-wifi text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Online Teaching exp:</span>
+                                <span id="onlineExp">1.0 yrs.</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-home text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Teaches at student's
+                                    home:</span> <span id="homeTeaching">Yes</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-book text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Homework Help:</span> <span
+                                    id="homeworkHelp">Yes</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-venus-mars text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Gender:</span> <span
+                                    id="gender">Male</span></span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-gray-600 w-5 flex-shrink-0"></i>
+                            <span class="text-gray-700 ml-3"><span class="font-semibold">Works as:</span> <span
+                                    id="worksAs">Individual teacher</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-semibold text-gray-800">Write a Review</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+
+            <div class="p-6">
+                <form id="reviewForm">
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-3">Overall Rating</label>
+                        <div class="flex items-center space-x-1 mb-2" id="starRating">
+                            <i class="far fa-star text-3xl cursor-pointer text-gray-300 hover:text-yellow-400"
+                                data-rating="1"></i>
+                            <i class="far fa-star text-3xl cursor-pointer text-gray-300 hover:text-yellow-400"
+                                data-rating="2"></i>
+                            <i class="far fa-star text-3xl cursor-pointer text-gray-300 hover:text-yellow-400"
+                                data-rating="3"></i>
+                            <i class="far fa-star text-3xl cursor-pointer text-gray-300 hover:text-yellow-400"
+                                data-rating="4"></i>
+                            <i class="far fa-star text-3xl cursor-pointer text-gray-300 hover:text-yellow-400"
+                                data-rating="5"></i>
+                        </div>
+                        <div class="text-sm text-gray-600" id="ratingText">Click to rate</div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="reviewTitle">Review Title</label>
+                        <input type="text" id="reviewTitle"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                            placeholder="Summarize your experience">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="reviewText">Detailed Review</label>
+                        <textarea id="reviewText" rows="5"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                            placeholder="Share details of your experience with this teacher..."></textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">What did you learn?</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="topics" value="Cybersecurity" class="mr-2">
+                                <span>Cybersecurity</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="topics" value="Network Security" class="mr-2">
+                                <span>Network Security</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="topics" value="Ethical Hacking" class="mr-2">
+                                <span>Ethical Hacking</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="topics" value="Math" class="mr-2">
+                                <span>Math</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="topics" value="Programming" class="mr-2">
+                                <span>Programming</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="reviewerName">Your Name</label>
+                        <input type="text" id="reviewerName"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                            placeholder="Optional">
+                    </div>
+
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" id="cancelReview"
+                            class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                            Cancel
+                        </button>
+                        <button type="submit"
+                            class="px-6 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-lg hover:from-teal-600 hover:to-teal-700 font-medium">
+                            Submit Review
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
+
+        <!-- TOP COMPANIES + LOGO -->
+        <div class="mb-10">
+            <div class="flex justify-between items-center mb-5">
+                <p class="text-gray-300 font-semibold">
+                    Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                    to build in-demand career skills.
+                </p>
+
+                <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                    class="h-10 object-contain">
+            </div>
+
+            <!-- SINGLE LINE -->
+            <div class="border-t border-gray-700"></div>
+        </div>
+
+        <!-- DESKTOP GRID -->
+        <div class="hidden lg:grid grid-cols-6 gap-10">
+
+            <div>
+                <h3 class="font-semibold mb-3">In-demand Careers</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>All Career Accelerators</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-3">Web Development</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Web Development</li>
+                    <li>JavaScript</li>
+                    <li>React JS</li>
+                    <li>Angular</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-3">IT Certifications</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Amazon AWS</li>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>Azure Fundamentals</li>
+                    <li>AWS Solutions Architect</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-3">Leadership</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Leadership</li>
+                    <li>Management Skills</li>
+                    <li>Project Management</li>
+                    <li>Personal Productivity</li>
+                    <li>Emotional Intelligence</li>
+                </ul>
+            </div>
+
+            <!-- 🆕 NEW SCHOOLING SECTION -->
+            <div>
+                <h3 class="font-semibold mb-3">Schooling</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+        <div class="lg:hidden space-y-3">
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                </ul>
+            </details>
+
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Cybersecurity Certification</li>
+                    <li>Project Management</li>
+                    <li>Cloud Certification</li>
+                    <li>Data Analytics</li>
+                </ul>
+            </details>
+
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Web Development</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Angular</li>
+                </ul>
+            </details>
+
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>AWS</li>
+                    <li>Azure</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </details>
+
+
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Leadership</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Management Skills</li>
+                    <li>Productivity</li>
+                </ul>
+            </details>
+
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Schooling</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </details>
+        </div>
+
+        <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+        <div
+            class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+
+            <div class="flex gap-10 mb-6 lg:mb-0">
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">About</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Contact us</li>
+                    <li>Blog</li>
+                </ul>
+
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Discover</li>
+                    <li>Get the app</li>
+                    <li>Teach on Namate 24</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                </ul>
+
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Legal & Accessibility</li>
+                    <li>Accessibility</li>
+                    <li>Privacy Policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col items-start gap-3">
+                <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png"
+                    class="h-8">
+                <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+            // PROFILE DROPDOWN
+                const profileBtn = document.getElementById("profileBtn");
+                const profileMenu = document.getElementById("profileMenu");
+
+                profileBtn.addEventListener("click", () => {
+                    profileMenu.classList.toggle("hidden");
+                });
+
+                // Close profile dropdown when clicking outside
+                document.addEventListener("click", (e) => {
+                    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                        profileMenu.classList.add("hidden");
+                    }
+                });
+                // Mobile profile dropdown
+                    document.getElementById("mobileProfileBtn").onclick = (e) => {
+                        e.stopPropagation();
+                        document.getElementById("mobileProfileMenu").classList.toggle("hidden");
+                    };
+
+                    document.addEventListener("click", () => {
+                        document.getElementById("mobileProfileMenu").classList.add("hidden");
+                    });
+
+
+        /* ================= DESKTOP EDIT PROFILE ================= */
+            const editBtn = document.getElementById("editBtn");
+            const editMenu = document.getElementById("editMenu");
+
+            editBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                editMenu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", () => {
+                editMenu.classList.add("hidden");
+            });
+
+
+            /* ================= MOBILE HAMBURGER ================= */
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+
+            /* ================= MOBILE EDIT PROFILE ================= */
+            const mobileEditBtn = document.getElementById("mobileEditBtn");
+            const mobileEditMenu = document.getElementById("mobileEditMenu");
+
+            mobileEditBtn.addEventListener("click", () => {
+                mobileEditMenu.classList.toggle("hidden");
+            });
+        // Photo upload handler
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                    document.getElementById('profileImage').classList.remove('hidden');
+                    document.getElementById('defaultAvatar').classList.add('hidden');
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Function to populate teacher data 
+        function populateTeacherData(data) {
+            // Header
+            if (data.name) document.getElementById('teacherName').textContent = data.name;
+            if (data.teachingLabel) document.getElementById('teachingLabel').textContent = data.teachingLabel;
+            if (data.reviewStatus) document.getElementById('reviewStatus').textContent = data.reviewStatus;
+
+            // Teaching Overview
+            if (data.overview) document.getElementById('teachingOverview').textContent = data.overview;
+
+            // Details
+            if (data.address) document.getElementById('address').textContent = data.address;
+            if (data.travelDistance) document.getElementById('travelDistance').textContent = data.travelDistance;
+            if (data.lastLogin) document.getElementById('lastLogin').textContent = data.lastLogin;
+            if (data.registered) document.getElementById('registered').textContent = data.registered;
+            if (data.totalExp) document.getElementById('totalExp').textContent = data.totalExp;
+            if (data.teachesOnline) document.getElementById('teachesOnline').textContent = data.teachesOnline;
+            if (data.onlineExp) document.getElementById('onlineExp').textContent = data.onlineExp;
+            if (data.homeTeaching) document.getElementById('homeTeaching').textContent = data.homeTeaching;
+            if (data.homeworkHelp) document.getElementById('homeworkHelp').textContent = data.homeworkHelp;
+            if (data.gender) document.getElementById('gender').textContent = data.gender;
+            if (data.worksAs) document.getElementById('worksAs').textContent = data.worksAs;
+
+            // Profile Photo
+            if (data.photoUrl) {
+                document.getElementById('profileImage').src = data.photoUrl;
+                document.getElementById('profileImage').classList.remove('hidden');
+                document.getElementById('defaultAvatar').classList.add('hidden');
+            }
+
+            // Subjects
+            if (data.subjects && data.subjects.length > 0) {
+                const subjectsList = document.getElementById('subjectsList');
+                subjectsList.innerHTML = data.subjects.map(subject =>
+                    `<p class="hover:text-teal-600 cursor-pointer transition-colors">${subject}</p>`
+                ).join('');
+            }
+
+            // Experience
+            if (data.experience) {
+                document.getElementById('experienceText').textContent = data.experience;
+            }
+
+            // Education
+            if (data.education) {
+                document.getElementById('educationText').innerHTML = data.education;
+            }
+
+            // Fee Details
+            if (data.feeDetails) {
+                document.getElementById('feeText').textContent = data.feeDetails;
+            }
+        }
+
+        // Review System Functionality
+        let currentRating = 0;
+
+        // Star rating system
+        const stars = document.querySelectorAll('#starRating i');
+        const ratingText = document.getElementById('ratingText');
+
+        stars.forEach(star => {
+            star.addEventListener('mouseover', function () {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                highlightStars(rating);
+                updateRatingText(rating);
+            });
+
+            star.addEventListener('click', function () {
+                currentRating = parseInt(this.getAttribute('data-rating'));
+                highlightStars(currentRating);
+                updateRatingText(currentRating);
+                stars.forEach(s => s.classList.remove('hover:text-yellow-400'));
+            });
+        });
+
+        function highlightStars(rating) {
+            stars.forEach(star => {
+                const starRating = parseInt(star.getAttribute('data-rating'));
+                if (starRating <= rating) {
+                    star.classList.remove('far');
+                    star.classList.add('fas', 'text-yellow-400');
+                } else {
+                    star.classList.remove('fas', 'text-yellow-400');
+                    star.classList.add('far', 'text-gray-300');
+                }
+            });
+        }
+
+        function updateRatingText(rating) {
+            const texts = [
+                "Click to rate",
+                "Poor",
+                "Fair",
+                "Good",
+                "Very Good",
+                "Excellent"
+            ];
+            ratingText.textContent = texts[rating] || "Click to rate";
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('reviewModal');
+        const writeReviewBtn = document.getElementById('writeReviewBtn');
+        const closeModalBtn = document.getElementById('closeModal');
+        const cancelReviewBtn = document.getElementById('cancelReview');
+        const reviewForm = document.getElementById('reviewForm');
+
+        writeReviewBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            reviewForm.reset();
+            currentRating = 0;
+            highlightStars(0);
+            updateRatingText(0);
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        cancelReviewBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Handle form submission
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (currentRating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+
+            const title = document.getElementById('reviewTitle').value;
+            const text = document.getElementById('reviewText').value;
+            const name = document.getElementById('reviewerName').value || 'Anonymous';
+
+            // Create new review element
+            const reviewsList = document.getElementById('reviewsList');
+            const newReview = document.createElement('div');
+            newReview.className = 'review-card bg-gray-50 rounded-lg p-5';
+
+            const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+            const colors = ['blue', 'pink', 'green', 'indigo', 'yellow', 'purple'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            // Generate stars HTML
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= currentRating) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                } else if (i === Math.ceil(currentRating) && currentRating % 1 !== 0) {
+                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    starsHtml += '<i class="far fa-star empty"></i>';
+                }
+            }
+
+            newReview.innerHTML = `
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-${color}-100 flex items-center justify-center text-${color}-600 font-bold text-lg mr-4">
+                            ${initials}
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">${name}</h4>
+                            <div class="flex items-center">
+                                <div class="star-rating mr-2">
+                                    ${starsHtml}
+                                </div>
+                                <span class="text-sm text-gray-500">Just now</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-xs bg-${color}-100 text-${color}-800 px-3 py-1 rounded-full">New Review</span>
+                </div>
+                <p class="text-gray-700 mb-4">
+                    ${text}
+                </p>
+                <div class="text-sm text-gray-500 flex items-center">
+                    <i class="far fa-thumbs-up mr-2"></i> 0 people found this helpful
+                </div>
+            `;
+
+            // Add new review at the top
+            reviewsList.insertBefore(newReview, reviewsList.firstChild);
+
+            // Update overall rating
+            const overallRating = document.querySelector('#reviewStatus');
+            const currentOverall = 4.8;
+            const currentCount = 24;
+            const newCount = currentCount + 1;
+            const newOverall = ((currentOverall * currentCount) + currentRating) / newCount;
+
+            document.querySelector('#reviewStatus').textContent = `${newOverall.toFixed(1)} (${newCount} reviews)`;
+
+            // Show success message
+            alert('Thank you for your review!');
+
+            closeModal();
+        });
+
+        // Filter buttons functionality
+        const filterButtons = document.querySelectorAll('.flex-wrap button');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active-filter', 'bg-teal-100', 'text-teal-700');
+                    btn.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                this.classList.add('active-filter', 'bg-teal-100', 'text-teal-700');
+                this.classList.remove('bg-gray-100', 'text-gray-700');
+            });
+        });
+
+        // Populate initial data
+        populateTeacherData({
+            name: "John Doe",
+            teachingLabel: "Teaching",
+            reviewStatus: "4.8 (24 reviews)",
+            overview: "I deliver practical, industry-focused cybersecurity training that emphasizes real-world threats, hands-on learning, and critical thinking. My teaching approach blends theory with guided labs, simulations, and case studies to prepare learners for cybersecurity roles and modern security challenges.",
+            address: "New Delhi",
+            travelDistance: "3.11 mi (5.0 km)",
+            lastLogin: "3 secs ago",
+            registered: "Nov 27",
+            totalExp: "2.0 yrs.",
+            teachesOnline: "Yes",
+            onlineExp: "1.0 yrs.",
+            homeTeaching: "Yes",
+            homeworkHelp: "Yes",
+            gender: "Male",
+            worksAs: "Individual teacher",
+            subjects: ["Math (11th)", "Maths (+1)"],
+            experience: "No experience mentioned.",
+            education: "<strong>MCA</strong> (october, 2013—march, 2016) from albama",
+            feeDetails: "₹500—2,000/hour (US$5.51—22.04/hour)"
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

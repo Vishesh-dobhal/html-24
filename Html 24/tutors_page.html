@@ -4,177 +4,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber and Cloud Security tutors in Delhi</title>
+    <title>Cyber and Cloud Security tutors in Delhi - Namate 24</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
         }
 
-        .dropdown-item {
-            display: block;
-            padding: 10px 16px;
-            font-size: 14px;
-            color: #374151;
-            transition: 0.2s;
+        .tutor-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
         }
 
-        .dropdown-item:hover {
-            background: #fdf2f8;
-            color: #db2777;
+        .tutor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: #3b82f6;
         }
 
-        .mobile-link {
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+        .skill-tag {
+            transition: all 0.2s ease;
         }
 
-        .mobile-sub {
-            display: block;
-            padding: 8px 0;
-            font-size: 14px;
-            color: #4b5563;
+        .skill-tag:hover {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .dropdown-menu {
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .filter-pill {
+            transition: all 0.2s ease;
+        }
+
+        .filter-pill.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .location-card {
+            transition: all 0.2s ease;
+        }
+
+        .location-card:hover {
+            background-color: #f8fafc;
+            border-color: #3b82f6;
+        }
+
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
         }
     </style>
 </head>
 
 <body class="bg-white">
-
     <!-- ================= HEADER ================= -->
-    <header class="w-full bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4">
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
-
                 <!-- Logo -->
-                <div class="flex items-center gap-2">
-                    <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
-                        class="w-9 h-9">
-                    <span class="text-pink-600 font-bold text-lg">Namate 24</span>
-                </div>
+<div class="flex items-center gap-1">
+    <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png" alt="Namate 24 Logo"
+        class="w-10 h-10 object-contain">
+    <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+</div>
 
-                <!-- Desktop Nav -->
+                <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center gap-6">
-                    <a href="index.html" class="hover:text-pink-600">Dashboard</a>
+                    <a href="index.html" class="text-gray-600 hover:text-pink-600 font-medium transition-colors">
+                        <i class="fas fa-home mr-2"></i>Dashboard
+                    </a>
 
-                    <!-- Edit Profile -->
+                    <!-- Edit Profile Dropdown -->
                     <div class="relative">
-                        <button id="editBtn" class="flex gap-1 items-center">
-                            Edit Profile <i class="fas fa-chevron-down text-xs"></i>
+                        <button id="editBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-user-edit"></i>
+                            Edit Profile
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div id="editMenu"
-                            class="hidden absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-lg border py-2">
-                            <a href="basic_details.html" class="dropdown-item">Personal Details</a>
-                            <a href="photo.html" class="dropdown-item">Photo</a>
-                            <a href="introduction_video.html" class="dropdown-item">Introduction Video</a>
-                            <a href="subjects.html" class="dropdown-item">Subjects</a>
-                            <a href="address.html" class="dropdown-item">Address</a>
-                            <a href="education.html" class="dropdown-item">Education</a>
-                            <a href="experience.html" class="dropdown-item">Experience</a>
-                            <a href="teaching_details.html" class="dropdown-item">Teaching Details</a>
-                            <a href="profile_description.html" class="dropdown-item">Profile Description</a>
-                            <a href="phone.html" class="dropdown-item">Phone</a>
-                            <a href="courses.html" class="dropdown-item">Courses</a>
-                            <a href="view_profile.html" class="dropdown-item">View Profile</a>
-                            <a href="show_contact_setting.html" class="dropdown-item">Show Contact Setting</a>
+                            class="hidden absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu">
+                            <a href="basic_details.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user text-sm w-5"></i>
+                                Personal Details
+                            </a>
+                            <a href="photo.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-camera text-sm w-5"></i>
+                                Photo
+                            </a>
+                            <a href="introduction_video.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-video text-sm w-5"></i>
+                                Introduction Video
+                            </a>
+                            <a href="subjects.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-book text-sm w-5"></i>
+                                Subjects
+                            </a>
+                            <a href="address.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-map-marker-alt text-sm w-5"></i>
+                                Address
+                            </a>
+                            <a href="education.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-graduation-cap text-sm w-5"></i>
+                                Education
+                            </a>
+                            <a href="experience.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-briefcase text-sm w-5"></i>
+                                Experience
+                            </a>
+                            <a href="teaching_details.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-chalkboard-teacher text-sm w-5"></i>
+                                Teaching Details
+                            </a>
+                            <a href="profile_description.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-file-alt text-sm w-5"></i>
+                                Profile Description
+                            </a>
+                            <a href="phone.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-phone text-sm w-5"></i>
+                                Phone
+                            </a>
+                            <a href="courses.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-certificate text-sm w-5"></i>
+                                Courses
+                            </a>
+                            <a href="view_profile.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-eye text-sm w-5"></i>
+                                View Profile
+                            </a>
+                            <a href="show_contact_setting.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-cog text-sm w-5"></i>
+                                Contact Settings
+                            </a>
                         </div>
                     </div>
 
-                    <img src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
-                        class="w-9 h-9 rounded-full">
+                    <!-- Profile -->
+                    <div class="relative">
+                        <img id="profileBtn" src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            alt="Profile" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500 transition-all">
+                    
+                        <div id="profileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                            <a href="login.html"
+                                class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                                Sign in / Sign up
+                            </a>
+                        </div>
+                    </div>
                 </nav>
+                <!-- Mobile Profile + Hamburger -->
+                <div class="flex items-center gap-3 md:hidden">
+                
+                    <!-- Mobile Profile -->
+                    <div class="relative">
+                        <img id="mobileProfileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500">
+                
+                        <div id="mobileProfileMenu" class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border z-50">
+                            <a href="login.html" class="block text-center bg-pink-500 text-white py-2 rounded-lg">
+                                Sign in / Sign up
+                            </a>
+                        </div>
+                    </div>
+                
+                    <!-- Hamburger -->
+                    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
+                
+                </div>
+                </div>
 
-                <!-- Mobile Button -->
-                <button id="menuBtn" class="md:hidden">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+                
             </div>
         </div>
+        
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-4">
-            <a href="index.html" class="mobile-link">Dashboard</a>
-            <button id="mobileEditBtn" class="mobile-link flex justify-between w-full">
-                Edit Profile <i class="fas fa-chevron-down"></i>
-            </button>
-            <div id="mobileEditMenu" class="hidden pl-3">
-                <a href="basic_details.html" class="mobile-sub">Personal Details</a>
-                <a href="photo.html" class="mobile-sub">Photo</a>
-                <a href="introduction_video.html" class="mobile-sub">Introduction Video</a>
-                <a href="subjects.html" class="mobile-sub">Subjects</a>
-                <a href="address.html" class="mobile-sub">Address</a>
-                <a href="education.html" class="mobile-sub">Education</a>
-                <a href="experience.html" class="mobile-sub">Experience</a>
-                <a href="teaching_details.html" class="mobile-sub">Teaching Details</a>
-                <a href="profile_description.html" class="mobile-sub">Profile Description</a>
-                <a href="phone.html" class="mobile-sub">Phone</a>
-                <a href="courses.html" class="mobile-sub">Courses</a>
-                <a href="view_profile.html" class="mobile-sub">View Profile</a>
-                <a href="show_contact_setting.html" class="mobile-sub">Show Contact Setting</a>
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-3">
+                <a href="index.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors mb-2">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+
+                <button id="mobileEditBtn"
+                    class="flex items-center justify-between w-full px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-user-edit"></i>
+                        Edit Profile
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <div id="mobileEditMenu" class="hidden pl-10 mt-2 space-y-1">
+                    <a href="basic_details.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Personal Details
+                    </a>
+                    <a href="photo.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Photo
+                    </a>
+                    <a href="introduction_video.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Introduction Video
+                    </a>
+                    <a href="subjects.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Subjects
+                    </a>
+                    <a href="address.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Address
+                    </a>
+                    <a href="education.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Education
+                    </a>
+                    <a href="experience.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Experience
+                    </a>
+                    <a href="teaching_details.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Teaching Details
+                    </a>
+                    <a href="profile_description.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Profile Description
+                    </a>
+                    <a href="phone.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Phone
+                    </a>
+                    <a href="courses.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Courses
+                    </a>
+                    <a href="view_profile.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        View Profile
+                    </a>
+                    <a href="show_contact_setting.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Contact Settings
+                    </a>
+                </div>
+                
             </div>
         </div>
     </header>
 
     <!-- ================= SEARCH HEADER ================= -->
-    <section class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-6">
+    <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-8 md:py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-2xl md:text-4xl font-bold text-gray-900 text-center mb-6" id="pageTitle">
+                    Find Expert <span class="text-blue-600">Cyber and Cloud Security</span> Tutors in <span
+                        class="text-blue-600">Delhi</span>
+                </h1>
+                <p class="text-gray-600 text-center mb-8">
+                    Connect with certified professionals for personalized learning
+                </p>
 
-            <h1 class="text-2xl md:text-4xl text-center mb-6" id="pageTitle">
-                Cyber and Cloud Security tutors in Delhi
-            </h1>
+                <!-- Search Section -->
+                <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="relative">
+                            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <input id="subjectInput" value="Cyber and Cloud Security"
+                                class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent search-input"
+                                placeholder="What do you want to learn?">
+                        </div>
 
-            <!-- Search -->
-            <div class="flex flex-col md:flex-row gap-3 justify-center mb-6">
-                <input id="subjectInput" value="Cyber and Cloud Security"
-                    class="border px-4 py-3 rounded w-full md:w-72">
-                <input id="locationInput" value="Delhi" class="border px-4 py-3 rounded w-full md:w-64">
-                <button id="searchBtn"
-                    class="bg-indigo-600 text-white px-6 py-3 rounded flex justify-center items-center gap-2">
-                    <i class="fas fa-search"></i> Search
-                </button>
-            </div>
+                        <div class="relative">
+                            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <input id="locationInput" value="Delhi"
+                                class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent search-input"
+                                placeholder="Enter your location">
+                        </div>
 
-            <!-- Filters -->
-            <div class="flex flex-wrap justify-center gap-4 text-sm">
-                <a href="#" class="filter-link text-blue-500 font-medium" data-filter="all">All</a>
-                <a href="#" class="filter-link" data-filter="online">Online</a>
-                <a href="#" class="filter-link" data-filter="home">Home</a>
-                <a href="#" class="filter-link" data-filter="assignment">Assignment</a>
-
-                <div class="relative">
-                    <button id="levelDropdown" class="border px-4 py-2 rounded">
-                        Level <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="levelMenu" class="hidden absolute bg-white border rounded shadow mt-1 w-40 z-10">
-                        <a href="#" class="level-option block px-4 py-2" data-level="all">All</a>
-                        <a href="#" class="level-option block px-4 py-2" data-level="beginner">Beginner</a>
-                        <a href="#" class="level-option block px-4 py-2" data-level="intermediate">Intermediate</a>
-                        <a href="#" class="level-option block px-4 py-2" data-level="advanced">Advanced</a>
-                        <a href="#" class="level-option block px-4 py-2" data-level="expert">Expert</a>
+                        <button id="searchBtn"
+                            class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                            <i class="fas fa-search"></i>
+                            <span class="hidden sm:inline">Search Tutors</span>
+                            <span class="sm:hidden">Search</span>
+                        </button>
                     </div>
                 </div>
-            </div>
 
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-4">
+                    <button
+                        class="filter-pill active px-4 py-2 rounded-full border border-blue-500 text-blue-600 font-medium"
+                        data-filter="all">
+                        All Tutors
+                    </button>
+                    <button
+                        class="filter-pill px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600"
+                        data-filter="online">
+                        <i class="fas fa-laptop mr-2"></i>Online
+                    </button>
+                    <button
+                        class="filter-pill px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600"
+                        data-filter="home">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </button>
+                    <button
+                        class="filter-pill px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600"
+                        data-filter="assignment">
+                        <i class="fas fa-tasks mr-2"></i>Assignment
+                    </button>
+
+                    <!-- Level Dropdown -->
+                    <div class="relative inline-block">
+                        <button id="levelDropdown"
+                            class="filter-pill px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600 flex items-center gap-2">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Level</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="levelMenu"
+                            class="hidden absolute right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-200 min-w-[160px] z-10">
+                            <a href="#"
+                                class="level-option block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-0"
+                                data-level="all">
+                                <i class="fas fa-layer-group mr-2"></i>All Levels
+                            </a>
+                            <a href="#"
+                                class="level-option block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors border-b border-gray-100"
+                                data-level="beginner">
+                                <i class="fas fa-seedling mr-2"></i>Beginner
+                            </a>
+                            <a href="#"
+                                class="level-option block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors border-b border-gray-100"
+                                data-level="intermediate">
+                                <i class="fas fa-chart-bar mr-2"></i>Intermediate
+                            </a>
+                            <a href="#"
+                                class="level-option block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors border-b border-gray-100"
+                                data-level="advanced">
+                                <i class="fas fa-rocket mr-2"></i>Advanced
+                            </a>
+                            <a href="#"
+                                class="level-option block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                                data-level="expert">
+                                <i class="fas fa-crown mr-2"></i>Expert
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 text-sm text-center">
+                    Found <span id="tutorCount" class="font-semibold text-blue-600">8</span> tutors matching your
+                    criteria
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- ================= MAIN CONTENT ================= -->
-    <main class="max-w-7xl mx-auto px-4 py-8">
-        <div class="flex flex-col md:flex-row gap-8">
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Main Content - Tutors List -->
+            <div class="lg:w-3/4">
+                <div id="tutorListings" class="space-y-6">
+                    <!-- Tutors will be rendered here -->
+                </div>
 
-            <!-- Tutors -->
-            <div class="flex-1" id="tutorListings"></div>
+                <!-- No Results State -->
+                <div id="noResults" class="hidden bg-white rounded-xl shadow-sm p-12 text-center">
+                    <div
+                        class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-search text-gray-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">No tutors found</h3>
+                    <p class="text-gray-600 mb-4">Try adjusting your search filters or location</p>
+                    <button id="resetFilters"
+                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-redo mr-2"></i>Reset All Filters
+                    </button>
+                </div>
+            </div>
 
             <!-- Sidebar -->
-            <aside class="w-full md:w-64">
-                <div class="bg-white rounded-lg shadow-sm p-6">
-                    <h3 class="text-lg font-semibold mb-4">Locations</h3>
-                    <div id="locationLinks" class="space-y-2"></div>
+            <aside class="lg:w-1/4">
+                <!-- Locations Card -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6 sticky top-24">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-blue-600"></i>
+                        Teaching Locations
+                    </h3>
+                    <div id="locationLinks" class="space-y-3">
+                        <!-- Locations will be dynamically populated -->
+                    </div>
+
+                    <!-- Stats Card -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="text-sm font-semibold text-gray-900 mb-3">Quick Stats</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600 text-sm">Total Tutors</span>
+                                <span class="font-semibold text-blue-600" id="totalTutors">8</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600 text-sm">Average Experience</span>
+                                <span class="font-semibold text-blue-600">6.5 yrs</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600 text-sm">Response Rate</span>
+                                <span class="font-semibold text-blue-600">98%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="mt-8 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                        <h4 class="text-sm font-semibold text-gray-900 mb-2">Get Updates</h4>
+                        <p class="text-gray-600 text-xs mb-3">Get notified about new tutors</p>
+                        <div class="flex gap-2">
+                            <input type="email" placeholder="Your email"
+                                class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded">
+                            <button class="px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">
+                                <i class="fas fa-bell"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ad Banner -->
+                <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-6 text-white">
+                    <h4 class="font-semibold mb-2">Become a Tutor</h4>
+                    <p class="text-sm text-purple-100 mb-4">Share your knowledge and earn</p>
+                    <button
+                        class="w-full py-2 bg-white text-purple-600 rounded-lg font-medium hover:bg-purple-50 transition-colors">
+                        Apply Now
+                    </button>
                 </div>
             </aside>
-
         </div>
     </main>
 
@@ -362,50 +690,42 @@
     </footer>
 
 
-
-
-
     <script>
 
-        /* ================= DESKTOP EDIT PROFILE ================= */
-            const editBtn = document.getElementById("editBtn");
-            const editMenu = document.getElementById("editMenu");
+        // PROFILE DROPDOWN
+            const profileBtn = document.getElementById("profileBtn");
+            const profileMenu = document.getElementById("profileMenu");
 
-            editBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                editMenu.classList.toggle("hidden");
+            profileBtn.addEventListener("click", () => {
+                profileMenu.classList.toggle("hidden");
             });
 
-            document.addEventListener("click", () => {
-                editMenu.classList.add("hidden");
+            // Close profile dropdown when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                    profileMenu.classList.add("hidden");
+                }
             });
 
+             
 
-            /* ================= MOBILE HAMBURGER ================= */
-            const menuBtn = document.getElementById("menuBtn");
-            const mobileMenu = document.getElementById("mobileMenu");
+                // Mobile profile dropdown
+                document.getElementById("mobileProfileBtn").onclick = (e) => {
+                    e.stopPropagation();
+                    document.getElementById("mobileProfileMenu").classList.toggle("hidden");
+                };
 
-            menuBtn.addEventListener("click", () => {
-                mobileMenu.classList.toggle("hidden");
-            });
-
-
-            /* ================= MOBILE EDIT PROFILE ================= */
-            const mobileEditBtn = document.getElementById("mobileEditBtn");
-            const mobileEditMenu = document.getElementById("mobileEditMenu");
-
-            mobileEditBtn.addEventListener("click", () => {
-                mobileEditMenu.classList.toggle("hidden");
-            });
-
-        
+                document.addEventListener("click", () => {
+                    document.getElementById("mobileProfileMenu").classList.add("hidden");
+                });
+        // Data and initialization
         const tutorsData = [
             {
                 name: "Deepak Garg",
                 subject: "Cyber and Cloud Security",
                 skills: ["Cybersecurity", "OSCP", "Ethical hacking", "CCNA Routing & Switching", "Network Security Analysis"],
                 bio: "I am Deepak Garg from India. I'm a passionate Cyber Security Researcher as well as an Ethical Hacker. Competent and skilled IT & Web Security Researcher. Apart from this, I have a passion and diligence for hacking, finding new bugs and vulnerabilities in Ethical India Delhi.",
-                expertise: "* Web-App Penetration...",
+                expertise: "* Web-App Penetration Testing\n* Network Vulnerability Assessment\n* Cloud Security Architecture\n* Incident Response Planning",
                 logo: "Ethical India",
                 location: "Rani Bagh",
                 price: "8,500 – 25,000/month",
@@ -414,15 +734,17 @@
                 distance: "10 km",
                 city: "Delhi",
                 mode: "online",
-                level: "advanced"
+                level: "advanced",
+                rating: 4.8,
+                reviews: 42
             },
             {
-                name: "vikram bisht",
+                name: "Vikram Bisht",
                 subject: "Cyber and Cloud Security",
                 skills: ["Cybersecurity", "OSCP", "Ethical hacking", "CCNA Routing & Switching", "Network Security Analysis"],
-                bio: "I am Deepak Garg from India. I'm a passionate Cyber Security Researcher as well as an Ethical Hacker. Competent and skilled IT & Web Security Researcher. Apart from this, I have a passion and diligence for hacking, finding new bugs and vulnerabilities in Ethical India Delhi.",
-                expertise: "* Web-App Penetration...",
-                logo: "Ethical India",
+                bio: "Security professional with extensive experience in network security and cloud infrastructure protection. Focus on practical, hands-on learning.",
+                expertise: "* Network Security Protocols\n* Cloud Infrastructure Protection\n* Security Compliance\n* Risk Assessment",
+                logo: "SecureNet",
                 location: "Rani Bagh",
                 price: "8,500 – 25,000/month",
                 experience: "7.0 yr.",
@@ -430,13 +752,15 @@
                 distance: "10 km",
                 city: "Delhi",
                 mode: "offline",
-                level: "beginner"
+                level: "beginner",
+                rating: 4.5,
+                reviews: 28
             },
             {
                 name: "Priya Sharma",
                 subject: "Python Programming",
                 skills: ["Python", "Django", "Flask", "Data Science", "Machine Learning"],
-                bio: "I am Priya Sharma, a professional Python developer with 5 years of experience. I specialize in teaching Python from basics to advanced concepts including web development and data science.",
+                bio: "I am Priya Sharma, a professional Python developer with 5 years of experience. I specialize in teaching Python from basics to advanced concepts.",
                 expertise: "* Full Stack Python Development\n* Data Analysis with Pandas\n* Machine Learning Fundamentals",
                 logo: "Code Academy",
                 location: "Rohini",
@@ -446,13 +770,15 @@
                 distance: "8 km",
                 city: "Delhi",
                 mode: "home",
-                level: "intermediate"
+                level: "intermediate",
+                rating: 4.9,
+                reviews: 56
             },
             {
                 name: "Rahul Verma",
                 subject: "Web Development",
                 skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
-                bio: "I am Rahul Verma, a full-stack web developer passionate about teaching modern web technologies. I have worked on numerous enterprise projects and love helping students build real-world applications.",
+                bio: "Full-stack web developer passionate about teaching modern web technologies. I have worked on numerous enterprise projects.",
                 expertise: "* MERN Stack Development\n* Responsive Web Design\n* RESTful API Development",
                 logo: "WebPro",
                 location: "Dwarka",
@@ -462,13 +788,15 @@
                 distance: "12 km",
                 city: "Delhi",
                 mode: "online",
-                level: "beginner"
+                level: "beginner",
+                rating: 4.7,
+                reviews: 34
             },
             {
                 name: "Anjali Gupta",
                 subject: "Data Science",
                 skills: ["Python", "R", "SQL", "Tableau", "Power BI", "Statistical Analysis"],
-                bio: "I am Anjali Gupta, a data scientist with expertise in analytics and visualization. I help students transition into data science careers through practical, project-based learning.",
+                bio: "Data scientist with expertise in analytics and visualization. I help students transition into data science careers through project-based learning.",
                 expertise: "* Data Visualization\n* Statistical Modeling\n* Business Intelligence",
                 logo: "DataPro",
                 location: "Noida",
@@ -478,13 +806,15 @@
                 distance: "15 km",
                 city: "Noida",
                 mode: "assignment",
-                level: "advanced"
+                level: "advanced",
+                rating: 4.8,
+                reviews: 47
             },
             {
                 name: "Amit Kumar",
                 subject: "Java Programming",
                 skills: ["Java", "Spring Boot", "Hibernate", "Microservices", "AWS"],
-                bio: "I am Amit Kumar, a senior Java developer specializing in enterprise application development. I teach Java from core concepts to advanced frameworks used in industry.",
+                bio: "Senior Java developer specializing in enterprise application development. I teach Java from core concepts to advanced frameworks.",
                 expertise: "* Spring Framework\n* Microservices Architecture\n* Cloud Deployment",
                 logo: "Java Masters",
                 location: "Gurgaon",
@@ -494,13 +824,15 @@
                 distance: "20 km",
                 city: "Gurgaon",
                 mode: "online",
-                level: "intermediate"
+                level: "intermediate",
+                rating: 4.6,
+                reviews: 39
             },
             {
                 name: "Sneha Patel",
                 subject: "Digital Marketing",
                 skills: ["SEO", "Social Media Marketing", "Google Ads", "Content Marketing", "Analytics"],
-                bio: "I am Sneha Patel, a digital marketing expert helping businesses grow online. I teach practical digital marketing strategies that drive real results.",
+                bio: "Digital marketing expert helping businesses grow online. I teach practical digital marketing strategies that drive real results.",
                 expertise: "* Search Engine Optimization\n* Paid Advertising Campaigns\n* Social Media Strategy",
                 logo: "DigiGrowth",
                 location: "Saket",
@@ -510,13 +842,15 @@
                 distance: "7 km",
                 city: "Delhi",
                 mode: "home",
-                level: "beginner"
+                level: "beginner",
+                rating: 4.4,
+                reviews: 23
             },
             {
                 name: "Vikram Singh",
                 subject: "Cloud Computing",
                 skills: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "DevOps"],
-                bio: "I am Vikram Singh, a cloud architect with extensive experience in AWS and Azure. I help students prepare for cloud certifications and real-world cloud projects.",
+                bio: "Cloud architect with extensive experience in AWS and Azure. I help students prepare for cloud certifications and real-world projects.",
                 expertise: "* Cloud Architecture Design\n* Container Orchestration\n* CI/CD Pipeline Setup",
                 logo: "CloudPro",
                 location: "Connaught Place",
@@ -526,13 +860,15 @@
                 distance: "5 km",
                 city: "Delhi",
                 mode: "online",
-                level: "expert"
+                level: "expert",
+                rating: 4.9,
+                reviews: 61
             },
             {
                 name: "Neha Reddy",
                 subject: "Mobile App Development",
                 skills: ["React Native", "Flutter", "iOS", "Android", "Firebase"],
-                bio: "I am Neha Reddy, a mobile app developer passionate about building cross-platform applications. I teach students how to create professional mobile apps from scratch.",
+                bio: "Mobile app developer passionate about building cross-platform applications. I teach students how to create professional mobile apps.",
                 expertise: "* Cross-Platform Development\n* Mobile UI/UX Design\n* App Store Deployment",
                 logo: "AppCraft",
                 location: "Lajpat Nagar",
@@ -542,7 +878,9 @@
                 distance: "9 km",
                 city: "Delhi",
                 mode: "assignment",
-                level: "intermediate"
+                level: "intermediate",
+                rating: 4.7,
+                reviews: 32
             }
         ];
 
@@ -551,63 +889,163 @@
         let currentSubject = 'Cyber and Cloud Security';
         let currentCity = 'Delhi';
 
+        // UI Components
         function createTutorCard(tutor) {
+            const modeIcons = {
+                'online': 'fas fa-laptop',
+                'home': 'fas fa-home',
+                'assignment': 'fas fa-tasks',
+                'offline': 'fas fa-user'
+            };
+
+            const levelColors = {
+                'beginner': 'green',
+                'intermediate': 'blue',
+                'advanced': 'purple',
+                'expert': 'red'
+            };
+
+            const levelText = {
+                'beginner': 'Beginner',
+                'intermediate': 'Intermediate',
+                'advanced': 'Advanced',
+                'expert': 'Expert'
+            };
+
             return `
-                <div class="bg-white rounded-lg shadow-sm p-6 mb-6 tutor-card" 
+                <div class="tutor-card bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300"
                      data-location="${tutor.mode}" 
                      data-level="${tutor.level}"
                      data-subject="${tutor.subject.toLowerCase()}"
                      data-city="${tutor.city.toLowerCase()}">
-                    <h2 class="text-2xl mb-4">
-                        <a href="#" class="text-blue-500 hover:text-blue-600 hover:underline">${tutor.name}</a>
-                    </h2>
+                    
+                    <!-- Header -->
+                    <div class="flex flex-col sm:flex-row sm:items-start justify-between mb-6">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h2 class="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                                    <a href="#">${tutor.name}</a>
+                                </h2>
+                                <span class="px-3 py-1 bg-${levelColors[tutor.level]}-100 text-${levelColors[tutor.level]}-600 rounded-full text-xs font-medium">
+                                    ${levelText[tutor.level]}
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-4 text-gray-600 text-sm mb-3">
+                                <span class="flex items-center gap-1">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    ${tutor.rating} (${tutor.reviews} reviews)
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <i class="${modeIcons[tutor.mode]}"></i>
+                                    ${tutor.mode.charAt(0).toUpperCase() + tutor.mode.slice(1)}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mt-3 sm:mt-0">
+                            <div class="logo-badge px-4 py-2 rounded-lg font-bold text-sm">
+                                ${tutor.logo}
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="flex flex-wrap gap-3 mb-4">
+                    <!-- Skills -->
+                    <div class="flex flex-wrap gap-2 mb-6">
                         ${tutor.skills.map(skill => `
-                            <span class="px-4 py-2 border border-gray-300 rounded text-gray-700 text-sm">${skill}</span>
+                            <span class="skill-tag px-3 py-1.5 border border-gray-300 rounded-lg text-gray-700 text-sm hover:bg-blue-50 cursor-pointer">
+                                ${skill}
+                            </span>
                         `).join('')}
                     </div>
 
-                    <div class="flex gap-4 mb-4">
-                        <div class="flex-shrink-0">
-                            <div class="w-24 h-24 flex items-center justify-center">
-                                <svg viewBox="0 0 200 100" class="w-full h-full">
-                                    <text x="10" y="40" font-size="20" fill="#4a5568" font-weight="bold" font-style="italic">${tutor.logo.split(' ')[0]}</text>
-                                    <text x="10" y="70" font-size="20" fill="#4a5568" font-weight="bold" font-style="italic">${tutor.logo.split(' ')[1] || ''}</text>
-                                </svg>
+                    <!-- Bio and Logo -->
+                    <div class="flex flex-col md:flex-row gap-6 mb-6">
+                        <div class="md:w-3/4">
+                            <p class="text-gray-700 leading-relaxed line-clamp-3">${tutor.bio}</p>
+                        </div>
+                        <div class="md:w-1/4 flex justify-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center p-4">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-gray-800">${tutor.logo.split(' ')[0]}</div>
+                                    ${tutor.logo.split(' ')[1] ? `<div class="text-gray-600 text-sm">${tutor.logo.split(' ')[1]}</div>` : ''}
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="flex-1">
-                            <p class="text-gray-700 leading-relaxed">${tutor.bio}</p>
+                    <!-- Expertise -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <i class="fas fa-tools text-blue-600"></i>
+                            Areas of Expertise
+                        </h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="text-gray-700 whitespace-pre-line">${tutor.expertise}</p>
                         </div>
                     </div>
 
-                    <div class="mb-4">
-                        <h3 class="font-bold text-blue-800 mb-1">AREAS OF EXPERTISE:-</h3>
-                        <p class="text-gray-700 mt-2 whitespace-pre-line">${tutor.expertise}</p>
-                    </div>
-
-                    <div class="flex items-center gap-6 text-gray-700 text-sm pt-4 border-t border-gray-200">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-map-marker-alt text-gray-600"></i>
-                            <span>${tutor.location}</span>
+                    <!-- Footer Info -->
+                    <div class="pt-6 border-t border-gray-200">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Location</div>
+                                    <div class="font-medium">${tutor.location}</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-rupee-sign text-green-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Price</div>
+                                    <div class="font-medium">${tutor.price}</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-laptop text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Experience</div>
+                                    <div class="font-medium">${tutor.experience}</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-user-graduate text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Teaching</div>
+                                    <div class="font-medium">${tutor.teaching}</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-car text-red-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-500">Distance</div>
+                                    <div class="font-medium">${tutor.distance}</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-rupee-sign text-gray-600"></i>
-                            <span>${tutor.price}</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-laptop text-gray-600"></i>
-                            <span>${tutor.experience}</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-user-graduate text-gray-600"></i>
-                            <span>${tutor.teaching}</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-car text-gray-600"></i>
-                            <span>${tutor.distance}</span>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex gap-3 mt-6">
+                            <button class="flex-1 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </button>
+                            <button class="flex-1 py-2.5 border border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-eye"></i>
+                                View Profile
+                            </button>
+                            <button class="px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-heart"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -616,6 +1054,8 @@
 
         function renderTutors() {
             const container = document.getElementById('tutorListings');
+            const noResults = document.getElementById('noResults');
+
             const filteredTutors = tutorsData.filter(tutor => {
                 const matchesMode = currentFilter === 'all' || tutor.mode === currentFilter;
                 const matchesLevel = currentLevel === 'all' || tutor.level === currentLevel;
@@ -624,15 +1064,16 @@
                 return matchesMode && matchesLevel && matchesSubject && matchesCity;
             });
 
+            // Update count
+            document.getElementById('tutorCount').textContent = filteredTutors.length;
+            document.getElementById('totalTutors').textContent = tutorsData.length;
+
             if (filteredTutors.length === 0) {
-                container.innerHTML = `
-                    <div class="bg-white rounded-lg shadow-sm p-12 text-center">
-                        <i class="fas fa-search text-gray-400 text-5xl mb-4"></i>
-                        <p class="text-gray-600 text-lg">No tutors found matching your criteria.</p>
-                        <p class="text-gray-500 text-sm mt-2">Try adjusting your filters or search terms.</p>
-                    </div>
-                `;
+                container.classList.add('hidden');
+                noResults.classList.remove('hidden');
             } else {
+                container.classList.remove('hidden');
+                noResults.classList.add('hidden');
                 container.innerHTML = filteredTutors.map(tutor => createTutorCard(tutor)).join('');
             }
 
@@ -641,11 +1082,15 @@
 
         function updateLocationSidebar() {
             const locationLinks = document.getElementById('locationLinks');
-            const modes = ['online', 'home', 'assignment'];
+            const modes = [
+                { id: 'online', icon: 'fas fa-laptop', label: 'Online' },
+                { id: 'home', icon: 'fas fa-home', label: 'At Home' },
+                { id: 'assignment', icon: 'fas fa-tasks', label: 'Assignment Help' }
+            ];
 
             locationLinks.innerHTML = modes.map(mode => {
                 const count = tutorsData.filter(t =>
-                    t.mode === mode &&
+                    t.mode === mode.id &&
                     t.subject.toLowerCase().includes(currentSubject.toLowerCase()) &&
                     t.city.toLowerCase().includes(currentCity.toLowerCase())
                 ).length;
@@ -653,87 +1098,165 @@
                 if (count === 0) return '';
 
                 return `
-                    <a href="#" class="text-blue-500 hover:text-blue-600 hover:underline location-link capitalize" data-location="${mode}">
-                        ${mode} (${count})
+                    <a href="#" class="location-card block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200"
+                       data-location="${mode.id}">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="${mode.icon} text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-900">${mode.label}</div>
+                                    <div class="text-sm text-gray-500">${count} tutors available</div>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
                     </a>
                 `;
             }).join('');
 
             // Reattach event listeners
-            document.querySelectorAll('.location-link').forEach(link => {
+            document.querySelectorAll('.location-card').forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const location = this.dataset.location;
-                    document.querySelector(`.filter-link[data-filter="${location}"]`).click();
+                    document.querySelector(`.filter-pill[data-filter="${location}"]`).click();
                 });
             });
         }
 
-        document.getElementById('searchBtn').addEventListener('click', function () {
-            currentSubject = document.getElementById('subjectInput').value;
-            currentCity = document.getElementById('locationInput').value;
+        // Event Listeners
+        function initializeEventListeners() {
+            // Search functionality
+            document.getElementById('searchBtn').addEventListener('click', function () {
+                currentSubject = document.getElementById('subjectInput').value;
+                currentCity = document.getElementById('locationInput').value;
 
-            // Update page title
-            document.getElementById('pageTitle').textContent = `${currentSubject} tutors in ${currentCity}`;
+                document.getElementById('pageTitle').innerHTML = `
+                    Find Expert <span class="text-blue-600">${currentSubject}</span> Tutors in <span class="text-blue-600">${currentCity}</span>
+                `;
 
+                renderTutors();
+            });
+
+            // Enter key support
+            document.getElementById('subjectInput').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') document.getElementById('searchBtn').click();
+            });
+            document.getElementById('locationInput').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') document.getElementById('searchBtn').click();
+            });
+
+            // Level dropdown
+            const levelDropdown = document.getElementById('levelDropdown');
+            const levelMenu = document.getElementById('levelMenu');
+
+            levelDropdown.addEventListener('click', function (e) {
+                e.stopPropagation();
+                levelMenu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', function () {
+                levelMenu.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.level-option').forEach(option => {
+                option.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    currentLevel = this.dataset.level;
+                    const levelText = currentLevel === 'all' ? 'Level' :
+                        this.querySelector('i').nextSibling.textContent.trim();
+                    levelDropdown.innerHTML = `
+                        <i class="fas fa-chart-line"></i>
+                        <span>${levelText}</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    `;
+                    levelMenu.classList.add('hidden');
+                    renderTutors();
+                });
+            });
+
+            // Filter pills
+            document.querySelectorAll('.filter-pill').forEach(pill => {
+                pill.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelectorAll('.filter-pill').forEach(p => {
+                        p.classList.remove('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+                        p.classList.add('border-gray-300', 'text-gray-700');
+                    });
+
+                    this.classList.add('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+                    this.classList.remove('border-gray-300', 'text-gray-700');
+
+                    currentFilter = this.dataset.filter;
+                    renderTutors();
+                });
+            });
+
+            // Reset filters
+            document.getElementById('resetFilters').addEventListener('click', function () {
+                currentFilter = 'all';
+                currentLevel = 'all';
+
+                document.querySelectorAll('.filter-pill').forEach(p => {
+                    p.classList.remove('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+                    p.classList.add('border-gray-300', 'text-gray-700');
+                });
+                document.querySelector('.filter-pill[data-filter="all"]').classList.add('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+
+                levelDropdown.innerHTML = `
+                    <i class="fas fa-chart-line"></i>
+                    <span>Level</span>
+                    <i class="fas fa-chevron-down text-xs"></i>
+                `;
+
+                document.getElementById('subjectInput').value = 'Cyber and Cloud Security';
+                document.getElementById('locationInput').value = 'Delhi';
+
+                renderTutors();
+            });
+
+            // Header dropdowns
+            const editBtn = document.getElementById("editBtn");
+            const editMenu = document.getElementById("editMenu");
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const mobileEditBtn = document.getElementById("mobileEditBtn");
+            const mobileEditMenu = document.getElementById("mobileEditMenu");
+
+            editBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                editMenu.classList.toggle("hidden");
+            });
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            mobileEditBtn.addEventListener("click", () => {
+                mobileEditMenu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", () => {
+                editMenu.classList.add("hidden");
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeEventListeners();
             renderTutors();
         });
-
-        // Enter key support for search
-        document.getElementById('subjectInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') document.getElementById('searchBtn').click();
-        });
-        document.getElementById('locationInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') document.getElementById('searchBtn').click();
-        });
-
-        // Level dropdown functionality
-        const levelDropdown = document.getElementById('levelDropdown');
-        const levelMenu = document.getElementById('levelMenu');
-
-        levelDropdown.addEventListener('click', function (e) {
-            e.stopPropagation();
-            levelMenu.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', function () {
-            levelMenu.classList.add('hidden');
-        });
-
-        document.querySelectorAll('.level-option').forEach(option => {
-            option.addEventListener('click', function (e) {
-                e.preventDefault();
-                currentLevel = this.dataset.level;
-                const levelText = currentLevel === 'all' ? 'Level' : currentLevel.charAt(0).toUpperCase() + currentLevel.slice(1);
-                levelDropdown.innerHTML = `${levelText} <i class="fas fa-chevron-down text-sm"></i>`;
-                levelMenu.classList.add('hidden');
-                renderTutors();
-            });
-        });
-
-        document.querySelectorAll('.filter-link').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelectorAll('.filter-link').forEach(l => {
-                    l.classList.remove('text-blue-500', 'font-medium');
-                    l.classList.add('text-gray-600');
-                });
-                this.classList.remove('text-gray-600');
-                this.classList.add('text-blue-500', 'font-medium');
-
-                currentFilter = this.dataset.filter;
-                renderTutors();
-            });
-        });
-
-        renderTutors();
-
-        
     </script>
-    <script src="script.js"></script>
-
-    
 </body>
 
 </html>
