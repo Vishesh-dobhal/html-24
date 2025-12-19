@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namate 24 Dashboard</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom CSS for enhanced UI */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Card hover effect */
+        .dashboard-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+       
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+
+        /* Smooth dropdown animation */
+        .dropdown-content {
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Active menu item indicator */
+        .active-menu-item {
+            position: relative;
+            color: #3b82f6;
+        }
+
+        .active-menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3b82f6;
+        }
+
+        /* Icon container styling */
+        .icon-container {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile menu animation */
+        .mobile-menu {
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <img src="https://image2url.com/images/1765179057005-967d0875-ac5d-4a43-b65f-a58abd9f651d.png"
+                        alt="Namate 24 Logo" class="w-10 h-10 object-contain">
+                    <span class="text-pink-600 font-bold text-lg md:text-xl">Namate 24</span>
+                </div>
+    
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="text-gray-600 hover:text-pink-600 font-medium transition-colors">
+                        <i class="fas fa-home mr-2"></i>Dashboard
+                    </a>
+    
+                    <!-- Edit Profile Dropdown -->
+                    <div class="relative">
+                        <button id="editBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-user-edit"></i>
+                            Edit Profile
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="editMenu"
+                            class="hidden absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu">
+                            <a href="basic_details.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user text-sm w-5"></i>
+                                Personal Details
+                            </a>
+                            <a href="photo.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-camera text-sm w-5"></i>
+                                Photo
+                            </a>
+                            <a href="introduction_video.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-video text-sm w-5"></i>
+                                Introduction Video
+                            </a>
+                            <a href="subjects.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-book text-sm w-5"></i>
+                                Subjects
+                            </a>
+                            <a href="address.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-map-marker-alt text-sm w-5"></i>
+                                Address
+                            </a>
+                            <a href="education.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-graduation-cap text-sm w-5"></i>
+                                Education
+                            </a>
+                            <a href="experience.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-briefcase text-sm w-5"></i>
+                                Experience
+                            </a>
+                            <a href="teaching_details.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-chalkboard-teacher text-sm w-5"></i>
+                                Teaching Details
+                            </a>
+                            <a href="profile_description.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-file-alt text-sm w-5"></i>
+                                Profile Description
+                            </a>
+                            <a href="phone.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-phone text-sm w-5"></i>
+                                Phone
+                            </a>
+                            <a href="courses.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-certificate text-sm w-5"></i>
+                                Courses
+                            </a>
+                            <a href="view_profile.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-eye text-sm w-5"></i>
+                                View Profile
+                            </a>
+                            <a href="show_contact_setting.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-cog text-sm w-5"></i>
+                                Contact Settings
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Profile -->
+                    <div class="relative">
+                        <img id="profileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            alt="Profile"
+                            class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500 transition-all">
+    
+                        <div id="profileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border">
+                            <a href="login.html"
+                                class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2 hover:opacity-90">
+                                Sign in / Sign up
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Mobile Profile + Hamburger -->
+                <div class="flex items-center gap-3 md:hidden">
+    
+                    <!-- Mobile Profile -->
+                    <div class="relative">
+                        <img id="mobileProfileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500">
+    
+                        <div id="mobileProfileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border z-50">
+                            <a href="login.html" class="block text-center bg-pink-500 text-white py-2 rounded-lg">
+                                Sign in / Sign up
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Hamburger -->
+                    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
+    
+            </div>
+        </div>
+    
+    
+        </div>
+        </div>
+    
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-3">
+                <a href="index.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors mb-2">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+    
+                <button id="mobileEditBtn"
+                    class="flex items-center justify-between w-full px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-user-edit"></i>
+                        Edit Profile
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+    
+                <div id="mobileEditMenu" class="hidden pl-10 mt-2 space-y-1">
+                    <a href="basic_details.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Personal Details
+                    </a>
+                    <a href="photo.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Photo
+                    </a>
+                    <a href="introduction_video.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Introduction Video
+                    </a>
+                    <a href="subjects.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Subjects
+                    </a>
+                    <a href="address.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Address
+                    </a>
+                    <a href="education.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Education
+                    </a>
+                    <a href="experience.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Experience
+                    </a>
+                    <a href="teaching_details.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Teaching Details
+                    </a>
+                    <a href="profile_description.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Profile Description
+                    </a>
+                    <a href="phone.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Phone
+                    </a>
+                    <a href="courses.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Courses
+                    </a>
+                    <a href="view_profile.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        View Profile
+                    </a>
+                    <a href="show_contact_setting.html"
+                        class="block px-4 py-2 text-gray-600 rounded-lg hover:bg-pink-50 hover:text-pink-600 transition-colors text-sm">
+                        Contact Settings
+                    </a>
+                </div>
+    
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main class="w-full">
+
+        <!-- HERO / DASHBOARD HEADER -->
+            <section class="relative overflow-hidden rounded-b-3xl shadow-lg w-full bg-cover bg-center
+                           bg-[url('https://image2url.com/images/1765773528174-f33a81da-0108-401a-a459-3371ca54cae8.png')]
+                           md:bg-[url('https://image2url.com/images/1765773881397-02e1b232-0a58-4304-b4ce-36e93cf9caee.png')]">
+            
+                <div class="hero-overlay absolute inset-0 z-0"></div>
+            
+                <div class="max-w-7xl mx-auto px-4 py-14 md:py-20 text-white relative z-10">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
+                                <i class="fas fa-chalkboard-teacher text-sm"></i>
+                                <span class="text-sm font-medium">Teacher Dashboard</span>
+                            </div>
+                            <h1 class="text-3xl md:text-5xl font-bold mt-2">Welcome Back, <span
+                                    class="text-blue-200">Teacher!</span></h1>
+                            <p class="mt-3 text-lg md:text-xl opacity-90 max-w-2xl">
+                                Manage your profile, update information, and connect with students seamlessly.
+                            </p>
+            
+                            <!-- Progress indicator -->
+                            <div class="mt-6 bg-white/20 backdrop-blur-sm rounded-xl p-4 max-w-md">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-medium">Profile Completion</span>
+                                    <span class="font-bold">65%</span>
+                                </div>
+                                <div class="w-full bg-white/30 rounded-full h-2.5">
+                                    <div class="bg-blue-300 h-2.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <p class="text-sm mt-2 text-blue-100">Complete your profile to get more visibility</p>
+                            </div>
+                        </div>
+            
+                       
+                    </div>
+                </div>
+            </section>
+
+
+        <!-- DASHBOARD CARDS -->
+        <section class="max-w-7xl mx-auto px-4 mt-6 md:-mt-10 pb-20 relative z-20">
+
+            
+
+            <!-- DESKTOP GRID -->
+            <div class="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Upload Photo -->
+                <a href="photo.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-camera text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Upload Photo</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Add a professional profile picture</p>
+                </a>
+
+                <!-- Verify Mobile -->
+                <a href="phone.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Verify Mobile</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Secure your account with verification</p>
+                </a>
+
+                <!-- Introduction Video -->
+                <a href="introduction_video.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Introduction Video</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Introduce yourself to students</p>
+                </a>
+
+                <!-- My Profile -->
+                <a href="view_profile.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-eye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">My Profile</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">View how students see your profile</p>
+                </a>
+
+                <!-- Personal Details -->
+                <a href="basic_details.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-id-card text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Personal Details</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Update your personal information</p>
+                </a>
+
+                <!-- Subjects -->
+                <a href="subjects.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-book text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Subjects</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Manage subjects you teach</p>
+                </a>
+
+                <!-- Address -->
+                <a href="address.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Address</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Update your location information</p>
+                </a>
+
+                <!-- Education -->
+                <a href="education.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Education</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Add your educational background</p>
+                </a>
+
+                <!-- Experience -->
+                <a href="experience.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-briefcase text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Experience</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Add your teaching experience</p>
+                </a>
+
+                <!-- Teaching Details -->
+                <a href="teaching_details.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Teaching Details</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Specify your teaching preferences</p>
+                </a>
+
+                <!-- Profile Description -->
+                <a href="profile_description.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-file-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Profile Description</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Write about your teaching philosophy</p>
+                </a>
+
+                <!-- Show contact setting -->
+                <a href="show_contact_setting.html"
+                    class="dashboard-card flex flex-col items-center justify-center gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl">
+                    <div class="icon-container">
+                        <i class="fas fa-cog text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 text-center">Contact Settings</h3>
+                    <p class="text-sm text-gray-500 text-center mt-1">Manage how students can contact you</p>
+                </a>
+            </div>
+
+            <!-- MOBILE VIEW -->
+            <div class="md:hidden space-y-4">
+                <!-- Upload Photo -->
+                <a href="photo.html" class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-camera text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Upload Photo</p>
+                        <p class="text-sm text-gray-500">Add a professional profile picture</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Verify Mobile -->
+                <a href="phone.html" class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-mobile-alt text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Verify Mobile</p>
+                        <p class="text-sm text-gray-500">Secure your account with verification</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Introduction Video -->
+                <a href="introduction_video.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-video text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Introduction Video</p>
+                        <p class="text-sm text-gray-500">Introduce yourself to students</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- My Profile -->
+                <a href="view_profile.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-eye text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">My Profile</p>
+                        <p class="text-sm text-gray-500">View how students see your profile</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Personal Details -->
+                <a href="basic_details.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-id-card text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Personal Details</p>
+                        <p class="text-sm text-gray-500">Update your personal information</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Subjects -->
+                <a href="subjects.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-book text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Subjects</p>
+                        <p class="text-sm text-gray-500">Manage subjects you teach</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Address -->
+                <a href="address.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Address</p>
+                        <p class="text-sm text-gray-500">Update your location information</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Education -->
+                <a href="education.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-graduation-cap text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Education</p>
+                        <p class="text-sm text-gray-500">Add your educational background</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Experience -->
+                <a href="experience.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-briefcase text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Experience</p>
+                        <p class="text-sm text-gray-500">Add your teaching experience</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Teaching Details -->
+                <a href="teaching_details.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-chalkboard-teacher text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Teaching Details</p>
+                        <p class="text-sm text-gray-500">Specify your teaching preferences</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Profile Description -->
+                <a href="profile_description.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Profile Description</p>
+                        <p class="text-sm text-gray-500">Write about your teaching philosophy</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+
+                <!-- Show Contact Setting -->
+                <a href="show_contact_setting.html"
+                    class="dashboard-card flex items-center gap-4 bg-white rounded-2xl p-4 shadow-md">
+                    <div class="icon-container">
+                        <i class="fas fa-cog text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-gray-800">Contact Settings</p>
+                        <p class="text-sm text-gray-500">Manage how students can contact you</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 ml-auto"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-blue-600 text-white pt-10 pb-6 px-5 lg:px-20">
+    
+        <!-- TOP COMPANIES + LOGO -->
+        <div class="mb-10">
+            <div class="flex justify-between items-center mb-5">
+                <p class="text-gray-300 font-semibold">
+                    Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                    to build in-demand career skills.
+                </p>
+    
+                <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                    class="h-10 object-contain">
+            </div>
+    
+            <!-- SINGLE LINE -->
+            <div class="border-t border-gray-700"></div>
+        </div>
+    
+        <!-- DESKTOP GRID -->
+        <div class="hidden lg:grid grid-cols-6 gap-10">
+    
+            <div>
+                <h3 class="font-semibold mb-3">In-demand Careers</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>All Career Accelerators</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Web Development</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Web Development</li>
+                    <li>JavaScript</li>
+                    <li>React JS</li>
+                    <li>Angular</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">IT Certifications</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Amazon AWS</li>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>Azure Fundamentals</li>
+                    <li>AWS Solutions Architect</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Leadership</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Leadership</li>
+                    <li>Management Skills</li>
+                    <li>Project Management</li>
+                    <li>Personal Productivity</li>
+                    <li>Emotional Intelligence</li>
+                </ul>
+            </div>
+    
+            <!-- 🆕 NEW SCHOOLING SECTION -->
+            <div>
+                <h3 class="font-semibold mb-3">Schooling</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </div>
+    
+        </div>
+    
+    
+        <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+        <div class="lg:hidden space-y-3">
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Cybersecurity Certification</li>
+                    <li>Project Management</li>
+                    <li>Cloud Certification</li>
+                    <li>Data Analytics</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Web Development</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Angular</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>AWS</li>
+                    <li>Azure</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </details>
+    
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Leadership</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Management Skills</li>
+                    <li>Productivity</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Schooling</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </details>
+        </div>
+    
+        <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+        <div
+            class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+    
+            <div class="flex gap-10 mb-6 lg:mb-0">
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">About</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Contact us</li>
+                    <li>Blog</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Discover</li>
+                    <li>Get the app</li>
+                    <li>Teach on Namate 24</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Legal & Accessibility</li>
+                    <li>Accessibility</li>
+                    <li>Privacy Policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+    
+            <div class="flex flex-col items-start gap-3">
+                <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png" class="h-8">
+                <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactive elements -->
+    <script>
+        // Toggle desktop edit profile dropdown
+        const editBtn = document.getElementById('editBtn');
+        const editMenu = document.getElementById('editMenu');
+
+        if (editBtn && editMenu) {
+            editBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                editMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!editBtn.contains(e.target) && !editMenu.contains(e.target)) {
+                    editMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Toggle profile dropdown
+        const profileBtn = document.getElementById('profileBtn');
+        const profileMenu = document.getElementById('profileMenu');
+
+        if (profileBtn && profileMenu) {
+            profileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                profileMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                    profileMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Toggle mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuBtn.classList.toggle('bg-blue-50');
+            });
+        }
+
+        // Toggle mobile edit profile menu
+        const mobileEditBtn = document.getElementById('mobileEditBtn');
+        const mobileEditMenu = document.getElementById('mobileEditMenu');
+        const mobileEditIcon = document.getElementById('mobileEditIcon');
+
+        if (mobileEditBtn && mobileEditMenu) {
+            mobileEditBtn.addEventListener('click', () => {
+                mobileEditMenu.classList.toggle('hidden');
+                if (mobileEditIcon) {
+                    if (mobileEditMenu.classList.contains('hidden')) {
+                        mobileEditIcon.textContent = '▼';
+                    } else {
+                        mobileEditIcon.textContent = '▲';
+                    }
+                }
+            });
+        }
+
+        // Add animation to dashboard cards on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.dashboard-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.05}s`;
+            });
+        });
+
+        // Add active state to footer accordion arrows
+        document.querySelectorAll('details').forEach(detail => {
+            detail.addEventListener('toggle', () => {
+                const arrow = detail.querySelector('i');
+                if (arrow) {
+                    if (detail.open) {
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
