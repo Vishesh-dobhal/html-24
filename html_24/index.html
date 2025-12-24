@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namate 24 Header</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER START -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <img src="https://image2url.com/images/1766140867639-fdafd18a-1d49-4226-91dc-43289d07b5da.jpg" alt="Namate 24 Logo"
+                        class="h-10 md:h-8 w-auto object-contain">
+
+                    
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-4">
+                    <!-- My Posts Button -->
+                    <a href="my_posts.html"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-file-alt"></i>
+                        My Posts
+                    </a>
+
+                    <!-- Find Tutors Dropdown -->
+                    <div class="relative">
+                        <button id="tutorsBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-search"></i>
+                            Find Tutors
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="tutorsMenu"
+                            class="hidden absolute left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-graduate text-sm w-5"></i>All Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-laptop text-sm w-5"></i>Online Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-home text-sm w-5"></i>Home Tutors
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Wallet Dropdown -->
+                    <div class="relative">
+                        <button id="walletBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-wallet"></i>
+                            Wallet
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="walletMenu"
+                            class="hidden absolute left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="coin_wallet.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-coins text-sm w-5"></i>Coin Wallet
+                            </a>
+                            <a href="buy_coins.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-shopping-cart text-sm w-5"></i>Buy Coins
+                            </a>
+                            <a href="payment.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-credit-card text-sm w-5"></i>Payments
+                            </a>
+                            <a href="invite_freinds.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-friends text-sm w-5"></i>Invite Friends for Coins
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Reviews Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-star"></i>
+                        Reviews
+                    </a>
+
+                    <!-- Post Requirement Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-medium px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-plus"></i>
+                        Post Requirement
+                    </a>
+
+                    <!-- Profile -->
+                    <div class="relative">
+                        <img id="profileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500 transition-all">
+                        <div id="profileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border z-50">
+                            <a href="login.html"
+                                class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Profile + Hamburger -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <div class="relative">
+                        <img id="mobileProfileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500">
+                        <div id="mobileProfileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border z-50">
+                            <a href="login.html" class="block text-center bg-pink-500 text-white py-2 rounded-lg">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-3 space-y-1">
+                <a href="my_posts.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-file-alt"></i>My Posts
+                </a>
+
+                <!-- Find Tutors Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileTutorsBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-search"></i>
+                            <span>Find Tutors</span>
+                        </div>
+                        <i id="mobileTutorsIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileTutorsMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-graduate text-xs"></i>
+                            <span>All Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-laptop text-xs"></i>
+                            <span>Online Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-home text-xs"></i>
+                            <span>Home Tutors</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wallet Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileWalletBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-wallet"></i>
+                            <span>Wallet</span>
+                        </div>
+                        <i id="mobileWalletIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileWalletMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="coin_wallet.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-coins text-xs"></i>
+                            <span>Coin Wallet</span>
+                        </a>
+                        <a href="buy_coins.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-shopping-cart text-xs"></i>
+                            <span>Buy Coins</span>
+                        </a>
+                        <a href="payment.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-credit-card text-xs"></i>
+                            <span>Payments</span>
+                        </a>
+                        <a href="invite_freinds.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-friends text-xs"></i>
+                            <span>Invite Friends for Coins</span>
+                        </a>
+                    
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-star"></i>Reviews
+                </a>
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600">
+                    <i class="fas fa-plus"></i>Post Requirement
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HEADER JS -->
+    <script>
+        // Find Tutors dropdown (Desktop)
+        const tutorsBtn = document.getElementById('tutorsBtn');
+        const tutorsMenu = document.getElementById('tutorsMenu');
+
+        // Wallet dropdown (Desktop)
+        const walletBtn = document.getElementById('walletBtn');
+        const walletMenu = document.getElementById('walletMenu');
+
+        // Profile dropdown for desktop
+        const profileBtn = document.getElementById('profileBtn');
+        const profileMenu = document.getElementById('profileMenu');
+
+        // Profile dropdown for mobile
+        const mobileProfileBtn = document.getElementById('mobileProfileBtn');
+        const mobileProfileMenu = document.getElementById('mobileProfileMenu');
+
+        // Mobile menu elements
+        const mobileTutorsBtn = document.getElementById('mobileTutorsBtn');
+        const mobileTutorsMenu = document.getElementById('mobileTutorsMenu');
+        const mobileTutorsIcon = document.getElementById('mobileTutorsIcon');
+        const mobileWalletBtn = document.getElementById('mobileWalletBtn');
+        const mobileWalletMenu = document.getElementById('mobileWalletMenu');
+        const mobileWalletIcon = document.getElementById('mobileWalletIcon');
+
+        // Function to close all dropdowns
+        function closeAllDropdowns() {
+            // Close desktop dropdowns
+            if (tutorsMenu) tutorsMenu.classList.add('hidden');
+            if (walletMenu) walletMenu.classList.add('hidden');
+            if (profileMenu) profileMenu.classList.add('hidden');
+            if (mobileProfileMenu) mobileProfileMenu.classList.add('hidden');
+
+            // Close mobile dropdowns
+            if (mobileTutorsMenu) {
+                mobileTutorsMenu.classList.add('hidden');
+                mobileTutorsIcon.classList.remove('rotate-180');
+                mobileTutorsIcon.classList.add('rotate-0');
+            }
+            if (mobileWalletMenu) {
+                mobileWalletMenu.classList.add('hidden');
+                mobileWalletIcon.classList.remove('rotate-180');
+                mobileWalletIcon.classList.add('rotate-0');
+            }
+        }
+
+        // Find Tutors dropdown toggle (Desktop)
+        if (tutorsBtn && tutorsMenu) {
+            tutorsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = tutorsMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    tutorsMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Wallet dropdown toggle (Desktop)
+        if (walletBtn && walletMenu) {
+            walletBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = walletMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    walletMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Profile dropdown for desktop toggle
+        if (profileBtn && profileMenu) {
+            profileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = profileMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    profileMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Profile dropdown for mobile toggle
+        if (mobileProfileBtn && mobileProfileMenu) {
+            mobileProfileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileProfileMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    mobileProfileMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Mobile Find Tutors dropdown toggle
+        if (mobileTutorsBtn && mobileTutorsMenu && mobileTutorsIcon) {
+            mobileTutorsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileTutorsMenu.classList.contains('hidden');
+
+                // Toggle mobile Wallet menu if open
+                if (!mobileWalletMenu.classList.contains('hidden')) {
+                    mobileWalletMenu.classList.add('hidden');
+                    mobileWalletIcon.classList.remove('rotate-180');
+                    mobileWalletIcon.classList.add('rotate-0');
+                }
+
+                // Toggle current menu
+                if (isHidden) {
+                    mobileTutorsMenu.classList.remove('hidden');
+                    mobileTutorsIcon.classList.remove('rotate-0');
+                    mobileTutorsIcon.classList.add('rotate-180');
+                } else {
+                    mobileTutorsMenu.classList.add('hidden');
+                    mobileTutorsIcon.classList.remove('rotate-180');
+                    mobileTutorsIcon.classList.add('rotate-0');
+                }
+            });
+        }
+
+        // Mobile Wallet dropdown toggle
+        if (mobileWalletBtn && mobileWalletMenu && mobileWalletIcon) {
+            mobileWalletBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileWalletMenu.classList.contains('hidden');
+
+                // Toggle mobile Tutors menu if open
+                if (!mobileTutorsMenu.classList.contains('hidden')) {
+                    mobileTutorsMenu.classList.add('hidden');
+                    mobileTutorsIcon.classList.remove('rotate-180');
+                    mobileTutorsIcon.classList.add('rotate-0');
+                }
+
+                // Toggle current menu
+                if (isHidden) {
+                    mobileWalletMenu.classList.remove('hidden');
+                    mobileWalletIcon.classList.remove('rotate-0');
+                    mobileWalletIcon.classList.add('rotate-180');
+                } else {
+                    mobileWalletMenu.classList.add('hidden');
+                    mobileWalletIcon.classList.remove('rotate-180');
+                    mobileWalletIcon.classList.add('rotate-0');
+                }
+            });
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            closeAllDropdowns();
+        });
+
+        // Prevent dropdowns from closing when clicking inside them
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                // Close all dropdowns when opening/closing mobile menu
+                if (!mobileMenu.classList.contains('hidden')) {
+                    closeAllDropdowns();
+                }
+            });
+        }
+    </script>
+
+    <style>
+        .mobile-dropdown {
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .mobile-dropdown button {
+            transition: all 0.2s ease;
+        }
+
+        .mobile-dropdown .hidden {
+            display: none;
+        }
+
+        .rotate-0 {
+            transform: rotate(0deg);
+        }
+
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        #mobileTutorsMenu a,
+        #mobileWalletMenu a {
+            transition: all 0.2s ease;
+        }
+    </style>
+    <!-- HEADER END -->
+
+</body>
+
+</html>

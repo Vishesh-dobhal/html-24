@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer and Earn Coins | TeacherOn</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+        }
+
+        .dropdown-menu {
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .copy-success {
+            animation: copySuccess 0.5s ease-out;
+        }
+
+        @keyframes copySuccess {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .search-highlight {
+            background-color: #fce7f3;
+            color: #db2777;
+            font-weight: 500;
+        }
+
+        .table-container {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #c5c5c5;
+            border-radius: 10px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <img src="https://image2url.com/images/1766140867639-fdafd18a-1d49-4226-91dc-43289d07b5da.jpg"
+                        alt="Namate 24 Logo" class="h-10 md:h-8 w-auto object-contain">
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-4">
+                    <!-- My Posts Button -->
+                    <a href="my_posts.html"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-file-alt"></i>
+                        My Posts
+                    </a>
+
+                    <!-- Find Tutors Dropdown -->
+                    <div class="relative">
+                        <button id="tutorsBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-search"></i>
+                            Find Tutors
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="tutorsMenu"
+                            class="hidden absolute left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-graduate text-sm w-5"></i>All Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-laptop text-sm w-5"></i>Online Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-home text-sm w-5"></i>Home Tutors
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Wallet Dropdown -->
+                    <div class="relative">
+                        <button id="walletBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-wallet"></i>
+                            Wallet
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="walletMenu"
+                            class="hidden absolute left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="coin_wallet.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-coins text-sm w-5"></i>Coin Wallet
+                            </a>
+                            <a href="buy_coins.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-shopping-cart text-sm w-5"></i>Buy Coins
+                            </a>
+                            <a href="payment.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-credit-card text-sm w-5"></i>Payments
+                            </a>
+                            <a href="invite_freinds.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-friends text-sm w-5"></i>Invite Friends for Coins
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-star"></i>
+                        Reviews
+                    </a>
+
+                    <!-- Post Requirement Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-medium px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-plus"></i>
+                        Post Requirement
+                    </a>
+
+                    <!-- Profile -->
+                    <div class="relative">
+                        <img id="profileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500 transition-all">
+                        <div id="profileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border z-50">
+                            <a href="login.html"
+                                class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Profile + Hamburger -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <div class="relative">
+                        <img id="mobileProfileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500">
+                        <div id="mobileProfileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border z-50">
+                            <a href="login.html" class="block text-center bg-pink-500 text-white py-2 rounded-lg">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-3 space-y-1">
+                <a href="my_posts.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-file-alt"></i>My Posts
+                </a>
+
+                <!-- Find Tutors Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileTutorsBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-search"></i>
+                            <span>Find Tutors</span>
+                        </div>
+                        <i id="mobileTutorsIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileTutorsMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-graduate text-xs"></i>
+                            <span>All Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-laptop text-xs"></i>
+                            <span>Online Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-home text-xs"></i>
+                            <span>Home Tutors</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wallet Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileWalletBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-wallet"></i>
+                            <span>Wallet</span>
+                        </div>
+                        <i id="mobileWalletIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileWalletMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="coin_wallet.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-coins text-xs"></i>
+                            <span>Coin Wallet</span>
+                        </a>
+                        <a href="buy_coins.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-shopping-cart text-xs"></i>
+                            <span>Buy Coins</span>
+                        </a>
+                        <a href="payment.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-credit-card text-xs"></i>
+                            <span>Payments</span>
+                        </a>
+                        <a href="invite_freinds.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-friends text-xs"></i>
+                            <span>Invite Friends for Coins</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-star"></i>Reviews
+                </a>
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600">
+                    <i class="fas fa-plus"></i>Post Requirement
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Page Title -->
+        <div class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Refer and Earn Coins</h1>
+            <p class="text-gray-600">Invite friends and tutors to join TeacherOn and earn bonus coins!</p>
+        </div>
+
+        <!-- Referral Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <p class="text-gray-500 text-sm">Total Referrals</p>
+                        <p class="text-3xl font-bold text-gray-800">24</p>
+                    </div>
+                    <div class="bg-pink-100 p-3 rounded-full">
+                        <i class="fas fa-users text-2xl text-pink-600"></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">+5 this month</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <p class="text-gray-500 text-sm">Total Coins Earned</p>
+                        <p class="text-3xl font-bold text-gray-800">1,250</p>
+                    </div>
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <i class="fas fa-coins text-2xl text-green-600"></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">+320 this month</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <p class="text-gray-500 text-sm">Pending Rewards</p>
+                        <p class="text-3xl font-bold text-gray-800">85</p>
+                    </div>
+                    <div class="bg-blue-100 p-3 rounded-full">
+                        <i class="fas fa-clock text-2xl text-blue-600"></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Will be added soon</p>
+            </div>
+        </div>
+
+        <!-- Referral Program Details -->
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 mb-10">
+            <div class="p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">How It Works</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Refer Students Section -->
+                    <div class="bg-pink-50 rounded-xl p-6 border border-pink-100">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-pink-500 text-white p-3 rounded-full">
+                                <i class="fas fa-user-graduate text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Refer Students</h3>
+                        </div>
+                        <p class="text-gray-700 mb-4">When you refer someone and they buy coins, you get 10% of the
+                            coins they buy.</p>
+                        <div class="bg-white rounded-lg p-4 border border-pink-200">
+                            <p class="font-medium text-pink-600 mb-1">Example:</p>
+                            <p class="text-gray-700">If your friend buys 1000 coins, you get <span class="font-bold">100
+                                    coins</span> as referral bonus.</p>
+                        </div>
+                    </div>
+
+                    <!-- Refer Tutors Section -->
+                    <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-blue-500 text-white p-3 rounded-full">
+                                <i class="fas fa-chalkboard-teacher text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Refer Tutors</h3>
+                        </div>
+                        <p class="text-gray-700 mb-4">When a tutor joins using your referral link, you get bonus coins
+                            based on their country.</p>
+                        <div class="bg-white rounded-lg p-4 border border-blue-200">
+                            <p class="font-medium text-blue-600 mb-1">Example:</p>
+                            <p class="text-gray-700">A tutor from Albania gives you <span class="font-bold">46
+                                    coins</span>, while one from Algeria gives <span class="font-bold">55 coins</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Referral Link Section -->
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 mb-10">
+            <div class="p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Share Your Referral Link</h2>
+                <p class="text-gray-700 mb-6">Copy your unique referral link and share it with friends and tutors to
+                    start earning coins.</p>
+
+                <div class="flex flex-col md:flex-row gap-4 mb-6">
+                    <div class="flex-1 bg-gray-50 border border-gray-300 rounded-xl p-4 flex items-center">
+                        <div class="overflow-x-auto">
+                            <p id="referralLink" class="text-gray-800 font-medium select-all">
+                                https://www.Namate24
+                                .com/?r=cJZE</p>
+                        </div>
+                    </div>
+                    <button id="copyLinkBtn"
+                        class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="far fa-copy"></i>
+                        <span>Copy Link</span>
+                    </button>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    <button
+                        class="social-share-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg flex items-center gap-2">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Share on Facebook</span>
+                    </button>
+                    <button
+                        class="social-share-btn bg-blue-400 hover:bg-blue-500 text-white py-2 px-4 rounded-lg flex items-center gap-2">
+                        <i class="fab fa-twitter"></i>
+                        <span>Share on Twitter</span>
+                    </button>
+                    <button
+                        class="social-share-btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg flex items-center gap-2">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Share on WhatsApp</span>
+                    </button>
+                    <button
+                        class="social-share-btn bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 rounded-lg flex items-center gap-2">
+                        <i class="far fa-envelope"></i>
+                        <span>Share via Email</span>
+                    </button>
+                </div>
+
+                <div id="copySuccess"
+                    class="hidden mt-4 p-3 bg-green-100 text-green-700 rounded-lg text-center copy-success">
+                    <i class="fas fa-check-circle mr-2"></i> Referral link copied to clipboard!
+                </div>
+            </div>
+        </div>
+
+        <!-- Referral Coins by Country -->
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+            <div class="p-6 md:p-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Referral Coins for Countries</h2>
+                    <p class="text-gray-600 mt-1 md:mt-0">When a tutor joins using your referral link, you get coins
+                        based on their location.</p>
+                </div>
+
+                <!-- Search Box -->
+                <div class="mb-6">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" id="countrySearch"
+                            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                            placeholder="Search for a country...">
+                    </div>
+                </div>
+
+                <!-- Info about number of countries -->
+                <div class="mb-4 flex justify-between items-center">
+                    <p class="text-gray-600 text-sm" id="countryCount">Showing <span id="visibleCount">0</span> of <span
+                            id="totalCount">0</span> countries</p>
+                    <button id="showAllBtn" class="text-sm text-pink-600 hover:text-pink-700 font-medium">Show All
+                        Countries</button>
+                </div>
+
+                <!-- Countries Table Container -->
+                <div class="table-container rounded-xl border border-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50 sticky top-0">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Country
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Bonus Coins
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="countryTable" class="bg-white divide-y divide-gray-200">
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- No Results Message -->
+                <div id="noResults" class="hidden mt-6 p-6 text-center bg-gray-50 rounded-xl">
+                    <i class="fas fa-search text-3xl text-gray-400 mb-3"></i>
+                    <h3 class="text-lg font-medium text-gray-700">No countries found</h3>
+                    <p class="text-gray-500 mt-1">Try searching with a different term</p>
+                </div>
+
+                <div class="mt-6 text-gray-500 text-sm">
+                    <p><i class="fas fa-info-circle mr-2"></i> Coins are awarded when the referred tutor completes their
+                        profile verification.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="mt-10 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl shadow-lg p-8 text-white">
+            <div class="flex flex-col md:flex-row md:items-center gap-6">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold mb-3">Maximize Your Earnings</h2>
+                    <p class="mb-4">Share your referral link on social media, forums, and with your network to earn more
+                        coins.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Share in education-related Facebook groups</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Post on LinkedIn targeting teachers and tutors</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Email your referral link to colleagues and friends</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-shrink-0">
+                    <div class="bg-white/20 p-4 rounded-xl">
+                        <i class="fas fa-lightbulb text-5xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-10 pb-6 px-5 lg:px-20">
+    
+        <!-- TOP COMPANIES + LOGO -->
+        <div class="mb-10">
+            <div class="flex justify-between items-center mb-5">
+                <p class="text-gray-300 font-semibold">
+                    Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                    to build in-demand career skills.
+                </p>
+    
+                <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                    class="h-10 object-contain">
+            </div>
+    
+            <!-- SINGLE LINE -->
+            <div class="border-t border-gray-700"></div>
+        </div>
+    
+        <!-- DESKTOP GRID -->
+        <div class="hidden lg:grid grid-cols-6 gap-10">
+    
+            <div>
+                <h3 class="font-semibold mb-3">In-demand Careers</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>All Career Accelerators</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Web Development</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Web Development</li>
+                    <li>JavaScript</li>
+                    <li>React JS</li>
+                    <li>Angular</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">IT Certifications</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Amazon AWS</li>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>Azure Fundamentals</li>
+                    <li>AWS Solutions Architect</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Leadership</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Leadership</li>
+                    <li>Management Skills</li>
+                    <li>Project Management</li>
+                    <li>Personal Productivity</li>
+                    <li>Emotional Intelligence</li>
+                </ul>
+            </div>
+    
+            <!-- 🆕 NEW SCHOOLING SECTION -->
+            <div>
+                <h3 class="font-semibold mb-3">Schooling</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </div>
+    
+        </div>
+    
+    
+        <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+        <div class="lg:hidden space-y-3">
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Cybersecurity Certification</li>
+                    <li>Project Management</li>
+                    <li>Cloud Certification</li>
+                    <li>Data Analytics</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Web Development</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Angular</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>AWS</li>
+                    <li>Azure</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </details>
+    
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Leadership</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Management Skills</li>
+                    <li>Productivity</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Schooling</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </details>
+        </div>
+    
+        <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+        <div
+            class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+    
+            <div class="flex gap-10 mb-6 lg:mb-0">
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">About</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Contact us</li>
+                    <li>Blog</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Discover</li>
+                    <li>Get the app</li>
+                    <li>Teach on Namate 24</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Legal & Accessibility</li>
+                    <li>Accessibility</li>
+                    <li>Privacy Policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+    
+            <div class="flex flex-col items-start gap-3">
+                <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png" class="h-8">
+                <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header Dropdown Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Desktop dropdowns
+            const tutorsBtn = document.getElementById('tutorsBtn');
+            const tutorsMenu = document.getElementById('tutorsMenu');
+            const walletBtn = document.getElementById('walletBtn');
+            const walletMenu = document.getElementById('walletMenu');
+            const profileBtn = document.getElementById('profileBtn');
+            const profileMenu = document.getElementById('profileMenu');
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Mobile dropdowns
+            const mobileTutorsBtn = document.getElementById('mobileTutorsBtn');
+            const mobileTutorsMenu = document.getElementById('mobileTutorsMenu');
+            const mobileTutorsIcon = document.getElementById('mobileTutorsIcon');
+            const mobileWalletBtn = document.getElementById('mobileWalletBtn');
+            const mobileWalletMenu = document.getElementById('mobileWalletMenu');
+            const mobileWalletIcon = document.getElementById('mobileWalletIcon');
+            const mobileProfileBtn = document.getElementById('mobileProfileBtn');
+            const mobileProfileMenu = document.getElementById('mobileProfileMenu');
+
+            // Toggle desktop dropdown
+            function toggleDropdown(button, menu) {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    menu.classList.toggle('hidden');
+
+                    // Close other dropdowns
+                    const allMenus = [tutorsMenu, walletMenu, profileMenu];
+                    allMenus.forEach(otherMenu => {
+                        if (otherMenu !== menu && !otherMenu.classList.contains('hidden')) {
+                            otherMenu.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+
+            // Toggle mobile dropdown
+            function toggleMobileDropdown(button, menu, icon) {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    menu.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+
+                    // Close other mobile dropdowns
+                    const allMobileMenus = [mobileTutorsMenu, mobileWalletMenu];
+                    const allMobileIcons = [mobileTutorsIcon, mobileWalletIcon];
+
+                    allMobileMenus.forEach((otherMenu, index) => {
+                        if (otherMenu !== menu && !otherMenu.classList.contains('hidden')) {
+                            otherMenu.classList.add('hidden');
+                            allMobileIcons[index].classList.remove('rotate-180');
+                        }
+                    });
+                });
+            }
+
+            // Initialize dropdowns
+            if (tutorsBtn && tutorsMenu) toggleDropdown(tutorsBtn, tutorsMenu);
+            if (walletBtn && walletMenu) toggleDropdown(walletBtn, walletMenu);
+            if (profileBtn && profileMenu) toggleDropdown(profileBtn, profileMenu);
+            if (mobileTutorsBtn && mobileTutorsMenu) toggleMobileDropdown(mobileTutorsBtn, mobileTutorsMenu, mobileTutorsIcon);
+            if (mobileWalletBtn && mobileWalletMenu) toggleMobileDropdown(mobileWalletBtn, mobileWalletMenu, mobileWalletIcon);
+            if (mobileProfileBtn && mobileProfileMenu) toggleDropdown(mobileProfileBtn, mobileProfileMenu);
+
+            // Mobile menu toggle
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function () {
+                [tutorsMenu, walletMenu, profileMenu, mobileTutorsMenu, mobileWalletMenu, mobileProfileMenu].forEach(menu => {
+                    if (menu && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                    }
+                });
+
+                // Reset mobile dropdown icons
+                [mobileTutorsIcon, mobileWalletIcon].forEach(icon => {
+                    if (icon) icon.classList.remove('rotate-180');
+                });
+            });
+
+            // Copy Referral Link Functionality
+            const copyLinkBtn = document.getElementById('copyLinkBtn');
+            const referralLink = document.getElementById('referralLink');
+            const copySuccess = document.getElementById('copySuccess');
+
+            if (copyLinkBtn) {
+                copyLinkBtn.addEventListener('click', function () {
+                    const linkText = referralLink.textContent;
+
+                    // Use the Clipboard API if available
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(linkText).then(function () {
+                            showCopySuccess();
+                        });
+                    } else {
+                        // Fallback method for older browsers
+                        const textArea = document.createElement('textarea');
+                        textArea.value = linkText;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        showCopySuccess();
+                    }
+                });
+            }
+
+            function showCopySuccess() {
+                copySuccess.classList.remove('hidden');
+                copyLinkBtn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+                copyLinkBtn.classList.remove('bg-pink-500', 'hover:bg-pink-600');
+                copyLinkBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+
+                setTimeout(function () {
+                    copySuccess.classList.add('hidden');
+                    copyLinkBtn.innerHTML = '<i class="far fa-copy"></i><span>Copy Link</span>';
+                    copyLinkBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    copyLinkBtn.classList.add('bg-pink-500', 'hover:bg-pink-600');
+                }, 3000);
+            }
+
+            // COMPLETE COUNTRY DATA (200+ countries with realistic coin values)
+            const countryData = [
+                // Original countries from the image
+                { country: "Afghanistan", coins: 7 },
+                { country: "Aland Islands", coins: 0 },
+                { country: "Albania", coins: 46 },
+                { country: "Algeria", coins: 55 },
+
+                // All other countries
+                { country: "Andorra", coins: 34 },
+                { country: "Angola", coins: 12 },
+                { country: "Anguilla", coins: 25 },
+                { country: "Antigua and Barbuda", coins: 28 },
+                { country: "Argentina", coins: 49 },
+                { country: "Armenia", coins: 25 },
+                { country: "Aruba", coins: 30 },
+                { country: "Australia", coins: 65 },
+                { country: "Austria", coins: 52 },
+                { country: "Azerbaijan", coins: 19 },
+                { country: "Bahamas", coins: 32 },
+                { country: "Bahrain", coins: 41 },
+                { country: "Bangladesh", coins: 15 },
+                { country: "Barbados", coins: 36 },
+                { country: "Belarus", coins: 27 },
+                { country: "Belgium", coins: 53 },
+                { country: "Belize", coins: 22 },
+                { country: "Benin", coins: 8 },
+                { country: "Bermuda", coins: 38 },
+                { country: "Bhutan", coins: 10 },
+                { country: "Bolivia", coins: 18 },
+                { country: "Bosnia and Herzegovina", coins: 31 },
+                { country: "Botswana", coins: 24 },
+                { country: "Brazil", coins: 48 },
+                { country: "British Virgin Islands", coins: 29 },
+                { country: "Brunei", coins: 42 },
+                { country: "Bulgaria", coins: 33 },
+                { country: "Burkina Faso", coins: 7 },
+                { country: "Burundi", coins: 6 },
+                { country: "Cambodia", coins: 13 },
+                { country: "Cameroon", coins: 16 },
+                { country: "Canada", coins: 60 },
+                { country: "Cape Verde", coins: 21 },
+                { country: "Cayman Islands", coins: 40 },
+                { country: "Central African Republic", coins: 5 },
+                { country: "Chad", coins: 6 },
+                { country: "Chile", coins: 45 },
+                { country: "China", coins: 50 },
+                { country: "Colombia", coins: 39 },
+                { country: "Comoros", coins: 14 },
+                { country: "Congo", coins: 17 },
+                { country: "Cook Islands", coins: 23 },
+                { country: "Costa Rica", coins: 35 },
+                { country: "Croatia", coins: 41 },
+                { country: "Cuba", coins: 20 },
+                { country: "Cyprus", coins: 37 },
+                { country: "Czech Republic", coins: 51 },
+                { country: "Democratic Republic of the Congo", coins: 9 },
+                { country: "Denmark", coins: 55 },
+                { country: "Djibouti", coins: 11 },
+                { country: "Dominica", coins: 26 },
+                { country: "Dominican Republic", coins: 32 },
+                { country: "East Timor", coins: 12 },
+                { country: "Ecuador", coins: 28 },
+                { country: "Egypt", coins: 30 },
+                { country: "El Salvador", coins: 24 },
+                { country: "Equatorial Guinea", coins: 19 },
+                { country: "Eritrea", coins: 8 },
+                { country: "Estonia", coins: 43 },
+                { country: "Eswatini", coins: 15 },
+                { country: "Ethiopia", coins: 14 },
+                { country: "Falkland Islands", coins: 27 },
+                { country: "Faroe Islands", coins: 35 },
+                { country: "Fiji", coins: 22 },
+                { country: "Finland", coins: 56 },
+                { country: "France", coins: 58 },
+                { country: "French Guiana", coins: 31 },
+                { country: "French Polynesia", coins: 34 },
+                { country: "Gabon", coins: 20 },
+                { country: "Gambia", coins: 9 },
+                { country: "Georgia", coins: 26 },
+                { country: "Germany", coins: 59 },
+                { country: "Ghana", coins: 23 },
+                { country: "Gibraltar", coins: 38 },
+                { country: "Greece", coins: 47 },
+                { country: "Greenland", coins: 32 },
+                { country: "Grenada", coins: 25 },
+                { country: "Guadeloupe", coins: 33 },
+                { country: "Guam", coins: 39 },
+                { country: "Guatemala", coins: 27 },
+                { country: "Guernsey", coins: 44 },
+                { country: "Guinea", coins: 10 },
+                { country: "Guinea-Bissau", coins: 8 },
+                { country: "Guyana", coins: 18 },
+                { country: "Haiti", coins: 11 },
+                { country: "Honduras", coins: 21 },
+                { country: "Hong Kong", coins: 52 },
+                { country: "Hungary", coins: 42 },
+                { country: "Iceland", coins: 49 },
+                { country: "India", coins: 40 },
+                { country: "Indonesia", coins: 35 },
+                { country: "Iran", coins: 37 },
+                { country: "Iraq", coins: 22 },
+                { country: "Ireland", coins: 53 },
+                { country: "Isle of Man", coins: 46 },
+                { country: "Israel", coins: 50 },
+                { country: "Italy", coins: 57 },
+                { country: "Ivory Coast", coins: 17 },
+                { country: "Jamaica", coins: 29 },
+                { country: "Japan", coins: 61 },
+                { country: "Jersey", coins: 45 },
+                { country: "Jordan", coins: 34 },
+                { country: "Kazakhstan", coins: 36 },
+                { country: "Kenya", coins: 28 },
+                { country: "Kiribati", coins: 13 },
+                { country: "Kosovo", coins: 30 },
+                { country: "Kuwait", coins: 48 },
+                { country: "Kyrgyzstan", coins: 19 },
+                { country: "Laos", coins: 14 },
+                { country: "Latvia", coins: 41 },
+                { country: "Lebanon", coins: 33 },
+                { country: "Lesotho", coins: 12 },
+                { country: "Liberia", coins: 9 },
+                { country: "Libya", coins: 31 },
+                { country: "Liechtenstein", coins: 54 },
+                { country: "Lithuania", coins: 43 },
+                { country: "Luxembourg", coins: 58 },
+                { country: "Macau", coins: 47 },
+                { country: "Madagascar", coins: 16 },
+                { country: "Malawi", coins: 11 },
+                { country: "Malaysia", coins: 44 },
+                { country: "Maldives", coins: 26 },
+                { country: "Mali", coins: 10 },
+                { country: "Malta", coins: 46 },
+                { country: "Marshall Islands", coins: 18 },
+                { country: "Martinique", coins: 36 },
+                { country: "Mauritania", coins: 13 },
+                { country: "Mauritius", coins: 38 },
+                { country: "Mayotte", coins: 32 },
+                { country: "Mexico", coins: 46 },
+                { country: "Micronesia", coins: 17 },
+                { country: "Moldova", coins: 24 },
+                { country: "Monaco", coins: 60 },
+                { country: "Mongolia", coins: 21 },
+                { country: "Montenegro", coins: 35 },
+                { country: "Montserrat", coins: 28 },
+                { country: "Morocco", coins: 39 },
+                { country: "Mozambique", coins: 15 },
+                { country: "Myanmar", coins: 20 },
+                { country: "Namibia", coins: 23 },
+                { country: "Nauru", coins: 14 },
+                { country: "Nepal", coins: 16 },
+                { country: "Netherlands", coins: 57 },
+                { country: "New Caledonia", coins: 37 },
+                { country: "New Zealand", coins: 62 },
+                { country: "Nicaragua", coins: 22 },
+                { country: "Niger", coins: 8 },
+                { country: "Nigeria", coins: 32 },
+                { country: "Niue", coins: 19 },
+                { country: "Norfolk Island", coins: 30 },
+                { country: "North Korea", coins: 5 },
+                { country: "North Macedonia", coins: 31 },
+                { country: "Northern Mariana Islands", coins: 34 },
+                { country: "Norway", coins: 63 },
+                { country: "Oman", coins: 45 },
+                { country: "Pakistan", coins: 25 },
+                { country: "Palau", coins: 20 },
+                { country: "Palestine", coins: 27 },
+                { country: "Panama", coins: 40 },
+                { country: "Papua New Guinea", coins: 18 },
+                { country: "Paraguay", coins: 26 },
+                { country: "Peru", coins: 38 },
+                { country: "Philippines", coins: 33 },
+                { country: "Poland", coins: 49 },
+                { country: "Portugal", coins: 52 },
+                { country: "Puerto Rico", coins: 42 },
+                { country: "Qatar", coins: 55 },
+                { country: "Reunion", coins: 36 },
+                { country: "Romania", coins: 44 },
+                { country: "Russia", coins: 47 },
+                { country: "Rwanda", coins: 14 },
+                { country: "Saint Helena", coins: 21 },
+                { country: "Saint Kitts and Nevis", coins: 29 },
+                { country: "Saint Lucia", coins: 31 },
+                { country: "Saint Pierre and Miquelon", coins: 33 },
+                { country: "Saint Vincent and the Grenadines", coins: 27 },
+                { country: "Samoa", coins: 19 },
+                { country: "San Marino", coins: 56 },
+                { country: "Sao Tome and Principe", coins: 15 },
+                { country: "Saudi Arabia", coins: 53 },
+                { country: "Senegal", coins: 22 },
+                { country: "Serbia", coins: 40 },
+                { country: "Seychelles", coins: 37 },
+                { country: "Sierra Leone", coins: 11 },
+                { country: "Singapore", coins: 64 },
+                { country: "Slovakia", coins: 48 },
+                { country: "Slovenia", coins: 50 },
+                { country: "Solomon Islands", coins: 16 },
+                { country: "Somalia", coins: 7 },
+                { country: "South Africa", coins: 41 },
+                { country: "South Korea", coins: 59 },
+                { country: "South Sudan", coins: 9 },
+                { country: "Spain", coins: 54 },
+                { country: "Sri Lanka", coins: 28 },
+                { country: "Sudan", coins: 17 },
+                { country: "Suriname", coins: 24 },
+                { country: "Sweden", coins: 61 },
+                { country: "Switzerland", coins: 65 },
+                { country: "Syria", coins: 20 },
+                { country: "Taiwan", coins: 58 },
+                { country: "Tajikistan", coins: 15 },
+                { country: "Tanzania", coins: 23 },
+                { country: "Thailand", coins: 43 },
+                { country: "Togo", coins: 12 },
+                { country: "Tokelau", coins: 18 },
+                { country: "Tonga", coins: 21 },
+                { country: "Trinidad and Tobago", coins: 39 },
+                { country: "Tunisia", coins: 36 },
+                { country: "Turkey", coins: 51 },
+                { country: "Turkmenistan", coins: 22 },
+                { country: "Turks and Caicos Islands", coins: 30 },
+                { country: "Tuvalu", coins: 13 },
+                { country: "Uganda", coins: 19 },
+                { country: "Ukraine", coins: 34 },
+                { country: "United Arab Emirates", coins: 60 },
+                { country: "United Kingdom", coins: 63 },
+                { country: "United States", coins: 66 },
+                { country: "Uruguay", coins: 47 },
+                { country: "Uzbekistan", coins: 26 },
+                { country: "Vanuatu", coins: 17 },
+                { country: "Vatican City", coins: 70 },
+                { country: "Venezuela", coins: 29 },
+                { country: "Vietnam", coins: 35 },
+                { country: "Wallis and Futuna", coins: 24 },
+                { country: "Western Sahara", coins: 10 },
+                { country: "Yemen", coins: 11 },
+                { country: "Zambia", coins: 20 },
+                { country: "Zimbabwe", coins: 18 }
+            ];
+
+            // Initial display limit
+            const INITIAL_DISPLAY_LIMIT = 20;
+            let displayAll = false;
+
+            // Populate Country Table
+            const countryTable = document.getElementById('countryTable');
+            const countrySearch = document.getElementById('countrySearch');
+            const noResults = document.getElementById('noResults');
+            const visibleCount = document.getElementById('visibleCount');
+            const totalCount = document.getElementById('totalCount');
+            const showAllBtn = document.getElementById('showAllBtn');
+            const countryCount = document.getElementById('countryCount');
+
+            // Update count display
+            totalCount.textContent = countryData.length;
+
+            function populateCountryTable(countries) {
+                countryTable.innerHTML = '';
+
+                if (countries.length === 0) {
+                    noResults.classList.remove('hidden');
+                    visibleCount.textContent = '0';
+                    return;
+                }
+
+                noResults.classList.add('hidden');
+
+                // Limit display if not showing all
+                let displayCountries = countries;
+                if (!displayAll && countries.length > INITIAL_DISPLAY_LIMIT) {
+                    displayCountries = countries.slice(0, INITIAL_DISPLAY_LIMIT);
+                }
+
+                visibleCount.textContent = displayCountries.length;
+
+                displayCountries.forEach(item => {
+                    const row = document.createElement('tr');
+
+                    // Determine status based on coin value
+                    let statusText = '';
+                    let statusClass = '';
+
+                    if (item.coins === 0) {
+                        statusText = 'No Bonus';
+                        statusClass = 'bg-gray-100 text-gray-700';
+                    } else if (item.coins < 20) {
+                        statusText = 'Low Bonus';
+                        statusClass = 'bg-yellow-100 text-yellow-700';
+                    } else if (item.coins < 40) {
+                        statusText = 'Medium Bonus';
+                        statusClass = 'bg-blue-100 text-blue-700';
+                    } else {
+                        statusText = 'High Bonus';
+                        statusClass = 'bg-green-100 text-green-700';
+                    }
+
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="ml-4">
+                                    <div class="text-sm font-medium text-gray-900 country-name">${item.country}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-900 font-bold">${item.coins} coins</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}">
+                                ${statusText}
+                            </span>
+                        </td>
+                    `;
+
+                    countryTable.appendChild(row);
+                });
+            }
+
+            // Initial table population
+            populateCountryTable(countryData);
+
+            // Show All Countries button
+            if (showAllBtn) {
+                showAllBtn.addEventListener('click', function () {
+                    displayAll = true;
+                    showAllBtn.classList.add('hidden');
+                    populateCountryTable(countryData);
+                });
+            }
+
+            // Search functionality
+            if (countrySearch) {
+                countrySearch.addEventListener('input', function () {
+                    const searchTerm = this.value.toLowerCase().trim();
+
+                    if (searchTerm === '') {
+                        displayAll = false;
+                        showAllBtn.classList.remove('hidden');
+                        populateCountryTable(countryData);
+                        return;
+                    }
+
+                    const filteredCountries = countryData.filter(item =>
+                        item.country.toLowerCase().includes(searchTerm)
+                    );
+
+                    displayAll = true; // When searching, show all matching results
+                    showAllBtn.classList.add('hidden');
+                    populateCountryTable(filteredCountries);
+
+                    // Highlight matching text in table rows
+                    if (searchTerm.length > 0) {
+                        const rows = countryTable.querySelectorAll('tr');
+                        rows.forEach(row => {
+                            const countryCell = row.querySelector('.country-name');
+                            if (countryCell) {
+                                const countryText = countryCell.textContent;
+                                const lowerCountryText = countryText.toLowerCase();
+
+                                if (lowerCountryText.includes(searchTerm)) {
+                                    const startIndex = lowerCountryText.indexOf(searchTerm);
+                                    const endIndex = startIndex + searchTerm.length;
+
+                                    const before = countryText.substring(0, startIndex);
+                                    const match = countryText.substring(startIndex, endIndex);
+                                    const after = countryText.substring(endIndex);
+
+                                    countryCell.innerHTML = `${before}<span class="search-highlight">${match}</span>${after}`;
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Social Share Buttons
+            const socialShareBtns = document.querySelectorAll('.social-share-btn');
+            socialShareBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const platform = this.textContent.toLowerCase();
+                    const referralLink = document.getElementById('referralLink').textContent;
+                    const shareText = `Join TeacherOn using my referral link and earn bonus coins! ${referralLink}`;
+
+                    let shareUrl = '';
+
+                    if (platform.includes('facebook')) {
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(referralLink)}`;
+                    } else if (platform.includes('twitter')) {
+                        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+                    } else if (platform.includes('whatsapp')) {
+                        shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+                    } else if (platform.includes('email')) {
+                        shareUrl = `mailto:?subject=Join%20TeacherOn%20with%20my%20referral%20link&body=${encodeURIComponent(shareText)}`;
+                    }
+
+                    if (shareUrl) {
+                        window.open(shareUrl, '_blank', 'width=600,height=400');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

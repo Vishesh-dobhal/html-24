@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Requirements | Namate 24</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        },
+                        secondary: {
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- HEADER START -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <img src="https://image2url.com/images/1766140867639-fdafd18a-1d49-4226-91dc-43289d07b5da.jpg"
+                        alt="Namate 24 Logo" class="h-10 md:h-8 w-auto object-contain">
+    
+    
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-4">
+                    <!-- My Posts Button -->
+                    <a href="my_posts.html"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-file-alt"></i>
+                        My Posts
+                    </a>
+    
+                    <!-- Find Tutors Dropdown -->
+                    <div class="relative">
+                        <button id="tutorsBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-search"></i>
+                            Find Tutors
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="tutorsMenu"
+                            class="hidden absolute left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-graduate text-sm w-5"></i>All Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-laptop text-sm w-5"></i>Online Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-home text-sm w-5"></i>Home Tutors
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Wallet Dropdown -->
+                    <div class="relative">
+                        <button id="walletBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-wallet"></i>
+                            Wallet
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="walletMenu"
+                            class="hidden absolute left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="coin_wallet.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-coins text-sm w-5"></i>Coin Wallet
+                            </a>
+                            <a href="buy_coins.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-shopping-cart text-sm w-5"></i>Buy Coins
+                            </a>
+                            <a href="payment.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-credit-card text-sm w-5"></i>Payments
+                            </a>
+                            <a href="invite_freinds.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-friends text-sm w-5"></i>Invite Friends for Coins
+                            </a>
+    
+                        </div>
+                    </div>
+    
+                    <!-- Reviews Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-star"></i>
+                        Reviews
+                    </a>
+    
+                    <!-- Post Requirement Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-medium px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-plus"></i>
+                        Post Requirement
+                    </a>
+    
+                    <!-- Profile -->
+                    <div class="relative">
+                        <img id="profileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500 transition-all">
+                        <div id="profileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border z-50">
+                            <a href="login.html"
+                                class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                </nav>
+    
+                <!-- Mobile Profile + Hamburger -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <div class="relative">
+                        <img id="mobileProfileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500">
+                        <div id="mobileProfileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border z-50">
+                            <a href="login.html" class="block text-center bg-pink-500 text-white py-2 rounded-lg">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-3 space-y-1">
+                <a href="my_posts.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-file-alt"></i>My Posts
+                </a>
+    
+                <!-- Find Tutors Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileTutorsBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-search"></i>
+                            <span>Find Tutors</span>
+                        </div>
+                        <i id="mobileTutorsIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileTutorsMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-graduate text-xs"></i>
+                            <span>All Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-laptop text-xs"></i>
+                            <span>Online Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-home text-xs"></i>
+                            <span>Home Tutors</span>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Wallet Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileWalletBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-wallet"></i>
+                            <span>Wallet</span>
+                        </div>
+                        <i id="mobileWalletIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileWalletMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="coin_wallet.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-coins text-xs"></i>
+                            <span>Coin Wallet</span>
+                        </a>
+                        <a href="buy_coins.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-shopping-cart text-xs"></i>
+                            <span>Buy Coins</span>
+                        </a>
+                        <a href="payment.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-credit-card text-xs"></i>
+                            <span>Payments</span>
+                        </a>
+                        <a href="invite_freinds.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-friends text-xs"></i>
+                            <span>Invite Friends for Coins</span>
+                        </a>
+    
+                    </div>
+                </div>
+    
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-star"></i>Reviews
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600">
+                    <i class="fas fa-plus"></i>Post Requirement
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main class="flex-1 max-w-7xl mx-auto px-4 py-8 md:py-10">
+        <!-- Page Header -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800">My Requirements</h1>
+                <p class="text-gray-600 mt-1">Manage your posted study requirements</p>
+            </div>
+            <button id="postRequirementBtn"
+                class="bg-secondary-500 hover:bg-secondary-600 text-white font-medium px-5 py-3 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2">
+                <i class="fas fa-plus"></i>
+                <span>Post Your Study Needs</span>
+            </button>
+        </div>
+
+        <!-- Info Box -->
+        <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5 mb-8">
+            <div class="flex items-start gap-3">
+                <i class="fas fa-info-circle text-blue-500 text-lg mt-0.5"></i>
+                <div>
+                    <h3 class="font-medium text-blue-800">How it works</h3>
+                    <p class="text-blue-600 text-sm mt-1">
+                        Post your study requirements and get matched with qualified tutors. You can edit, close, or
+                        message tutors from each requirement card.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Requirements Grid -->
+        <div class="grid grid-cols-1 gap-6">
+            <!-- Requirement Card 1 -->
+            <div
+                class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 transition-all duration-200 hover:shadow-md">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div class="flex-1">
+                        <!-- Requirement Title and Status -->
+                        <div class="flex items-center gap-3 mb-3">
+                            <span
+                                class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Active</span>
+                            <span
+                                class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">Online</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">Home
+                                Tutoring</span>
+                        </div>
+
+                        <!-- Requirement Title -->
+                        <a href="#"
+                            class="text-lg md:text-xl font-semibold text-gray-800 hover:text-secondary-600 transition-colors">
+                            Cybersecurity Tutor Required in Okhla
+                        </a>
+
+                        <!-- Requirement Description -->
+                        <p class="mt-3 text-gray-600 leading-relaxed">
+                            I need to learn cybersecurity from basics to advanced concepts. Looking for someone with
+                            industry experience who can provide practical examples and real-world scenarios.
+                        </p>
+
+                        <!-- Requirement Details -->
+                        <div class="flex flex-wrap items-center gap-4 mt-4 text-gray-500 text-sm">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-car text-gray-400"></i>
+                                <span>Within 5 km radius</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-location-dot text-gray-400"></i>
+                                <span>Okhla, New Delhi</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-calendar-alt text-gray-400"></i>
+                                <span>Posted: 2 days ago</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-user text-gray-400"></i>
+                                <span>3 tutors interested</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Sidebar -->
+                    <div class="md:w-48 border-t md:border-t-0 md:border-l pt-4 md:pt-0 md:pl-4">
+                        <div class="space-y-3">
+                            <button
+                            onclick="window.location.href='view_message.html'"
+                                class="viewMessagesBtn w-full flex items-center justify-center gap-2 border border-secondary-500 text-secondary-500 hover:bg-secondary-50 px-4 py-2.5 rounded-lg transition-all duration-200">
+                                <i class="fas fa-comments"></i>
+                                <span>View Messages (3)</span>
+                            </button>
+                            <button
+                                onclick="window.location.href='edit_requirements.html'"
+                                class="editRequirementBtn w-full flex items-center justify-center gap-2 border border-orange-500 text-orange-500 hover:bg-orange-50 px-4 py-2.5 rounded-lg transition-all duration-200">
+                                <i class="fas fa-pen"></i>
+                                <span>Edit Requirement</span>
+                            </button>
+                            <button
+                                class="closeRequirementBtn w-full flex items-center justify-center gap-2 border border-red-500 text-red-500 hover:bg-red-50 px-4 py-2.5 rounded-lg transition-all duration-200">
+                                <i class="fas fa-times"></i>
+                                <span>Close Requirement</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requirement Card 2 (Example for future content) -->
+            <div
+                class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 transition-all duration-200 hover:shadow-md opacity-90">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span
+                                class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full">Closed</span>
+                            <span
+                                class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">Online</span>
+                        </div>
+
+                        <a href="#"
+                            class="text-lg md:text-xl font-semibold text-gray-800 hover:text-secondary-600 transition-colors">
+                            Mathematics Tutor for Class 10
+                        </a>
+
+                        <p class="mt-3 text-gray-600 leading-relaxed">
+                            Need a tutor for CBSE Class 10 Mathematics. Focus on algebra and trigonometry chapters.
+                            Prefer a tutor who can help with board exam preparation.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-4 mt-4 text-gray-500 text-sm">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-laptop text-gray-400"></i>
+                                <span>Online only</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-calendar-alt text-gray-400"></i>
+                                <span>Posted: 1 week ago</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-gray-400"></i>
+                                <span>Tutor found</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-48 border-t md:border-t-0 md:border-l pt-4 md:pt-0 md:pl-4">
+                        <div class="space-y-3">
+                            <button
+                            onclick="window.location.href='view_message.html'"
+                                class="viewMessagesBtn w-full flex items-center justify-center gap-2 border border-secondary-500 text-secondary-500 hover:bg-secondary-50 px-4 py-2.5 rounded-lg transition-all duration-200">
+                                <i class="fas fa-comments"></i>
+                                <span>View Messages</span>
+                            </button>
+                            <button
+                                class="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-500 px-4 py-2.5 rounded-lg cursor-not-allowed"
+                                disabled>
+                                <i class="fas fa-lock"></i>
+                                <span>Requirement Closed</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (for when no requirements) -->
+            <div id="emptyState" class="hidden bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
+                <div class="max-w-md mx-auto">
+                    <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-file-alt text-3xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">No Requirements Posted Yet</h3>
+                    <p class="text-gray-600 mb-6">
+                        You haven't posted any study requirements yet. Start by posting your first requirement to find
+                        qualified tutors.
+                    </p>
+                    <button id="postFirstRequirementBtn"
+                        class="bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md inline-flex items-center gap-2">
+                        <i class="fas fa-plus"></i>
+                        <span>Post Your First Requirement</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination (for future when you have many requirements) -->
+        <div class="mt-10 flex justify-center">
+            <nav class="flex items-center gap-2">
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-500 text-white font-medium">1</button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">2</button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">3</button>
+                <span class="px-2 text-gray-500">...</span>
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">10</button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </nav>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-10 pb-6 px-5 lg:px-20">
+    
+        <!-- TOP COMPANIES + LOGO -->
+        <div class="mb-10">
+            <div class="flex justify-between items-center mb-5">
+                <p class="text-gray-300 font-semibold">
+                    Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                    to build in-demand career skills.
+                </p>
+    
+                <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                    class="h-10 object-contain">
+            </div>
+    
+            <!-- SINGLE LINE -->
+            <div class="border-t border-gray-700"></div>
+        </div>
+    
+        <!-- DESKTOP GRID -->
+        <div class="hidden lg:grid grid-cols-6 gap-10">
+    
+            <div>
+                <h3 class="font-semibold mb-3">In-demand Careers</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>All Career Accelerators</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Web Development</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Web Development</li>
+                    <li>JavaScript</li>
+                    <li>React JS</li>
+                    <li>Angular</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">IT Certifications</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Amazon AWS</li>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>Azure Fundamentals</li>
+                    <li>AWS Solutions Architect</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Leadership</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Leadership</li>
+                    <li>Management Skills</li>
+                    <li>Project Management</li>
+                    <li>Personal Productivity</li>
+                    <li>Emotional Intelligence</li>
+                </ul>
+            </div>
+    
+            <!-- 🆕 NEW SCHOOLING SECTION -->
+            <div>
+                <h3 class="font-semibold mb-3">Schooling</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </div>
+    
+        </div>
+    
+    
+        <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+        <div class="lg:hidden space-y-3">
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Cybersecurity Certification</li>
+                    <li>Project Management</li>
+                    <li>Cloud Certification</li>
+                    <li>Data Analytics</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Web Development</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Angular</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>AWS</li>
+                    <li>Azure</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </details>
+    
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Leadership</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Management Skills</li>
+                    <li>Productivity</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Schooling</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </details>
+        </div>
+    
+        <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+        <div
+            class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+    
+            <div class="flex gap-10 mb-6 lg:mb-0">
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">About</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Contact us</li>
+                    <li>Blog</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Discover</li>
+                    <li>Get the app</li>
+                    <li>Teach on Namate 24</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Legal & Accessibility</li>
+                    <li>Accessibility</li>
+                    <li>Privacy Policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+    
+            <div class="flex flex-col items-start gap-3">
+                <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png" class="h-8">
+                <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= JS ================= -->
+    <script>
+        // Existing dropdown functionality (kept as is)
+        const tutorsBtn = document.getElementById('tutorsBtn');
+        const tutorsMenu = document.getElementById('tutorsMenu');
+        const walletBtn = document.getElementById('walletBtn');
+        const walletMenu = document.getElementById('walletMenu');
+        const profileBtn = document.getElementById('profileBtn');
+        const profileMenu = document.getElementById('profileMenu');
+        const mobileProfileBtn = document.getElementById('mobileProfileBtn');
+        const mobileProfileMenu = document.getElementById('mobileProfileMenu');
+        const mobileTutorsBtn = document.getElementById('mobileTutorsBtn');
+        const mobileTutorsMenu = document.getElementById('mobileTutorsMenu');
+        const mobileTutorsIcon = document.getElementById('mobileTutorsIcon');
+        const mobileWalletBtn = document.getElementById('mobileWalletBtn');
+        const mobileWalletMenu = document.getElementById('mobileWalletMenu');
+        const mobileWalletIcon = document.getElementById('mobileWalletIcon');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // New requirement functionality
+        const postRequirementBtn = document.getElementById('postRequirementBtn');
+        const postFirstRequirementBtn = document.getElementById('postFirstRequirementBtn');
+        const editRequirementBtns = document.querySelectorAll('.editRequirementBtn');
+        const closeRequirementBtns = document.querySelectorAll('.closeRequirementBtn');
+        const viewMessagesBtns = document.querySelectorAll('.viewMessagesBtn');
+        const emptyState = document.getElementById('emptyState');
+        const requirementCards = document.querySelectorAll('.bg-white.rounded-xl.shadow-sm');
+
+        // Function to close all dropdowns
+        function closeAllDropdowns() {
+            // Close desktop dropdowns
+            if (tutorsMenu) tutorsMenu.classList.add('hidden');
+            if (walletMenu) walletMenu.classList.add('hidden');
+            if (profileMenu) profileMenu.classList.add('hidden');
+            if (mobileProfileMenu) mobileProfileMenu.classList.add('hidden');
+
+            // Close mobile dropdowns
+            if (mobileTutorsMenu) {
+                mobileTutorsMenu.classList.add('hidden');
+                mobileTutorsIcon.classList.remove('rotate-180');
+            }
+            if (mobileWalletMenu) {
+                mobileWalletMenu.classList.add('hidden');
+                mobileWalletIcon.classList.remove('rotate-180');
+            }
+        }
+
+        // Find Tutors dropdown toggle (Desktop)
+        if (tutorsBtn && tutorsMenu) {
+            tutorsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = tutorsMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    tutorsMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Wallet dropdown toggle (Desktop)
+        if (walletBtn && walletMenu) {
+            walletBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = walletMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    walletMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Profile dropdown for desktop toggle
+        if (profileBtn && profileMenu) {
+            profileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = profileMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    profileMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Profile dropdown for mobile toggle
+        if (mobileProfileBtn && mobileProfileMenu) {
+            mobileProfileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileProfileMenu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    mobileProfileMenu.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Mobile Find Tutors dropdown toggle
+        if (mobileTutorsBtn && mobileTutorsMenu && mobileTutorsIcon) {
+            mobileTutorsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileTutorsMenu.classList.contains('hidden');
+
+                // Toggle mobile Wallet menu if open
+                if (!mobileWalletMenu.classList.contains('hidden')) {
+                    mobileWalletMenu.classList.add('hidden');
+                    mobileWalletIcon.classList.remove('rotate-180');
+                }
+
+                // Toggle current menu
+                if (isHidden) {
+                    mobileTutorsMenu.classList.remove('hidden');
+                    mobileTutorsIcon.classList.add('rotate-180');
+                } else {
+                    mobileTutorsMenu.classList.add('hidden');
+                    mobileTutorsIcon.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        // Mobile Wallet dropdown toggle
+        if (mobileWalletBtn && mobileWalletMenu && mobileWalletIcon) {
+            mobileWalletBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileWalletMenu.classList.contains('hidden');
+
+                // Toggle mobile Tutors menu if open
+                if (!mobileTutorsMenu.classList.contains('hidden')) {
+                    mobileTutorsMenu.classList.add('hidden');
+                    mobileTutorsIcon.classList.remove('rotate-180');
+                }
+
+                // Toggle current menu
+                if (isHidden) {
+                    mobileWalletMenu.classList.remove('hidden');
+                    mobileWalletIcon.classList.add('rotate-180');
+                } else {
+                    mobileWalletMenu.classList.add('hidden');
+                    mobileWalletIcon.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            closeAllDropdowns();
+        });
+
+        // Prevent dropdowns from closing when clicking inside them
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        // Mobile menu toggle
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                // Close all dropdowns when opening/closing mobile menu
+                if (!mobileMenu.classList.contains('hidden')) {
+                    closeAllDropdowns();
+                }
+            });
+        }
+
+        // New Requirement Functionality
+        if (postRequirementBtn) {
+            postRequirementBtn.addEventListener('click', () => {
+                alert('Post Requirement functionality would open a form here. This is a demo.');
+                // In your actual implementation, this would open a modal or redirect to a form page
+            });
+        }
+
+        if (postFirstRequirementBtn) {
+            postFirstRequirementBtn.addEventListener('click', () => {
+                alert('Post First Requirement - This would open a requirement form.');
+                // In your actual implementation, this would open a modal or redirect to a form page
+            });
+        }
+
+        // Edit Requirement buttons
+       // editRequirementBtns.forEach(btn => {
+         //       btn.addEventListener('click', () => {
+           //         alert('Edit Requirement - This would open an edit form for the requirement.');
+                    // In your actual implementation, this would open a pre-filled form for editing
+            //    });
+           // });
+
+        // Close Requirement buttons
+        closeRequirementBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const card = this.closest('.bg-white.rounded-xl.shadow-sm');
+                const statusBadge = card.querySelector('.bg-green-100');
+
+                if (statusBadge && confirm('Are you sure you want to close this requirement?')) {
+                    statusBadge.textContent = 'Closed';
+                    statusBadge.classList.remove('bg-green-100', 'text-green-800');
+                    statusBadge.classList.add('bg-gray-100', 'text-gray-800');
+
+                    // Disable edit button
+                    const editBtn = card.querySelector('.editRequirementBtn');
+                    if (editBtn) {
+                        editBtn.disabled = true;
+                        editBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                        editBtn.classList.remove('hover:bg-orange-50');
+                    }
+
+                    // Change close button
+                    this.disabled = true;
+                    this.innerHTML = '<i class="fas fa-lock"></i><span>Requirement Closed</span>';
+                    this.classList.add('opacity-50', 'cursor-not-allowed');
+                    this.classList.remove('hover:bg-red-50', 'border-red-500', 'text-red-500');
+                    this.classList.add('border-gray-300', 'text-gray-500');
+
+                    alert('Requirement closed successfully!');
+                }
+            });
+        });
+
+        // View Messages buttons
+        viewMessagesBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('View Messages - This would open a messages interface for this requirement.');
+                // In your actual implementation, this would open a chat/messages view
+            });
+        });
+
+        // Demo: Show empty state if all requirements are removed
+        // This is just for demonstration - you can remove this in production
+        setTimeout(() => {
+            // Uncomment the line below to see the empty state
+            // showEmptyState();
+        }, 1000);
+
+        function showEmptyState() {
+            requirementCards.forEach(card => {
+                card.style.display = 'none';
+            });
+            if (emptyState) {
+                emptyState.classList.remove('hidden');
+            }
+        }
+
+        // Demo: Hide empty state and show cards (for demo purposes)
+        function hideEmptyState() {
+            requirementCards.forEach(card => {
+                card.style.display = 'block';
+            });
+            if (emptyState) {
+                emptyState.classList.add('hidden');
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                max-height: 0;
+                opacity: 0;
+            }
+
+            to {
+                max-height: 500px;
+                opacity: 1;
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+
+        .animate-slideDown {
+            animation: slideDown 0.3s ease-out forwards;
+            overflow: hidden;
+        }
+
+        /* Smooth transitions for dropdown icons */
+        .mobile-dropdown button i {
+            transition: transform 0.2s ease;
+        }
+
+        /* Improve hover states */
+        button,
+        a {
+            transition: all 0.2s ease;
+        }
+
+        /* Custom scrollbar for dropdowns if needed */
+        .dropdown-menu {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            #mobileMenu .mobile-dropdown>div {
+                animation: slideDown 0.2s ease-out;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        button:focus,
+        a:focus {
+            outline: 2px solid #ec4899;
+            outline-offset: 2px;
+        }
+    </style>
+
+</body>
+
+</html>

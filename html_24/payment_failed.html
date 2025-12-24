@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - Namate 24</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for animations */
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        @keyframes pulse-red {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .shake-animation {
+            animation: shake 0.8s ease-in-out;
+        }
+
+        .pulse-red {
+            animation: pulse-red 2s infinite;
+        }
+
+        .progress-bar {
+            height: 6px;
+            border-radius: 3px;
+        }
+
+        .progress-bar-failed {
+            background: linear-gradient(to right, #ef4444, #dc2626);
+        }
+
+        .troubleshoot-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .troubleshoot-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: #ef4444;
+        }
+
+        .retry-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .retry-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .retry-button:hover::after {
+            left: 100%;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- HEADER START -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <img src="https://image2url.com/images/1766140867639-fdafd18a-1d49-4226-91dc-43289d07b5da.jpg"
+                        alt="Namate 24 Logo" class="h-10 md:h-8 w-auto object-contain">
+    
+    
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-4">
+                    <!-- My Posts Button -->
+                    <a href="my_posts.html"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-file-alt"></i>
+                        My Posts
+                    </a>
+    
+                    <!-- Find Tutors Dropdown -->
+                    <div class="relative">
+                        <button id="tutorsBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-search"></i>
+                            Find Tutors
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="tutorsMenu"
+                            class="hidden absolute left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-graduate text-sm w-5"></i>All Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-laptop text-sm w-5"></i>Online Tutors
+                            </a>
+                            <a href="#"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-home text-sm w-5"></i>Home Tutors
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Wallet Dropdown -->
+                    <div class="relative">
+                        <button id="walletBtn"
+                            class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                            <i class="fas fa-wallet"></i>
+                            Wallet
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="walletMenu"
+                            class="hidden absolute left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 dropdown-menu z-50">
+                            <a href="coin_wallet.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-coins text-sm w-5"></i>Coin Wallet
+                            </a>
+                            <a href="buy_coins.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-shopping-cart text-sm w-5"></i>Buy Coins
+                            </a>
+                            <a href="payment.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-credit-card text-sm w-5"></i>Payments
+                            </a>
+                            <a href="invite_freinds.html"
+                                class="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors flex items-center gap-3">
+                                <i class="fas fa-user-friends text-sm w-5"></i>Invite Friends for Coins
+                            </a>
+    
+                        </div>
+                    </div>
+    
+                    <!-- Reviews Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 text-gray-600 hover:text-pink-600 font-medium px-4 py-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fas fa-star"></i>
+                        Reviews
+                    </a>
+    
+                    <!-- Post Requirement Button -->
+                    <a href="#"
+                        class="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-medium px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-plus"></i>
+                        Post Requirement
+                    </a>
+    
+                    <!-- Profile -->
+                    <div class="relative">
+                        <img id="profileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500 transition-all">
+                        <div id="profileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden border z-50">
+                            <a href="login.html"
+                                class="block text-center bg-gradient-to-r from-pink-500 to-pink-600 text-white font-medium text-sm py-2">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                </nav>
+    
+                <!-- Mobile Profile + Hamburger -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <div class="relative">
+                        <img id="mobileProfileBtn"
+                            src="https://image2url.com/images/1765301188291-163cacc7-f581-4cdc-b39a-6a002a925411.jpg"
+                            class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:border-pink-500">
+                        <div id="mobileProfileMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border z-50">
+                            <a href="login.html" class="block text-center bg-pink-500 text-white py-2 rounded-lg">Sign
+                                in / Sign up</a>
+                        </div>
+                    </div>
+                    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-3 space-y-1">
+                <a href="my_posts.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-file-alt"></i>My Posts
+                </a>
+    
+                <!-- Find Tutors Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileTutorsBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-search"></i>
+                            <span>Find Tutors</span>
+                        </div>
+                        <i id="mobileTutorsIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileTutorsMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-graduate text-xs"></i>
+                            <span>All Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-laptop text-xs"></i>
+                            <span>Online Tutors</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-home text-xs"></i>
+                            <span>Home Tutors</span>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Wallet Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button id="mobileWalletBtn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-wallet"></i>
+                            <span>Wallet</span>
+                        </div>
+                        <i id="mobileWalletIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobileWalletMenu" class="hidden pl-10 pr-4 space-y-2">
+                        <a href="coin_wallet.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-coins text-xs"></i>
+                            <span>Coin Wallet</span>
+                        </a>
+                        <a href="buy_coins.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-shopping-cart text-xs"></i>
+                            <span>Buy Coins</span>
+                        </a>
+                        <a href="payment.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-credit-card text-xs"></i>
+                            <span>Payments</span>
+                        </a>
+                        <a href="invite_freinds.html"
+                            class="flex items-center gap-2 py-2 text-gray-600 hover:text-pink-600 rounded-lg hover:bg-pink-50">
+                            <i class="fas fa-user-friends text-xs"></i>
+                            <span>Invite Friends for Coins</span>
+                        </a>
+    
+                    </div>
+                </div>
+    
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 rounded-lg hover:bg-pink-50 hover:text-pink-600">
+                    <i class="fas fa-star"></i>Reviews
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600">
+                    <i class="fas fa-plus"></i>Post Requirement
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Progress Steps -->
+        <div class="max-w-3xl mx-auto mb-10">
+            <div class="flex items-center justify-between mb-4">
+                <div class="text-center">
+                    <div
+                        class="w-10 h-10 mx-auto rounded-full bg-pink-500 text-white flex items-center justify-center font-bold">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="mt-2 text-sm font-medium text-pink-600">Select Coins</p>
+                </div>
+                <div class="flex-1 mx-4">
+                    <div class="progress-bar bg-pink-500"></div>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-10 h-10 mx-auto rounded-full bg-pink-500 text-white flex items-center justify-center font-bold">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="mt-2 text-sm font-medium text-pink-600">Payment Method</p>
+                </div>
+                <div class="flex-1 mx-4">
+                    <div class="progress-bar progress-bar-failed"></div>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-10 h-10 mx-auto rounded-full bg-red-500 text-white flex items-center justify-center font-bold pulse-red shake-animation">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <p class="mt-2 text-sm font-medium text-red-600">Confirmation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="max-w-2xl mx-auto text-center mb-12">
+            <div class="relative inline-block mb-6">
+                <div
+                    class="w-24 h-24 bg-gradient-to-r from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto">
+                    <i class="fas fa-times text-white text-4xl"></i>
+                </div>
+                <div class="status-badge bg-yellow-500 text-white">
+                    <i class="fas fa-exclamation"></i>
+                </div>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Payment Failed</h1>
+            <p class="text-xl text-gray-600 mb-4">We couldn't process your payment</p>
+
+            <div class="inline-block px-6 py-2 bg-red-100 text-red-800 rounded-full font-medium mb-8">
+                <i class="fas fa-exclamation-triangle mr-2"></i> Transaction Declined
+            </div>
+
+            <!-- Error Details -->
+            <div class="max-w-md mx-auto bg-red-50 border border-red-200 rounded-xl p-6">
+                <div class="flex items-start">
+                    <i class="fas fa-info-circle text-red-500 mt-1 mr-3 text-xl"></i>
+                    <div class="text-left">
+                        <p class="font-medium text-red-800 mb-1">Error Code: <span class="font-mono">PAY-429</span></p>
+                        <p class="text-red-600" id="errorMessage">Insufficient funds in your account</p>
+                        <p class="text-red-500 text-sm mt-2">Transaction ID: <span id="failedTransactionId"
+                                class="font-mono">TXN-7890123456</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Details Card -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-red-500 to-red-600 p-6 text-white">
+                    <h2 class="text-2xl font-bold mb-2">Failed Transaction Details</h2>
+                    <p class="opacity-90">Attempted on: <span id="failedDate" class="font-medium"></span></p>
+                </div>
+
+                <div class="p-6">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600">Selected coins:</span>
+                            <span class="font-semibold text-gray-900">100 coins</span>
+                        </div>
+
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600">Attempted payment:</span>
+                            <span class="font-semibold text-gray-900">₹89.00</span>
+                        </div>
+
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600">Payment method:</span>
+                            <span class="font-semibold text-gray-900">UPI - Google Pay</span>
+                        </div>
+
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600">Status:</span>
+                            <span class="font-semibold text-red-600">Failed</span>
+                        </div>
+
+                        <div class="flex justify-between items-center py-4">
+                            <span class="text-lg font-bold text-gray-900">Coins not added:</span>
+                            <span class="text-2xl font-bold text-red-600">100 coins</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-yellow-50 border border-yellow-100 rounded-xl p-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-yellow-500 mt-1 mr-3"></i>
+                            <div>
+                                <p class="text-yellow-800 font-medium">Your money is safe</p>
+                                <p class="text-yellow-600 text-sm mt-1">No amount was deducted from your account. You
+                                    can retry with a different payment method.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Retry Options -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Try Again</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <button id="retrySameMethod"
+                    class="retry-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-6 px-4 rounded-2xl transition-all transform hover:scale-[1.02]">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-redo-alt text-2xl mb-2"></i>
+                        <h3 class="text-lg font-semibold mb-1">Retry with Same Method</h3>
+                        <p class="text-sm opacity-90">Try the transaction again with UPI</p>
+                    </div>
+                </button>
+
+                <button id="tryDifferentMethod"
+                    class="retry-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-6 px-4 rounded-2xl transition-all transform hover:scale-[1.02]">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-exchange-alt text-2xl mb-2"></i>
+                        <h3 class="text-lg font-semibold mb-1">Use Different Method</h3>
+                        <p class="text-sm opacity-90">Pay with card, net banking or wallet</p>
+                    </div>
+                </button>
+            </div>
+
+            <div class="mt-6 text-center">
+                <a href="buy_coins.html" class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Coin Selection
+                </a>
+            </div>
+        </div>
+
+        <!-- Troubleshooting Guide -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Troubleshooting Guide</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="troubleshoot-card bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-credit-card text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Check Payment Method</h3>
+                            <p class="text-gray-600 text-sm">Ensure your card/UPI has sufficient funds and is not
+                                expired</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="troubleshoot-card bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-wifi text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Check Internet Connection</h3>
+                            <p class="text-gray-600 text-sm">Ensure you have a stable internet connection and try again
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="troubleshoot-card bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Update Payment App</h3>
+                            <p class="text-gray-600 text-sm">Make sure your UPI/banking app is updated to the latest
+                                version</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="troubleshoot-card bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-user-shield text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Security Limits</h3>
+                            <p class="text-gray-600 text-sm">Check if you've exceeded daily transaction limits on your
+                                account</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Error Solutions -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <div class="bg-gray-50 rounded-2xl p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Common Solutions</h2>
+
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-red-600 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-1">Wait 10-15 minutes</h3>
+                            <p class="text-gray-600 text-sm">Sometimes banks put temporary holds on transactions. Wait a
+                                few minutes and try again.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-red-600 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-1">Contact your bank</h3>
+                            <p class="text-gray-600 text-sm">Your bank might have blocked the transaction. Contact them
+                                to authorize online payments.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-red-600 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-1">Try smaller amount</h3>
+                            <p class="text-gray-600 text-sm">Try purchasing a smaller coin package to test if the issue
+                                is with transaction amount.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-red-600 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-1">Clear browser cache</h3>
+                            <p class="text-gray-600 text-sm">Clear your browser cache and cookies, then restart the
+                                browser.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Section -->
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Need Immediate Help?</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-headset text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">24/7 Chat Support</h3>
+                        <p class="text-gray-600 text-sm mb-3">Chat with our team for help</p>
+                        <button id="startChat"
+                            class="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                            Start Chat
+                        </button>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone-alt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Call Support</h3>
+                        <p class="text-gray-600 text-sm mb-3">Mon-Sat: 9 AM - 9 PM</p>
+                        <a href="tel:+9118001234567"
+                            class="block w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                            <i class="fas fa-phone mr-2"></i> 1800-123-4567
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Email Support</h3>
+                        <p class="text-gray-600 text-sm mb-3">Response within 2 hours</p>
+                        <a href="mailto:support@namate24.com"
+                            class="block w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                            <i class="fas fa-envelope mr-2"></i> Email Us
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                    <p class="text-gray-600">We're here to help you complete your purchase successfully!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-10 pb-6 px-5 lg:px-20">
+    
+        <!-- TOP COMPANIES + LOGO -->
+        <div class="mb-10">
+            <div class="flex justify-between items-center mb-5">
+                <p class="text-gray-300 font-semibold">
+                    Top companies choose <span class="text-blue-400">Namate 24 Business</span>
+                    to build in-demand career skills.
+                </p>
+    
+                <img src="https://image2url.com/images/1765218804774-6a3b1d8d-9464-463a-80a1-d32acc620cfc.png"
+                    class="h-10 object-contain">
+            </div>
+    
+            <!-- SINGLE LINE -->
+            <div class="border-t border-gray-700"></div>
+        </div>
+    
+        <!-- DESKTOP GRID -->
+        <div class="hidden lg:grid grid-cols-6 gap-10">
+    
+            <div>
+                <h3 class="font-semibold mb-3">In-demand Careers</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                    <li>All Career Accelerators</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Web Development</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Web Development</li>
+                    <li>JavaScript</li>
+                    <li>React JS</li>
+                    <li>Angular</li>
+                    <li>Java</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">IT Certifications</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Amazon AWS</li>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>Azure Fundamentals</li>
+                    <li>AWS Solutions Architect</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="font-semibold mb-3">Leadership</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Leadership</li>
+                    <li>Management Skills</li>
+                    <li>Project Management</li>
+                    <li>Personal Productivity</li>
+                    <li>Emotional Intelligence</li>
+                </ul>
+            </div>
+    
+            <!-- 🆕 NEW SCHOOLING SECTION -->
+            <div>
+                <h3 class="font-semibold mb-3">Schooling</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </div>
+    
+        </div>
+    
+    
+        <!-- MOBILE ACCORDION (NO BORDER-T HERE) -->
+        <div class="lg:hidden space-y-3">
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">In-demand Careers</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Data Scientist</li>
+                    <li>Full Stack Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Project Manager</li>
+                    <li>Game Developer</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Certifications by Skill</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Cybersecurity Certification</li>
+                    <li>Project Management</li>
+                    <li>Cloud Certification</li>
+                    <li>Data Analytics</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Web Development</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Angular</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">IT Certifications</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>AWS</li>
+                    <li>Azure</li>
+                    <li>Kubernetes</li>
+                </ul>
+            </details>
+    
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Leadership</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Management Skills</li>
+                    <li>Productivity</li>
+                </ul>
+            </details>
+    
+            <details class="py-3">
+                <summary class="cursor-pointer font-semibold">Schooling</summary>
+                <ul class="mt-3 text-gray-300 text-sm space-y-2 pl-3">
+                    <li>Mathematics</li>
+                    <li>Science (Physics / Chemistry / Biology)</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>Computer Science</li>
+                    <li>General Knowledge</li>
+                </ul>
+            </details>
+        </div>
+    
+        <!-- BOTTOM AREA (SINGLE LINE TOP) -->
+        <div
+            class="border-t border-gray-700 mt-10 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+    
+            <div class="flex gap-10 mb-6 lg:mb-0">
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">About</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Contact us</li>
+                    <li>Blog</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Discover</li>
+                    <li>Get the app</li>
+                    <li>Teach on Namate 24</li>
+                    <li>Plans and Pricing</li>
+                    <li>Affiliate</li>
+                </ul>
+    
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="font-semibold text-white">Legal & Accessibility</li>
+                    <li>Accessibility</li>
+                    <li>Privacy Policy</li>
+                    <li>Sitemap</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+    
+            <div class="flex flex-col items-start gap-3">
+                <img src="https://image2url.com/images/1765253042333-dd88da98-ff0a-47d6-b112-9bda33ebbc3c.png" class="h-8">
+                <p class="text-gray-400 text-sm">© 2025 Namate 24, Inc.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function () {
+            setupHeaderInteractions();
+            updateFailedTransactionDetails();
+            setupEventListeners();
+
+            // Show error notification
+            setTimeout(() => {
+                showErrorNotification();
+            }, 1000);
+
+            // Random error messages
+            const errorMessages = [
+                "Insufficient funds in your account",
+                "Transaction declined by your bank",
+                "UPI transaction timed out",
+                "Payment method verification failed",
+                "Daily transaction limit exceeded",
+                "Bank server is temporarily unavailable"
+            ];
+
+            // Set random error message
+            const randomError = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+            document.getElementById('errorMessage').textContent = randomError;
+        });
+
+        // Setup header interactions
+        function setupHeaderInteractions() {
+            // Desktop dropdowns
+            const tutorsBtn = document.getElementById('tutorsBtn');
+            const tutorsMenu = document.getElementById('tutorsMenu');
+            const walletBtn = document.getElementById('walletBtn');
+            const walletMenu = document.getElementById('walletMenu');
+            const profileBtn = document.getElementById('profileBtn');
+            const profileMenu = document.getElementById('profileMenu');
+            const mobileProfileBtn = document.getElementById('mobileProfileBtn');
+            const mobileProfileMenu = document.getElementById('mobileProfileMenu');
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileTutorsBtn = document.getElementById('mobileTutorsBtn');
+            const mobileTutorsMenu = document.getElementById('mobileTutorsMenu');
+            const mobileWalletBtn = document.getElementById('mobileWalletBtn');
+            const mobileWalletMenu = document.getElementById('mobileWalletMenu');
+
+            if (tutorsBtn) {
+                tutorsBtn.addEventListener('click', () => {
+                    tutorsMenu.classList.toggle('hidden');
+                    walletMenu.classList.add('hidden');
+                    profileMenu.classList.add('hidden');
+                });
+            }
+
+            if (walletBtn) {
+                walletBtn.addEventListener('click', () => {
+                    walletMenu.classList.toggle('hidden');
+                    tutorsMenu.classList.add('hidden');
+                    profileMenu.classList.add('hidden');
+                });
+            }
+
+            if (profileBtn) {
+                profileBtn.addEventListener('click', () => {
+                    profileMenu.classList.toggle('hidden');
+                    tutorsMenu.classList.add('hidden');
+                    walletMenu.classList.add('hidden');
+                });
+            }
+
+            if (mobileProfileBtn) {
+                mobileProfileBtn.addEventListener('click', () => {
+                    mobileProfileMenu.classList.toggle('hidden');
+                });
+            }
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            if (mobileTutorsBtn) {
+                mobileTutorsBtn.addEventListener('click', () => {
+                    mobileTutorsMenu.classList.toggle('hidden');
+                    const icon = document.getElementById('mobileTutorsIcon');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            }
+
+            if (mobileWalletBtn) {
+                mobileWalletBtn.addEventListener('click', () => {
+                    mobileWalletMenu.classList.toggle('hidden');
+                    const icon = document.getElementById('mobileWalletIcon');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.relative')) {
+                    tutorsMenu.classList.add('hidden');
+                    walletMenu.classList.add('hidden');
+                    profileMenu.classList.add('hidden');
+                    mobileProfileMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Update failed transaction details
+        function updateFailedTransactionDetails() {
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            document.getElementById('failedDate').textContent = formattedDate;
+
+            // Generate random transaction ID
+            const prefix = 'TXN-';
+            const randomNum = Math.floor(1000000000 + Math.random() * 9000000000);
+            document.getElementById('failedTransactionId').textContent = prefix + randomNum;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Retry with same method button
+            document.getElementById('retrySameMethod').addEventListener('click', function () {
+                const button = this;
+                const originalText = button.innerHTML;
+
+                // Show loading state
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Retrying...';
+                button.disabled = true;
+
+                // Simulate API call
+                setTimeout(() => {
+                    // Simulate success 70% of the time
+                    const isSuccess = Math.random() > 0.3;
+
+                    if (isSuccess) {
+                        // Success - redirect to success page
+                        button.innerHTML = '<i class="fas fa-check mr-2"></i> Success! Redirecting...';
+                        setTimeout(() => {
+                            // In a real app, redirect to success page
+                            // window.location.href = 'payment_success.html';
+                            alert('Payment successful! Redirecting to success page...');
+                            // For demo, reload with success message
+                            button.innerHTML = originalText;
+                            button.disabled = false;
+                        }, 1000);
+                    } else {
+                        // Failed again
+                        button.innerHTML = '<i class="fas fa-times mr-2"></i> Failed Again';
+                        button.classList.remove('from-red-500', 'to-red-600');
+                        button.classList.add('from-gray-500', 'to-gray-600');
+
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.disabled = false;
+                            button.classList.remove('from-gray-500', 'to-gray-600');
+                            button.classList.add('from-red-500', 'to-red-600');
+
+                            // Show error message
+                            showErrorNotification('Payment failed again. Please try a different method.');
+                        }, 2000);
+                    }
+                }, 2000);
+            });
+
+            // Try different method button
+            document.getElementById('tryDifferentMethod').addEventListener('click', function () {
+                // Redirect to payment method selection
+                alert('Redirecting to payment method selection...');
+                // In real app: window.location.href = 'payment_method.html';
+            });
+
+            // Start chat button
+            document.getElementById('startChat').addEventListener('click', function () {
+                const button = this;
+                const originalText = button.textContent;
+
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Connecting...';
+
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-comments mr-2"></i> Chat Started';
+                    button.classList.remove('bg-red-500', 'hover:bg-red-600');
+                    button.classList.add('bg-green-500', 'hover:bg-green-600');
+
+                    // Show chat simulation
+                    simulateChatSupport();
+
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        button.classList.add('bg-red-500', 'hover:bg-red-600');
+                    }, 3000);
+                }, 1500);
+            });
+        }
+
+        // Show error notification
+        function showErrorNotification(message = 'Payment failed. Please try again.') {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 right-4 bg-red-500 text-white p-4 rounded-xl shadow-lg z-50 transform transition-transform duration-300 translate-y-0';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-triangle text-xl mr-3"></i>
+                    <div>
+                        <p class="font-semibold">Payment Failed</p>
+                        <p class="text-sm opacity-90">${message}</p>
+                    </div>
+                    <button class="ml-4 text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Add click event to close button
+            notification.querySelector('button').addEventListener('click', () => {
+                notification.style.transform = 'translateY(100px)';
+                setTimeout(() => notification.remove(), 300);
+            });
+
+            // Auto remove after 8 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.transform = 'translateY(100px)';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 8000);
+        }
+
+        // Simulate chat support
+        function simulateChatSupport() {
+            const chatWindow = document.createElement('div');
+            chatWindow.className = 'fixed bottom-20 right-4 w-80 bg-white rounded-xl shadow-xl z-50 border border-gray-200';
+            chatWindow.innerHTML = `
+                <div class="bg-gradient-to-r from-pink-500 to-pink-600 p-4 rounded-t-xl text-white">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <i class="fas fa-headset text-xl mr-3"></i>
+                            <div>
+                                <p class="font-bold">Namate 24 Support</p>
+                                <p class="text-xs opacity-90">Typically replies in 2 mins</p>
+                            </div>
+                        </div>
+                        <button class="text-white hover:text-gray-200">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-4 max-h-80 overflow-y-auto">
+                    <div class="mb-4">
+                        <div class="bg-gray-100 p-3 rounded-lg rounded-tl-none max-w-xs">
+                            <p class="text-sm">Hello! I'm from Namate 24 support. How can I help you with your failed payment?</p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1 text-right">Just now</p>
+                    </div>
+                    
+                    <div class="mb-4 text-right">
+                        <div class="bg-pink-100 p-3 rounded-lg rounded-tr-none max-w-xs ml-auto">
+                            <p class="text-sm">My payment for 100 coins failed. Can you help?</p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Just now</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="bg-gray-100 p-3 rounded-lg rounded-tl-none max-w-xs">
+                            <p class="text-sm">I can see the failed transaction. Let me guide you through the steps to retry...</p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1 text-right">Typing...</p>
+                    </div>
+                </div>
+                <div class="p-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <input type="text" placeholder="Type your message..." class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <button class="ml-2 bg-pink-500 hover:bg-pink-600 text-white p-2 rounded-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(chatWindow);
+
+            // Add click event to close button
+            chatWindow.querySelector('button').addEventListener('click', () => {
+                chatWindow.style.transform = 'translateY(100px)';
+                setTimeout(() => chatWindow.remove(), 300);
+            });
+
+            // Auto remove after 30 seconds
+            setTimeout(() => {
+                if (chatWindow.parentNode) {
+                    chatWindow.style.transform = 'translateY(100px)';
+                    setTimeout(() => chatWindow.remove(), 300);
+                }
+            }, 30000);
+        }
+
+        // Simulate retry countdown
+        function startRetryCountdown() {
+            const countdownElement = document.createElement('div');
+            countdownElement.className = 'fixed top-20 right-4 bg-yellow-500 text-white p-3 rounded-lg shadow-lg z-50';
+            countdownElement.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <div>
+                        <p class="font-bold text-sm">Auto-retry in: <span id="countdownTimer">30</span>s</p>
+                        <p class="text-xs opacity-90">We'll automatically retry the payment</p>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(countdownElement);
+
+            let countdown = 30;
+            const timerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('countdownTimer').textContent = countdown;
+
+                if (countdown <= 0) {
+                    clearInterval(timerInterval);
+                    countdownElement.remove();
+                    // Simulate auto retry
+                    document.getElementById('retrySameMethod').click();
+                }
+            }, 1000);
+
+            // Remove countdown after 31 seconds
+            setTimeout(() => {
+                if (countdownElement.parentNode) {
+                    countdownElement.remove();
+                }
+            }, 31000);
+        }
+
+        // Start auto-retry countdown after 5 seconds
+        setTimeout(startRetryCountdown, 5000);
+    </script>
+</body>
+
+</html>
